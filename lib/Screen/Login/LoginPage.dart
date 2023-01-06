@@ -22,19 +22,19 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              Colors.blueAccent,
-              Colors.white,
-            ],
-          ),
-        ),
+      body: SingleChildScrollView(
         child: Center(
-          child: Center(
+          child: Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  Colors.blueAccent,
+                  Colors.white,
+                ],
+              ),
+            ),
             child: Column(
               children: [
                 const SizedBox(
