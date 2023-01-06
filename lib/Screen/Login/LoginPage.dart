@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:latihan/HomePage/home_page.dart';
 import 'package:latihan/Screen/Login/SignUp.dart';
+import 'package:latihan/Screen/Login/SignUpKomunitas.dart';
 import 'package:latihan/components/my_textfield.dart';
 import 'package:latihan/components/my_button.dart';
 
@@ -111,8 +112,10 @@ class _LoginPageState extends State<LoginPage> {
                     Text("Don't Have an Account? "),
                     GestureDetector(
                       onTap: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => SignUp()));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SignUpKomunitas()));
                       },
                       child: Text(
                         "Sign Up",
