@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:latihan/Screen/Login/LoginPage.dart';
 import 'package:latihan/Screen/Login/SignUp.dart';
 import 'package:latihan/HomePage/home_page.dart';
+import 'package:latihan/Screen/Login/SignUpKomunitas.dart';
 
 void main() {
   runApp(const MyApp());

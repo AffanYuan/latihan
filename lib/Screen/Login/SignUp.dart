@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:latihan/main.dart';
+import 'package:latihan/Screen/Login/LoginPage.dart';
+import 'package:latihan/Screen/Login/SignUpKomunitas.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({Key? key}) : super(key: key);
@@ -11,7 +13,7 @@ class SignUp extends StatefulWidget {
 class _SignUpState extends State<SignUp> {
   final _formKey = GlobalKey<FormState>();
 
-  final TextEditingController nameController = new TextEditingController();
+  final TextEditingController nomorController = new TextEditingController();
   final TextEditingController emailController = new TextEditingController();
   final TextEditingController passwordController = new TextEditingController();
   final TextEditingController confrimPasswordController =
@@ -22,20 +24,20 @@ class _SignUpState extends State<SignUp> {
 
   @override
   Widget build(BuildContext context) {
-    //name
-    final name = TextFormField(
+    //Nomor Hp
+    final nomor = TextFormField(
       autofocus: false,
-      controller: nameController,
+      controller: nomorController,
       keyboardType: TextInputType.name,
       //validator
       onSaved: (value) {
-        nameController.text = value!;
+        nomorController.text = value!;
       },
       textInputAction: TextInputAction.next,
       decoration: InputDecoration(
-        prefixIcon: Icon(Icons.account_circle),
+        prefixIcon: Icon(Icons.local_phone_rounded),
         contentPadding: EdgeInsets.fromLTRB(50, 15, 50, 15),
-        hintText: 'Name ex : John Doe',
+        hintText: '0812***',
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
       ),
     );
@@ -96,10 +98,41 @@ class _SignUpState extends State<SignUp> {
       ),
     );
 
+    //Tombol SignIn
+    final signUpButton = Material(
+      elevation: 5,
+      borderRadius: BorderRadius.circular(38),
+      color: Colors.blueAccent,
+      child: MaterialButton(
+        padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
+        minWidth: MediaQuery.of(context).size.width,
+        onPressed: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => LoginPage()));
+        },
+        child: Text(
+          'Sign Up',
+          textAlign: TextAlign.center,
+          style: TextStyle(
+              fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
+        ),
+      ),
+    );
+
     return Scaffold(
       body: Center(
         child: SingleChildScrollView(
           child: Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  Colors.blueAccent,
+                  Colors.white,
+                ],
+              ),
+            ),
             child: Padding(
               padding: const EdgeInsets.all(20),
               child: Form(
@@ -114,7 +147,7 @@ class _SignUpState extends State<SignUp> {
                         fit: BoxFit.contain,
                       ),
                     ),
-                    name,
+                    nomor,
                     SizedBox(
                       height: 20,
                     ),
@@ -127,6 +160,10 @@ class _SignUpState extends State<SignUp> {
                       height: 20,
                     ),
                     confirmPassword,
+                    SizedBox(
+                      height: 20,
+                    ),
+                    signUpButton,
                     SizedBox(
                       height: 20,
                     ),
