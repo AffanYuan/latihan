@@ -22,8 +22,17 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
-      body: SingleChildScrollView(
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Colors.blueAccent,
+              Colors.white,
+            ],
+          ),
+        ),
         child: Center(
           child: Center(
             child: Column(
@@ -44,8 +53,8 @@ class _LoginPageState extends State<LoginPage> {
                 Text(
                   'Welcome Back You',
                   style: TextStyle(
-                    color: Colors.grey[700],
-                    fontSize: 16,
+                    color: Colors.black,
+                    fontSize: 20,
                   ),
                 ),
 
@@ -77,7 +86,7 @@ class _LoginPageState extends State<LoginPage> {
                     children: [
                       Text(
                         'Forgot Password?',
-                        style: TextStyle(color: Colors.grey[600]),
+                        style: TextStyle(color: Colors.black),
                       )
                     ],
                   ),
