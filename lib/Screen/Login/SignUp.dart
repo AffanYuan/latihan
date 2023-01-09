@@ -13,6 +13,7 @@ class SignUp extends StatefulWidget {
 class _SignUpState extends State<SignUp> {
   final _formKey = GlobalKey<FormState>();
 
+  final TextEditingController nameController = new TextEditingController();
   final TextEditingController nomorController = new TextEditingController();
   final TextEditingController emailController = new TextEditingController();
   final TextEditingController passwordController = new TextEditingController();
@@ -24,6 +25,24 @@ class _SignUpState extends State<SignUp> {
 
   @override
   Widget build(BuildContext context) {
+    //nama
+    final name = TextFormField(
+      autofocus: false,
+      controller: nameController,
+      keyboardType: TextInputType.name,
+      //validator
+      onSaved: (value) {
+        nameController.text = value!;
+      },
+      textInputAction: TextInputAction.next,
+      decoration: InputDecoration(
+        prefixIcon: Icon(Icons.account_circle),
+        contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
+        hintText: 'Name ex : John Doe',
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
+      ),
+    );
+
     //Nomor Hp
     final nomor = TextFormField(
       autofocus: false,
@@ -102,7 +121,7 @@ class _SignUpState extends State<SignUp> {
     final signUpButton = Material(
       elevation: 5,
       borderRadius: BorderRadius.circular(38),
-      color: Colors.blueAccent,
+      color: Colors.black,
       child: MaterialButton(
         padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
         minWidth: MediaQuery.of(context).size.width,
@@ -146,6 +165,10 @@ class _SignUpState extends State<SignUp> {
                         'assets/logo.png',
                         fit: BoxFit.contain,
                       ),
+                    ),
+                    name,
+                    SizedBox(
+                      height: 20,
                     ),
                     nomor,
                     SizedBox(
