@@ -1,6 +1,13 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:latihan/HomePage/home_page.dart';
+import 'package:latihan/Konfigurasi/Api.dart';
 import 'package:latihan/main.dart';
 import 'package:latihan/Screen/Login/LoginPage.dart';
+import 'package:flutter/services.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
+import 'package:http/http.dart' as http;
 
 class SignUp extends StatefulWidget {
   const SignUp({Key? key}) : super(key: key);
@@ -10,6 +17,26 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
+  List _dataKomunitas = [];
+  int selectedKomunitas = 0;
+  String selectedNamaKomunitas = "";
+  late String selectedAlamatKomunitas;
+  late String selectedTeleponKomunitas;
+
+  void getKomunitas() async {
+    final response =
+        await http.get(Uri.parse("https://test.edimu.live/api/pradaftar"));
+    var listData = json.decode(response.body);
+    // debugPrint(listData);
+    debugPrint('isi dari var listData = ${listData['komunitas'].toString()}');
+
+    setState(() {
+      _dataKomunitas = listData["komunitas"];
+    });
+    //debugPrint('=========================================');
+    //debugPrint('isi dari var _dataKomunitas = ${_dataKomunitas.toString()}');
+  }
+
   final _formKey = GlobalKey<FormState>();
 
   final TextEditingController nameController = new TextEditingController();
@@ -18,11 +45,15 @@ class _SignUpState extends State<SignUp> {
   final TextEditingController passwordController = new TextEditingController();
   final TextEditingController confrimPasswordController =
       new TextEditingController();
-  // final TextEditingController usernameController = new TextEditingValue();
 
   bool passwordVisibility = true;
 
   @override
+  void initState() {
+    super.initState();
+    getKomunitas();
+  }
+
   Widget build(BuildContext context) {
     //nama
     final name = TextFormField(
@@ -86,7 +117,7 @@ class _SignUpState extends State<SignUp> {
       keyboardType: TextInputType.name,
       //validator
       onSaved: (value) {
-        emailController.text = value!;
+        passwordController.text = value!;
       },
       textInputAction: TextInputAction.next,
       decoration: InputDecoration(
@@ -105,7 +136,7 @@ class _SignUpState extends State<SignUp> {
       keyboardType: TextInputType.name,
       //validator
       onSaved: (value) {
-        emailController.text = value!;
+        confrimPasswordController.text = value!;
       },
       textInputAction: TextInputAction.next,
       decoration: InputDecoration(
@@ -124,16 +155,61 @@ class _SignUpState extends State<SignUp> {
       child: MaterialButton(
         padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
         minWidth: MediaQuery.of(context).size.width,
-        onPressed: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => LoginPage()));
-        },
         child: Text(
           'Sign Up',
           textAlign: TextAlign.center,
           style: TextStyle(
               fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
         ),
+        onPressed: () async {
+          if (selectedKomunitas != 0 &&
+              emailController.text.isNotEmpty &&
+              nameController.text.isNotEmpty &&
+              nomorController.text.length > 9 &&
+              passwordController.text.length > 7 &&
+              passwordController.text == confrimPasswordController.text) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => LoginPage()),
+            );
+          } else if (nomorController.text.length < 10) {
+            Alert(
+                    type: AlertType.error,
+                    context: context,
+                    title: "Masukkan Nomor HP dengan Benar",
+                    desc: "Nomor HP tidak valid, Minimal 10 digit")
+                .show();
+            nomorController.clear();
+          } else if (passwordController.text.length < 7) {
+            Alert(
+                    type: AlertType.error,
+                    context: context,
+                    title: "Password tidak valid",
+                    desc:
+                        "Password paling sedikit berisi 8 karakter, silahkan buat password baru")
+                .show();
+            passwordController.clear();
+            confrimPasswordController.clear();
+          } else if (passwordController.text !=
+              confrimPasswordController.text) {
+            Alert(
+                    type: AlertType.error,
+                    context: context,
+                    title: "Password tidak sesuai",
+                    desc:
+                        'Pastikan "password" dengan "konfirmasi password" yang Anda masukkan sama')
+                .show();
+            passwordController.clear();
+            confrimPasswordController.clear();
+          } else {
+            Alert(
+                    type: AlertType.error,
+                    context: context,
+                    title: "Pendaftaran Gagal",
+                    desc: "Silahkan isi data dengan lengkap")
+                .show();
+          }
+        },
       ),
     );
 
@@ -185,6 +261,10 @@ class _SignUpState extends State<SignUp> {
                     SizedBox(
                       height: 20,
                     ),
+                    dropdownKomunitas(),
+                    SizedBox(
+                      height: 20,
+                    ),
                     signUpButton,
                     SizedBox(
                       height: 20,
@@ -197,5 +277,57 @@ class _SignUpState extends State<SignUp> {
         ),
       ),
     );
+  }
+
+  Widget dropdownKomunitas() {
+    if (_dataKomunitas != null) {
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Icon(Icons.account_balance, color: Colors.grey),
+          SizedBox(width: 15),
+          Container(
+            width: MediaQuery.of(context).size.width * 0.75,
+            child: DropdownButton(
+              // icon: Icon(Icons.account_balance),
+
+              isExpanded: true,
+              hint: Text(
+                  selectedNamaKomunitas == ""
+                      ? "Pilih Komunitas"
+                      : selectedAlamatKomunitas,
+                  style: TextStyle(fontWeight: FontWeight.bold)),
+              items: _dataKomunitas.map((item) {
+                return DropdownMenuItem(
+                  child: Text(item['nama_komunitas']),
+                  value: item['id'],
+                  onTap: () {
+                    setState(() {
+                      selectedNamaKomunitas = item['nama_komunitas'];
+                      selectedKomunitas = item['id'];
+                      selectedAlamatKomunitas = item['alamat'];
+                      selectedTeleponKomunitas = item['telepon'];
+                      setState(() {});
+                    });
+                  },
+                );
+              }).toList(),
+              onChanged: (value) {},
+              // onChanged: (value) {
+              //   setState(() {
+              //     selectedKomunitas = value;
+              //   });
+              //   //debugPrint("ID yang dipilih adalah ${value.toString()}");
+              // },
+            ),
+          )
+        ],
+      );
+    } else {
+      return Container(
+        width: double.infinity,
+        child: Center(child: Text('Data Komunitas belum di-muat')),
+      );
+    }
   }
 }

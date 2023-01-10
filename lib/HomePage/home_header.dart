@@ -12,10 +12,13 @@ class HomeHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding:
-          EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
+          EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(10)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
+          IconBtnWithCounter(svgSrc: "assets/icons/User.svg", press: () {}
+              //Navigator.pushNamed(context, CartScreen.routeName),
+              ),
           Container(
             width: SizeConfig.screenWidth * 0.6,
             decoration: BoxDecoration(
@@ -38,11 +41,11 @@ class HomeHeader extends StatelessWidget {
           IconBtnWithCounter(svgSrc: "assets/icons/Cart Icon.svg", press: () {}
               //Navigator.pushNamed(context, CartScreen.routeName),
               ),
-          IconBtnWithCounter(
-            svgSrc: "assets/icons/Bell.svg",
-            numOfitem: 3,
-            press: () {},
-          ),
+          // IconBtnWithCounter(
+          //   svgSrc: "assets/icons/Bell.svg",
+          //   numOfitem: 3,
+          //   press: () {},
+          // ),
         ],
       ),
     );
