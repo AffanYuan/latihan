@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:latihan/main.dart';
 import 'package:latihan/Screen/Login/LoginPage.dart';
-import 'package:latihan/Screen/Login/SignUpKomunitas.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({Key? key}) : super(key: key);
