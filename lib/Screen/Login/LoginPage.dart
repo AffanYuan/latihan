@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:latihan/HomePage/home_page.dart';
 import 'package:latihan/Screen/Login/SignUp.dart';
-import 'package:latihan/Screen/Login/SignUpKomunitas.dart';
 import 'package:latihan/components/my_textfield.dart';
 import 'package:latihan/components/my_button.dart';
 
