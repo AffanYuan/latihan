@@ -1,16 +1,15 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:latihan/HomePage/home_page.dart';
-import 'package:latihan/Konfigurasi/Api.dart';
-import 'package:latihan/main.dart';
-import 'package:latihan/Screen/Login/LoginPage.dart';
+import 'package:latihan/Screen/Login/KonfirmasiSignUp.dart';
 import 'package:flutter/services.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:http/http.dart' as http;
 
 class SignUp extends StatefulWidget {
-  const SignUp({Key? key}) : super(key: key);
+  String name = "";
+  String email = "";
+  String nomor = "";
+  String password = "";
 
   @override
   _SignUpState createState() => _SignUpState();
@@ -46,6 +45,7 @@ class _SignUpState extends State<SignUp> {
   final TextEditingController confrimPasswordController =
       new TextEditingController();
 
+  int idGrup = 1;
   bool passwordVisibility = true;
 
   @override
@@ -170,7 +170,17 @@ class _SignUpState extends State<SignUp> {
               passwordController.text == confrimPasswordController.text) {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => LoginPage()),
+              MaterialPageRoute(
+                  builder: (context) => KonfirmasiSignUp(
+                      nomorController.text,
+                      nameController.text,
+                      emailController.text,
+                      passwordController.text,
+                      idGrup,
+                      selectedKomunitas,
+                      selectedNamaKomunitas,
+                      selectedAlamatKomunitas,
+                      selectedTeleponKomunitas)),
             );
           } else if (nomorController.text.length < 10) {
             Alert(
