@@ -5,6 +5,7 @@ import 'package:latihan/HomePage/icon_btn_with_counter.dart';
 import 'package:latihan/HomePage/home_header.dart';
 import 'package:latihan/HomePage/categories.dart';
 import 'package:latihan/HomePage/special_offers.dart';
+import 'package:latihan/HomePage/saldo.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -24,12 +25,13 @@ class _HomePageState extends State<HomePage> {
               SizedBox(height: getProportionateScreenHeight(20)),
               HomeHeader(),
               SizedBox(height: getProportionateScreenWidth(10)),
-              // DiscountBanner(),
-              Categories(),
+              Saldo(),
               SpecialOffers(),
-              // SizedBox(height: getProportionateScreenWidth(30)),
-              // PopularProducts(),
-              // SizedBox(height: getProportionateScreenWidth(30)),
+              SizedBox(height: getProportionateScreenWidth(30)),
+              iconContainer(),
+              SizedBox(height: getProportionateScreenWidth(30)),
+              //PopularProducts(),
+              SizedBox(height: getProportionateScreenWidth(30)),
             ],
           ),
         ),

@@ -12,12 +12,15 @@ class HomeHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding:
-          EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
+          EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(10)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
+          IconBtnWithCounter(svgSrc: "assets/icons/User.svg", press: () {}
+              //Navigator.pushNamed(context, CartScreen.routeName),
+              ),
           Container(
-            width: SizeConfig.screenWidth * 0.6,
+            width: SizeConfig.screenWidth * 0.5,
             decoration: BoxDecoration(
               color: Color.fromARGB(255, 208, 208, 208),
               borderRadius: BorderRadius.circular(15),
