@@ -18,32 +18,44 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              SizedBox(height: getProportionateScreenHeight(20)),
-              HomeHeader(),
-              SizedBox(height: getProportionateScreenWidth(10)),
-              Saldo(),
-              SpecialOffers(),
-              SizedBox(height: getProportionateScreenWidth(30)),
-              iconContainer(),
-              SizedBox(height: getProportionateScreenWidth(30)),
-              //PopularProducts(),
-              SizedBox(height: getProportionateScreenWidth(30)),
-            ],
-          ),
+        bottomNavigationBar: BottomNavigationBar(
+          items: [
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.currency_exchange), label: "Transaksi"),
+            BottomNavigationBarItem(icon: Icon(Icons.contacts), label: "Kontak")
+          ],
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-          BottomNavigationBarItem(icon: Icon(Icons.mail), label: "Pesan"),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profil")
-        ],
-      ),
-    );
+        body: SingleChildScrollView(
+          child: Center(
+            child: Container(
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.bottomCenter,
+                  end: Alignment.topCenter,
+                  colors: [
+                    Colors.white,
+                    Colors.blueAccent,
+                  ],
+                ),
+              ),
+              child: Column(
+                children: [
+                  SizedBox(height: getProportionateScreenHeight(60)),
+                  HomeHeader(),
+                  SizedBox(height: getProportionateScreenWidth(30)),
+                  Saldo(),
+                  SpecialOffers(),
+                  SizedBox(height: getProportionateScreenWidth(30)),
+                  iconContainer(),
+                  SizedBox(height: getProportionateScreenWidth(30)),
+                  //PopularProducts(),
+                  SizedBox(height: getProportionateScreenWidth(30)),
+                ],
+              ),
+            ),
+          ),
+        ));
   }
 }
 

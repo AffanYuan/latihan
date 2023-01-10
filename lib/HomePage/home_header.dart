@@ -20,7 +20,7 @@ class HomeHeader extends StatelessWidget {
               //Navigator.pushNamed(context, CartScreen.routeName),
               ),
           Container(
-            width: SizeConfig.screenWidth * 0.5,
+            width: SizeConfig.screenWidth * 0.6,
             decoration: BoxDecoration(
               color: Color.fromARGB(255, 208, 208, 208),
               borderRadius: BorderRadius.circular(15),
@@ -41,11 +41,11 @@ class HomeHeader extends StatelessWidget {
           IconBtnWithCounter(svgSrc: "assets/icons/Cart Icon.svg", press: () {}
               //Navigator.pushNamed(context, CartScreen.routeName),
               ),
-          IconBtnWithCounter(
-            svgSrc: "assets/icons/Bell.svg",
-            numOfitem: 3,
-            press: () {},
-          ),
+          // IconBtnWithCounter(
+          //   svgSrc: "assets/icons/Bell.svg",
+          //   numOfitem: 3,
+          //   press: () {},
+          // ),
         ],
       ),
     );

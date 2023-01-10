@@ -275,23 +275,19 @@ Widget iconContainer() {
                           child: Column(
                         children: <Widget>[
                           //Image.asset('assets/transfer.png'),
-                          Image.asset(
-                            "lib/assets/marketplacekomunitas.png",
+                          SvgPicture.asset(
+                            "assets/icons/Sekolah.svg",
                             width: 50,
                             height: 50,
                           ),
                           // Icon(Icons.send),
                           SizedBox(
-                            height: 4,
+                            height: 10,
                           ),
                           Text(
-                            'Pasar',
+                            'Sekolah',
                             style: TextStyle(fontSize: 14),
-                          ),
-                          Text(
-                            'Komunitas',
-                            style: TextStyle(fontSize: 14),
-                          ),
+                          )
                         ],
                       ))),
                   onTap: () {
@@ -314,21 +310,17 @@ Widget iconContainer() {
                           child: Column(
                         children: <Widget>[
                           //Image.asset('assets/transfer.png'),
-                          Image.asset(
-                            "lib/assets/marketplacekomoditas.png",
+                          SvgPicture.asset(
+                            "assets/icons/Koperasi.svg",
                             width: 50,
                             height: 50,
                           ),
                           // Icon(Icons.send),
                           SizedBox(
-                            height: 4,
+                            height: 10,
                           ),
                           Text(
-                            'Pasar',
-                            style: TextStyle(fontSize: 14),
-                          ),
-                          Text(
-                            'Komoditas',
+                            'Koperasi',
                             style: TextStyle(fontSize: 14),
                           )
                         ],

@@ -18,7 +18,7 @@ class Saldo extends StatelessWidget {
         vertical: getProportionateScreenWidth(15),
       ),
       decoration: BoxDecoration(
-        color: Color.fromARGB(255, 0, 69, 218),
+        color: Color.fromARGB(255, 109, 0, 218),
         borderRadius: BorderRadius.circular(20),
       ),
       child: Text.rich(
@@ -37,5 +37,49 @@ class Saldo extends StatelessWidget {
         ),
       ),
     );
+    // return Padding(
+    //   padding: EdgeInsets.fromLTRB(15, 19, 15, 0),
+    //   child: Container(
+    //     width: 301,
+    //     height: 57,
+    //     decoration: BoxDecoration(
+    //         //  color: WarnaPrimary,
+    //         color: Color.fromARGB(255, 18, 218, 0),
+    //         shape: BoxShape.rectangle,
+    //         borderRadius: BorderRadius.all(Radius.circular(11))),
+    //     child: Row(
+    //       mainAxisAlignment: MainAxisAlignment.center,
+    //       children: <Widget>[
+    //         //Image.asset('assets/pembayaran.png'),
+
+    //         SizedBox(
+    //           width: 10,
+    //         ),
+    //         Column(
+    //           mainAxisAlignment: MainAxisAlignment.center,
+    //           // crossAxisAlignment: CrossAxisAlignment.start,
+    //           children: <Widget>[
+    //             Padding(
+    //               padding: const EdgeInsets.only(top: 0),
+    //               child: Text(
+    //                 'Saldo',
+    //                 style: TextStyle(fontSize: 14, color: Colors.white),
+    //               ),
+    //             ),
+    //             Row(
+    //               children: <Widget>[
+    //                 Text(
+    //                   //rupiah(model.formatedBalance),
+    //                   'jok',
+    //                   style: TextStyle(fontSize: 24, color: Colors.white),
+    //                 ),
+    //               ],
+    //             ),
+    //           ],
+    //         )
+    //       ],
+    //     ),
+    //   ),
+    // );
   }
 }
