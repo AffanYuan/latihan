@@ -33,7 +33,7 @@ dependencies:
     sdk: flutter
   flutter_svg: ^0.22.0
   rflutter_alert: ^2.0.4
-
+  toggle_switch: ^2.0.1
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

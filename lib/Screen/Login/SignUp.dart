@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:latihan/Screen/Login/KonfirmasiSignUp.dart';
 import 'package:flutter/services.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
+import 'package:toggle_switch/toggle_switch.dart';
 import 'package:http/http.dart' as http;
 
 class SignUp extends StatefulWidget {
@@ -272,6 +273,39 @@ class _SignUpState extends State<SignUp> {
                       height: 20,
                     ),
                     dropdownKomunitas(),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    ToggleSwitch(
+                      minWidth: 150.0,
+                      cornerRadius: 20.0,
+                      activeBgColors: [
+                        [Colors.green[800]!],
+                        [Colors.red[800]!]
+                      ],
+                      activeFgColor: Colors.white,
+                      inactiveBgColor: Colors.grey,
+                      inactiveFgColor: Colors.white,
+                      initialLabelIndex: 1,
+                      totalSwitches: 2,
+                      labels: ['Nasabah Umum', 'Wali Murid'],
+                      radiusStyle: true,
+                      onToggle: (index) {
+                        if (index == 0) {
+                          idGrup = 1;
+                          //debugPrint(
+                          // 'isi idGrup saat ini adalah = ${idGrup.toString()}');
+                          //debugPrint(
+                          // "isi index adalah = ${index.toString()}");
+                        } else if (index == 1) {
+                          idGrup = 2;
+                          //debugPrint(
+                          // 'isi idGrup saat ini adalah = ${idGrup.toString()}');
+                          //debugPrint(
+                          // "isi index adalah = ${index.toString()}");
+                        }
+                      },
+                    ),
                     SizedBox(
                       height: 20,
                     ),
