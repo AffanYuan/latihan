@@ -1,16 +1,16 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:latihan/HomePage/home_page.dart';
-import 'package:latihan/Konfigurasi/Api.dart';
-import 'package:latihan/main.dart';
-import 'package:latihan/Screen/Login/LoginPage.dart';
+import 'package:latihan/Screen/Login/KonfirmasiSignUp.dart';
 import 'package:flutter/services.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
+import 'package:toggle_switch/toggle_switch.dart';
 import 'package:http/http.dart' as http;
 
 class SignUp extends StatefulWidget {
-  const SignUp({Key? key}) : super(key: key);
+  String name = "";
+  String email = "";
+  String nomor = "";
+  String password = "";
 
   @override
   _SignUpState createState() => _SignUpState();
@@ -46,6 +46,7 @@ class _SignUpState extends State<SignUp> {
   final TextEditingController confrimPasswordController =
       new TextEditingController();
 
+  int idGrup = 1;
   bool passwordVisibility = true;
 
   @override
@@ -170,7 +171,17 @@ class _SignUpState extends State<SignUp> {
               passwordController.text == confrimPasswordController.text) {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => LoginPage()),
+              MaterialPageRoute(
+                  builder: (context) => KonfirmasiSignUp(
+                      nomorController.text,
+                      nameController.text,
+                      emailController.text,
+                      passwordController.text,
+                      idGrup,
+                      selectedKomunitas,
+                      selectedNamaKomunitas,
+                      selectedAlamatKomunitas,
+                      selectedTeleponKomunitas)),
             );
           } else if (nomorController.text.length < 10) {
             Alert(
@@ -262,6 +273,39 @@ class _SignUpState extends State<SignUp> {
                       height: 20,
                     ),
                     dropdownKomunitas(),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    ToggleSwitch(
+                      minWidth: 150.0,
+                      cornerRadius: 20.0,
+                      activeBgColors: [
+                        [Colors.green[800]!],
+                        [Colors.red[800]!]
+                      ],
+                      activeFgColor: Colors.white,
+                      inactiveBgColor: Colors.grey,
+                      inactiveFgColor: Colors.white,
+                      initialLabelIndex: 1,
+                      totalSwitches: 2,
+                      labels: ['Nasabah Umum', 'Wali Murid'],
+                      radiusStyle: true,
+                      onToggle: (index) {
+                        if (index == 0) {
+                          idGrup = 1;
+                          //debugPrint(
+                          // 'isi idGrup saat ini adalah = ${idGrup.toString()}');
+                          //debugPrint(
+                          // "isi index adalah = ${index.toString()}");
+                        } else if (index == 1) {
+                          idGrup = 2;
+                          //debugPrint(
+                          // 'isi idGrup saat ini adalah = ${idGrup.toString()}');
+                          //debugPrint(
+                          // "isi index adalah = ${index.toString()}");
+                        }
+                      },
+                    ),
                     SizedBox(
                       height: 20,
                     ),

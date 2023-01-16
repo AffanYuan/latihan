@@ -93,13 +93,6 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  static Widget loadingBunder() {
-    return CircularProgressIndicator(
-      valueColor: AlwaysStoppedAnimation(Colors.white),
-      strokeWidth: 5.9,
-    );
-  }
-
   //sign user method
   void signUserIn() {}
 
@@ -370,7 +363,7 @@ class _LoginPageState extends State<LoginPage> {
                 MyButton(
                   onTap: (() async {
                     debugPrint(
-                        "=================================================");
+                        "============================================================");
                     await login(
                         username: usernameController.text,
                         password: passwordController.text);
@@ -422,31 +415,20 @@ class _LoginPageState extends State<LoginPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Text("Don't Have an Account? "),
+                    Text("Don't Have an Account?"),
                     GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => SignUp()));
-                        },
-                        child: childLoginButton,
-                        onDoubleTap: () async {
-                          setState(() {
-                            childLoginButton = loadingBunder();
-                          });
-
-                          await SignUp();
-
-                          child:
-                          Text(
-                            "Sign Up",
-                            style: TextStyle(
-                                color: Colors.blueAccent,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 15),
-                          );
-                        })
+                      onTap: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => SignUp()));
+                      },
+                      child: Text(
+                        "  Sign Up",
+                        style: TextStyle(
+                            color: Colors.blueAccent,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15),
+                      ),
+                    ),
                   ],
                 ),
               ],
