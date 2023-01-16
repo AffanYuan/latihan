@@ -1,5 +1,7 @@
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
-
+import 'package:latihan/Screen/Login/LoginPage.dart';
 import 'package:latihan/HomePage/home_page.dart';
 
 class Saldo extends StatelessWidget {
@@ -27,7 +29,15 @@ class Saldo extends StatelessWidget {
           children: [
             TextSpan(text: "Sisa saldo Anda\n\n"),
             TextSpan(
-              text: "Rp 200.000",
+              text: "Rp ",
+              style: TextStyle(
+                fontSize: getProportionateScreenWidth(24),
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            TextSpan(
+              text: formatedBalance,
+              // text: "0",
               style: TextStyle(
                 fontSize: getProportionateScreenWidth(24),
                 fontWeight: FontWeight.bold,
@@ -83,3 +93,28 @@ class Saldo extends StatelessWidget {
     // );
   }
 }
+
+// Future<void> refreshApi() async {
+//   Map<String, String> headerJSON = {
+//     "Content-Type": "application/json",
+//   };
+
+//   final response = await http.post(
+//     Uri.parse("https://test.edimu.live/api/base_info"),
+//     headers: headerJSON,
+//   );
+
+//   var data = json.decode(response.body);
+
+//   var status;
+
+//   if (response.statusCode == 203) {
+//     formatedBalance = data['saldo'];
+//     formatedBalance = formatedBalance.substring(0, formatedBalance.length - 3);
+//   } else {
+//     status = 0;
+//     return status;
+//   }
+
+//   // notifyListeners();
+// }

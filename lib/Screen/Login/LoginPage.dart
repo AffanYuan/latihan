@@ -15,73 +15,73 @@ class LoginPage extends StatefulWidget {
   _LoginPageState createState() => _LoginPageState();
 }
 
+// User user;
+String idUser = "";
+String usernameUser = "";
+String passwordUser = "";
+late String alamatUser;
+late bool sudahVerifikasi = false;
+int idAktor = 0;
+bool apakahPunyaToko = false;
+
+//
+late String pinTransaksi;
+
+//NO HP beneran (bukan ID Login(usernameUser))
+late String nohapeAktif;
+
+String namaKomunitas = '....';
+late int idKomunitas;
+late int idGrup;
+late String alamatKomunitas;
+late String teleponKomunitas;
+Map dataBank = {'namaBank': null, 'norekBank': null, 'atasNama': null};
+
+late List listTagihan;
+
+int statusAuth = 0;
+
+String nama = '.....';
+
+late String norek;
+
+late int balance;
+String formatedBalance = "";
+int statusPayLater = 0;
+int statusPayLaterUser = 0;
+int limitPayLater = 0;
+int saldoPayLaterSekarang = 0;
+int penggunaanPayLater = 0;
+String isMinyak = "";
+
+late int balanceEmas;
+String formatedBalanceEmas = "emas";
+
+late int balanceSpp;
+String formatedBalanceSpp = "Plafon Spp";
+
+String token = "";
+
+late String duhur;
+// ini authValue64 untuk header json bagian authnya
+late String authVaue64;
+
+//List<contactsList> listContacts = [];
+
+List formulaPembagianMarketPlace = [];
+
+bool isLoading = false;
+
+Map<String, String> headerJSON = {
+  "Content-Type": "application/json",
+};
+
+Map<String, String> userMap = {"saldo": "0"};
+
 class _LoginPageState extends State<LoginPage> {
 // text editing control
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
-
-  // User user;
-  String idUser = "";
-  String usernameUser = "";
-  String passwordUser = "";
-  late String alamatUser;
-  late bool sudahVerifikasi = false;
-  int idAktor = 0;
-  bool apakahPunyaToko = false;
-
-  //
-  late String pinTransaksi;
-
-  //NO HP beneran (bukan ID Login(usernameUser))
-  late String nohapeAktif;
-
-  String namaKomunitas = '....';
-  late int idKomunitas;
-  late int idGrup;
-  late String alamatKomunitas;
-  late String teleponKomunitas;
-  Map dataBank = {'namaBank': null, 'norekBank': null, 'atasNama': null};
-
-  late List listTagihan;
-
-  int statusAuth = 0;
-
-  String nama = '.....';
-
-  late String norek;
-
-  late int balance;
-  String formatedBalance = "";
-  int statusPayLater = 0;
-  int statusPayLaterUser = 0;
-  int limitPayLater = 0;
-  int saldoPayLaterSekarang = 0;
-  int penggunaanPayLater = 0;
-  String isMinyak = "";
-
-  late int balanceEmas;
-  String formatedBalanceEmas = "emas";
-
-  late int balanceSpp;
-  String formatedBalanceSpp = "Plafon Spp";
-
-  String token = "";
-
-  late String duhur;
-  // ini authValue64 untuk header json bagian authnya
-  late String authVaue64;
-
-  //List<contactsList> listContacts = [];
-
-  List formulaPembagianMarketPlace = [];
-
-  bool isLoading = false;
-
-  Map<String, String> headerJSON = {
-    "Content-Type": "application/json",
-  };
-
-  Map<String, String> userMap = {"saldo": "0"};
 
   Widget childLoginButton = textLogin();
 
