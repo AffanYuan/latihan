@@ -114,7 +114,7 @@ class SectionTitle extends StatelessWidget {
           onTap: press,
           child: Text(
             "See More",
-            style: TextStyle(color: Color(0xFFBBBBBB)),
+            style: TextStyle(color: Color.fromARGB(255, 251, 251, 251)),
           ),
         ),
       ],

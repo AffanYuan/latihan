@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:latihan/HomePage/home_page.dart';
 import 'package:latihan/HomePage/icon_btn_with_counter.dart';
+import 'package:latihan/Setting/setting.dart';
 
 class HomeHeader extends StatelessWidget {
   const HomeHeader({
@@ -30,7 +31,7 @@ class HomeHeader extends StatelessWidget {
               decoration: InputDecoration(
                   contentPadding: EdgeInsets.symmetric(
                       horizontal: getProportionateScreenWidth(20),
-                      vertical: getProportionateScreenWidth(9)),
+                      vertical: getProportionateScreenWidth(15)),
                   border: InputBorder.none,
                   focusedBorder: InputBorder.none,
                   enabledBorder: InputBorder.none,
@@ -38,7 +39,12 @@ class HomeHeader extends StatelessWidget {
                   prefixIcon: Icon(Icons.search)),
             ),
           ),
-          IconBtnWithCounter(svgSrc: "assets/icons/Cart Icon.svg", press: () {}
+          IconBtnWithCounter(
+              svgSrc: "assets/icons/Settings.svg",
+              press: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => SettingPage()));
+              }
               //Navigator.pushNamed(context, CartScreen.routeName),
               ),
           // IconBtnWithCounter(

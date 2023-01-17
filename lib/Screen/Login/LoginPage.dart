@@ -8,13 +8,6 @@ import 'package:latihan/components/my_button.dart';
 import 'package:http/http.dart' as http;
 import 'package:rflutter_alert/rflutter_alert.dart';
 
-class LoginPage extends StatefulWidget {
-  LoginPage({super.key});
-
-  @override
-  _LoginPageState createState() => _LoginPageState();
-}
-
 // User user;
 String idUser = "";
 String usernameUser = "";
@@ -77,6 +70,17 @@ Map<String, String> headerJSON = {
 };
 
 Map<String, String> userMap = {"saldo": "0"};
+
+/*=========================================================*/
+/*=========================================================*/
+/*=========================================================*/
+
+class LoginPage extends StatefulWidget {
+  LoginPage({super.key});
+
+  @override
+  _LoginPageState createState() => _LoginPageState();
+}
 
 class _LoginPageState extends State<LoginPage> {
 // text editing control
