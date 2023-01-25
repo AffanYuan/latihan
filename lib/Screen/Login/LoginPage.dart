@@ -1,5 +1,5 @@
 import 'dart:convert';
-
+import 'package:scoped_model/scoped_model.dart';
 import 'package:flutter/material.dart';
 import 'package:latihan/HomePage/home_page.dart';
 import 'package:latihan/Screen/Login/SignUp.dart';
