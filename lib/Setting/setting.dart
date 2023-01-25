@@ -13,6 +13,28 @@ class SettingPage extends StatefulWidget {
 }
 
 class _SettingPageState extends State<SettingPage> {
+  bool valNotify1 = true;
+  bool valNotify2 = false;
+  bool valNotify3 = false;
+
+  onChangeFunction1(bool newValue1) {
+    setState(() {
+      valNotify1 = newValue1;
+    });
+  }
+
+  onChangeFunction2(bool newValue2) {
+    setState(() {
+      valNotify2 = newValue2;
+    });
+  }
+
+  onChangeFunction3(bool newValue3) {
+    setState(() {
+      valNotify3 = newValue3;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -71,28 +93,6 @@ class _SettingPageState extends State<SettingPage> {
   }
 }
 
-bool valNotify1 = true;
-bool valNotify2 = false;
-bool valNotify3 = false;
-
-onChangeFunction1(bool newValue1) {
-  // setState(() {
-  valNotify1 = newValue1;
-  // });
-}
-
-onChangeFunction2(bool newValue2) {
-  // setState(() {
-  valNotify2 = newValue2;
-  // });
-}
-
-onChangeFunction3(bool newValue3) {
-  // setState(() {
-  valNotify3 = newValue3;
-  // });
-}
-
 Padding buildToggle(String title, bool value, Function onChangeMethod) {
   return Padding(
     padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 20),
@@ -130,12 +130,14 @@ GestureDetector buildOption(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(
-            title,
-            style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w500,
-                color: Colors.grey[700]),
+          Expanded(
+            child: Text(
+              title,
+              style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.grey[700]),
+            ),
           ),
           Icon(
             Icons.arrow_forward_ios,

@@ -13,10 +13,10 @@ class Warna extends StatefulWidget {
 
 class _WarnaState extends State<Warna> {
   List _dataWarna = [];
-  String selectedWarna = "";
-  String selectedNamaWarna = "";
-  late String selectedAlamatKomunitas;
-  late String selectedTeleponKomunitas;
+  String kodeWarnaLatar = "";
+  String namaWarnaLatar = "";
+  String kodeWarnaTeks = "";
+  String namaWarnaTeks = "";
 
   void getListWarna() async {
     final response =
@@ -32,10 +32,10 @@ class _WarnaState extends State<Warna> {
     //debugPrint('isi dari var _dataWarna = ${_dataWarna.toString()}');
   }
 
-  Future ubahWarna(String selectedNamaWarna) async {
+  Future ubahWarna(String namaWarnaLatar) async {
     final bodyJSON = jsonEncode({
       // "nohape": selectedWarna,
-      "warna_tombol": selectedNamaWarna,
+      "warna_tombol": namaWarnaLatar,
     });
 
     Map<String, String> headerJSON = {
@@ -77,7 +77,7 @@ class _WarnaState extends State<Warna> {
                   SizedBox(
                     height: getProportionateScreenHeight(10),
                   ),
-                  dropdownWarna(),
+                  dropdownWarna("latar"),
                   SizedBox(
                     height: getProportionateScreenHeight(30),
                   ),
@@ -90,7 +90,7 @@ class _WarnaState extends State<Warna> {
                   SizedBox(
                     height: getProportionateScreenHeight(10),
                   ),
-                  dropdownWarna(),
+                  dropdownWarna("teks"),
                   SizedBox(
                     height: getProportionateScreenHeight(250),
                   ),
@@ -105,52 +105,139 @@ class _WarnaState extends State<Warna> {
     );
   }
 
-  Widget dropdownWarna() {
-    if (_dataWarna != null) {
-      return Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Icon(Icons.color_lens, color: Colors.grey),
-          SizedBox(width: 15),
-          Container(
-            width: MediaQuery.of(context).size.width * 0.75,
-            child: DropdownButton(
-              // icon: Icon(Icons.account_balance),
+  // Widget dropdownWarna(String pilihWarna) {
+  //   Widget textField = Row();
+  //   // if (_dataWarna != null) {
+  //   if (pilihWarna == "latar") {
+  //     textField = Row(
+  //       mainAxisAlignment: MainAxisAlignment.start,
+  //       children: [
+  //         Icon(Icons.color_lens, color: Colors.grey),
+  //         SizedBox(width: 15),
+  //         Container(
+  //           width: MediaQuery.of(context).size.width * 0.75,
+  //           child: DropdownButton(
+  //             // icon: Icon(Icons.account_balance),
 
-              isExpanded: true,
-              hint: Text(
-                  selectedNamaWarna == "" ? "Pilih Warna" : selectedNamaWarna,
-                  style: TextStyle(fontWeight: FontWeight.bold)),
-              items: _dataWarna.map((item) {
-                return DropdownMenuItem(
-                  child: Text(item['nama']),
-                  value: item['kode_warna'],
-                  onTap: () {
+  //             isExpanded: true,
+  //             hint: Text(namaWarnaLatar == "" ? "Pilih Warna" : namaWarnaLatar,
+  //                 style: TextStyle(fontWeight: FontWeight.bold)),
+  //             items: _dataWarna.map((item) {
+  //               return DropdownMenuItem(
+  //                 child: Text(item['nama']),
+  //                 value: item['kode_warna'],
+  //                 onTap: () {
+  //                   setState(() {
+  //                     namaWarnaLatar = item['nama'];
+  //                     kodeWarnaLatar = item['kode_warna'];
+  //                     setState(() {});
+  //                   });
+  //                 },
+  //               );
+  //             }).toList(),
+  //             onChanged: (value) {},
+  //             // onChanged: (value) {
+  //             //   setState(() {
+  //             //     Kode = value;
+  //             //   });
+  //             //   //debugPrint("ID yang dipilih adalah ${value.toString()}");
+  //             // },
+  //           ),
+  //         )
+  //       ],
+  //     );
+  //   } else if (pilihWarna == "teks") {
+  //     textField = Row(
+  //       mainAxisAlignment: MainAxisAlignment.start,
+  //       children: [
+  //         Icon(Icons.color_lens, color: Colors.grey),
+  //         SizedBox(width: 15),
+  //         Container(
+  //           width: MediaQuery.of(context).size.width * 0.75,
+  //           child: DropdownButton(
+  //             // icon: Icon(Icons.account_balance),
+
+  //             isExpanded: true,
+  //             hint: Text(namaWarnaTeks == "" ? "Pilih Warna" : namaWarnaTeks,
+  //                 style: TextStyle(fontWeight: FontWeight.bold)),
+  //             items: _dataWarna.map((item) {
+  //               return DropdownMenuItem(
+  //                 child: Text(item['nama']),
+  //                 value: item['kode_warna'],
+  //                 onTap: () {
+  //                   setState(() {
+  //                     namaWarnaTeks = item['nama'];
+  //                     kodeWarnaLatar = item['kode_warna'];
+  //                     setState(() {});
+  //                   });
+  //                 },
+  //               );
+  //             }).toList(),
+  //             onChanged: (value) {},
+  //             // onChanged: (value) {
+  //             //   setState(() {
+  //             //     Kode = value;
+  //             //   });
+  //             //   //debugPrint("ID yang dipilih adalah ${value.toString()}");
+  //             // },
+  //           ),
+  //         )
+  //       ],
+  //     );
+  //   }
+  //   return textField;
+  // } else {
+  //   return Container(
+  //     width: double.infinity,
+  //     child: Center(child: Text('Data Warna belum di-muat')),
+  //   );
+  // }
+  // }
+
+  Widget dropdownWarna(String pilihWarna) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        Icon(Icons.color_lens, color: Colors.grey),
+        SizedBox(width: 15),
+        Container(
+          width: MediaQuery.of(context).size.width * 0.75,
+          child: DropdownButton(
+            // icon: Icon(Icons.account_balance),
+
+            isExpanded: true,
+            hint: pilihWarna == "latar"
+                ? Text(namaWarnaLatar == "" ? "Pilih Warna" : namaWarnaLatar,
+                    style: TextStyle(fontWeight: FontWeight.bold))
+                : Text(namaWarnaTeks == "" ? "Pilih Warna" : namaWarnaTeks,
+                    style: TextStyle(fontWeight: FontWeight.bold)),
+
+            items: _dataWarna.map((item) {
+              return DropdownMenuItem(
+                child: Text(item['nama']),
+                value: item['kode_warna'],
+                onTap: () {
+                  if (pilihWarna == "latar") {
                     setState(() {
-                      selectedNamaWarna = item['nama'];
-                      selectedWarna = item['kode_warna'];
+                      namaWarnaLatar = item['nama'];
+                      kodeWarnaLatar = item['kode_warna'];
                       setState(() {});
                     });
-                  },
-                );
-              }).toList(),
-              onChanged: (value) {},
-              // onChanged: (value) {
-              //   setState(() {
-              //     selectedWarna = value;
-              //   });
-              //   //debugPrint("ID yang dipilih adalah ${value.toString()}");
-              // },
-            ),
-          )
-        ],
-      );
-    } else {
-      return Container(
-        width: double.infinity,
-        child: Center(child: Text('Data Komunitas belum di-muat')),
-      );
-    }
+                  } else {
+                    setState(() {
+                      namaWarnaTeks = item['nama'];
+                      kodeWarnaTeks = item['kode_warna'];
+                      setState(() {});
+                    });
+                  }
+                },
+              );
+            }).toList(),
+            onChanged: (value) {},
+          ),
+        )
+      ],
+    );
   }
 
   Widget apply() {
@@ -158,7 +245,7 @@ class _WarnaState extends State<Warna> {
       padding: const EdgeInsets.all(0),
       child: GestureDetector(
         onTap: () async {
-          String? response = await ubahWarna(selectedNamaWarna);
+          String? response = await ubahWarna(namaWarnaLatar);
         },
         child: Container(
           padding: const EdgeInsets.all(25),
