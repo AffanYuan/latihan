@@ -3,6 +3,7 @@ import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:latihan/Screen/Login/LoginPage.dart';
 import 'package:latihan/HomePage/home_page.dart';
+import 'package:latihan/Setting/Warna.dart';
 
 class Saldo extends StatelessWidget {
   const Saldo({
@@ -20,7 +21,8 @@ class Saldo extends StatelessWidget {
         vertical: getProportionateScreenWidth(15),
       ),
       decoration: BoxDecoration(
-        color: Color.fromARGB(255, 109, 0, 218),
+        color: Color(hexColor(kodeWarnaLatar)),
+        // color: Color(4294951175),
         borderRadius: BorderRadius.circular(20),
       ),
       child: Text.rich(

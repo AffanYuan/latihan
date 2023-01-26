@@ -4,6 +4,13 @@ import 'package:http/http.dart' as http;
 import 'package:latihan/HomePage/home_page.dart';
 import 'package:latihan/Setting/setting.dart';
 
+List _dataWarna = [];
+String kodeWarnaLatar = "";
+// int finalKodeLatar = 15;
+String namaWarnaLatar = "";
+String kodeWarnaTeks = "";
+String namaWarnaTeks = "";
+
 class Warna extends StatefulWidget {
   const Warna({super.key});
 
@@ -12,12 +19,6 @@ class Warna extends StatefulWidget {
 }
 
 class _WarnaState extends State<Warna> {
-  List _dataWarna = [];
-  String kodeWarnaLatar = "";
-  String namaWarnaLatar = "";
-  String kodeWarnaTeks = "";
-  String namaWarnaTeks = "";
-
   void getListWarna() async {
     final response =
         await http.get(Uri.parse("https://pkl.pembelajaran.my.id/api/warna"));
@@ -32,10 +33,24 @@ class _WarnaState extends State<Warna> {
     //debugPrint('isi dari var _dataWarna = ${_dataWarna.toString()}');
   }
 
+  void getWarnaSimpan() async {
+    final response = await http
+        .get(Uri.parse("https://pkl.pembelajaran.my.id/api/pengaturan"));
+    var data = json.decode(response.body);
+    // debugPrint(listData);
+    // debugPrint('isi dari var listData = ${listData['komunitas'].toString()}');
+
+    setState(() {
+      kodeWarnaLatar = data["warna_tombol"];
+    });
+    //debugPrint('=========================================');
+    //debugPrint('isi dari var _dataWarna = ${_dataWarna.toString()}');
+  }
+
   Future ubahWarna(String namaWarnaLatar) async {
     final bodyJSON = jsonEncode({
       // "nohape": selectedWarna,
-      "warna_tombol": namaWarnaLatar,
+      "warna_tombol": kodeWarnaLatar,
     });
 
     Map<String, String> headerJSON = {
@@ -104,95 +119,6 @@ class _WarnaState extends State<Warna> {
       ),
     );
   }
-
-  // Widget dropdownWarna(String pilihWarna) {
-  //   Widget textField = Row();
-  //   // if (_dataWarna != null) {
-  //   if (pilihWarna == "latar") {
-  //     textField = Row(
-  //       mainAxisAlignment: MainAxisAlignment.start,
-  //       children: [
-  //         Icon(Icons.color_lens, color: Colors.grey),
-  //         SizedBox(width: 15),
-  //         Container(
-  //           width: MediaQuery.of(context).size.width * 0.75,
-  //           child: DropdownButton(
-  //             // icon: Icon(Icons.account_balance),
-
-  //             isExpanded: true,
-  //             hint: Text(namaWarnaLatar == "" ? "Pilih Warna" : namaWarnaLatar,
-  //                 style: TextStyle(fontWeight: FontWeight.bold)),
-  //             items: _dataWarna.map((item) {
-  //               return DropdownMenuItem(
-  //                 child: Text(item['nama']),
-  //                 value: item['kode_warna'],
-  //                 onTap: () {
-  //                   setState(() {
-  //                     namaWarnaLatar = item['nama'];
-  //                     kodeWarnaLatar = item['kode_warna'];
-  //                     setState(() {});
-  //                   });
-  //                 },
-  //               );
-  //             }).toList(),
-  //             onChanged: (value) {},
-  //             // onChanged: (value) {
-  //             //   setState(() {
-  //             //     Kode = value;
-  //             //   });
-  //             //   //debugPrint("ID yang dipilih adalah ${value.toString()}");
-  //             // },
-  //           ),
-  //         )
-  //       ],
-  //     );
-  //   } else if (pilihWarna == "teks") {
-  //     textField = Row(
-  //       mainAxisAlignment: MainAxisAlignment.start,
-  //       children: [
-  //         Icon(Icons.color_lens, color: Colors.grey),
-  //         SizedBox(width: 15),
-  //         Container(
-  //           width: MediaQuery.of(context).size.width * 0.75,
-  //           child: DropdownButton(
-  //             // icon: Icon(Icons.account_balance),
-
-  //             isExpanded: true,
-  //             hint: Text(namaWarnaTeks == "" ? "Pilih Warna" : namaWarnaTeks,
-  //                 style: TextStyle(fontWeight: FontWeight.bold)),
-  //             items: _dataWarna.map((item) {
-  //               return DropdownMenuItem(
-  //                 child: Text(item['nama']),
-  //                 value: item['kode_warna'],
-  //                 onTap: () {
-  //                   setState(() {
-  //                     namaWarnaTeks = item['nama'];
-  //                     kodeWarnaLatar = item['kode_warna'];
-  //                     setState(() {});
-  //                   });
-  //                 },
-  //               );
-  //             }).toList(),
-  //             onChanged: (value) {},
-  //             // onChanged: (value) {
-  //             //   setState(() {
-  //             //     Kode = value;
-  //             //   });
-  //             //   //debugPrint("ID yang dipilih adalah ${value.toString()}");
-  //             // },
-  //           ),
-  //         )
-  //       ],
-  //     );
-  //   }
-  //   return textField;
-  // } else {
-  //   return Container(
-  //     width: double.infinity,
-  //     child: Center(child: Text('Data Warna belum di-muat')),
-  //   );
-  // }
-  // }
 
   Widget dropdownWarna(String pilihWarna) {
     return Row(
@@ -268,4 +194,10 @@ class _WarnaState extends State<Warna> {
       ),
     );
   }
+}
+
+int hexColor(String color) {
+  String newColor = color;
+  int finalColor = int.parse(newColor);
+  return finalColor;
 }
