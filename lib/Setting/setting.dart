@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:latihan/HomePage/home_page.dart';
+import 'package:latihan/Setting/Icon.dart';
 import 'package:latihan/Setting/Warna.dart';
 
 class SettingPage extends StatefulWidget {
@@ -81,7 +82,10 @@ class _SettingPageState extends State<SettingPage> {
                   context, MaterialPageRoute(builder: (context) => Warna()));
             }),
             SizedBox(height: getProportionateScreenHeight(10)),
-            buildOption(context, "Icon", () {}),
+            buildOption(context, "Icon", () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => iconPage()));
+            }),
             SizedBox(height: getProportionateScreenHeight(10)),
             buildOption(context, "Logo", () {}),
             SizedBox(height: getProportionateScreenHeight(20)),

@@ -1,15 +1,9 @@
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:latihan/global.dart' as global;
 import 'package:latihan/HomePage/home_page.dart';
-import 'package:latihan/Setting/setting.dart';
-
-List _dataWarna = [];
-String kodeWarnaLatar = "";
-// int finalKodeLatar = 15;
-String namaWarnaLatar = "";
-String kodeWarnaTeks = "";
-String namaWarnaTeks = "";
+import 'package:rflutter_alert/rflutter_alert.dart';
 
 class Warna extends StatefulWidget {
   const Warna({super.key});
@@ -19,6 +13,14 @@ class Warna extends StatefulWidget {
 }
 
 class _WarnaState extends State<Warna> {
+  List _dataWarna = [];
+  List _dataWarnaSimpan = [];
+  String kodeWarnaLatar = "";
+  String namaWarnaLatar = "";
+  String kodeWarnaTeks = "";
+  String namaWarnaTeks = "";
+  String kodeWarnaA = global.color;
+
   void getListWarna() async {
     final response =
         await http.get(Uri.parse("https://pkl.pembelajaran.my.id/api/warna"));
@@ -33,19 +35,22 @@ class _WarnaState extends State<Warna> {
     //debugPrint('isi dari var _dataWarna = ${_dataWarna.toString()}');
   }
 
-  void getWarnaSimpan() async {
-    final response = await http
-        .get(Uri.parse("https://pkl.pembelajaran.my.id/api/pengaturan"));
-    var data = json.decode(response.body);
-    // debugPrint(listData);
-    // debugPrint('isi dari var listData = ${listData['komunitas'].toString()}');
+  // void getWarnaSimpan() async {
+  //   final response = await http
+  //       .get(Uri.parse("https://pkl.pembelajaran.my.id/api/pengaturan"));
+  //   var data = json.decode(response.body);
+  //   // debugPrint(listData);
+  //   // debugPrint('isi dari var listData = ${listData['komunitas'].toString()}');
 
-    setState(() {
-      kodeWarnaLatar = data["warna_tombol"];
-    });
-    //debugPrint('=========================================');
-    //debugPrint('isi dari var _dataWarna = ${_dataWarna.toString()}');
-  }
+  //   setState(() {
+  //     _dataWarnaSimpan = data["data"];
+  //     global.color = _dataWarnaSimpan[7];
+  //     kodeWarnaA = _dataWarnaSimpan[7];
+  //   });
+
+  //   //debugPri;nt('=========================================');
+  //   //debugPrint('isi dari var _dataWarna = ${_dataWarna.toString()}');
+  // }
 
   Future ubahWarna(String namaWarnaLatar) async {
     final bodyJSON = jsonEncode({
@@ -71,53 +76,58 @@ class _WarnaState extends State<Warna> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Setting Warna", style: TextStyle(fontSize: 22)),
-      ),
-      body: Container(
-        child: SingleChildScrollView(
-          child: Container(
-            child: Padding(
-              padding: const EdgeInsets.all(20),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  Container(
-                    width: MediaQuery.of(context).size.width,
-                    child: Text("Warna Latar",
-                        style: TextStyle(fontSize: 20),
-                        textAlign: TextAlign.left),
-                  ),
-                  SizedBox(
-                    height: getProportionateScreenHeight(10),
-                  ),
-                  dropdownWarna("latar"),
-                  SizedBox(
-                    height: getProportionateScreenHeight(30),
-                  ),
-                  Container(
-                    width: MediaQuery.of(context).size.width,
-                    child: Text("Warna Teks",
-                        style: TextStyle(fontSize: 20),
-                        textAlign: TextAlign.left),
-                  ),
-                  SizedBox(
-                    height: getProportionateScreenHeight(10),
-                  ),
-                  dropdownWarna("teks"),
-                  SizedBox(
-                    height: getProportionateScreenHeight(250),
-                  ),
-                  apply(),
-                  // buildToggle("Theme Dark", valNotify1, onChangeFunction1),
-                ],
+        appBar: AppBar(
+          title: Text("Setting Warna", style: TextStyle(fontSize: 22)),
+        ),
+        body: Container(
+          child: SingleChildScrollView(
+            child: Container(
+              child: Padding(
+                padding: const EdgeInsets.all(20),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Container(
+                      width: MediaQuery.of(context).size.width,
+                      child: Text("Warna Latar",
+                          style: TextStyle(fontSize: 20),
+                          textAlign: TextAlign.left),
+                    ),
+                    SizedBox(
+                      height: getProportionateScreenHeight(10),
+                    ),
+                    dropdownWarna("latar"),
+                    SizedBox(
+                      height: getProportionateScreenHeight(30),
+                    ),
+                    Container(
+                      width: MediaQuery.of(context).size.width,
+                      child: Text("Warna Teks",
+                          style: TextStyle(fontSize: 20),
+                          textAlign: TextAlign.left),
+                    ),
+                    SizedBox(
+                      height: getProportionateScreenHeight(10),
+                    ),
+                    dropdownWarna("teks"),
+                    Container(
+                      width: MediaQuery.of(context).size.width,
+                      child: Text("coba " + kodeWarnaA,
+                          style: TextStyle(fontSize: 20),
+                          textAlign: TextAlign.left),
+                    ),
+                    SizedBox(
+                      height: getProportionateScreenHeight(250),
+                    ),
+                    apply(),
+                    // buildToggle("Theme Dark", valNotify1, onChangeFunction1),
+                  ],
+                ),
               ),
             ),
           ),
-        ),
-      ),
-    );
+        ));
   }
 
   Widget dropdownWarna(String pilihWarna) {
@@ -147,6 +157,8 @@ class _WarnaState extends State<Warna> {
                     setState(() {
                       namaWarnaLatar = item['nama'];
                       kodeWarnaLatar = item['kode_warna'];
+                      global.color = kodeWarnaLatar;
+
                       setState(() {});
                     });
                   } else {
@@ -171,7 +183,25 @@ class _WarnaState extends State<Warna> {
       padding: const EdgeInsets.all(0),
       child: GestureDetector(
         onTap: () async {
-          String? response = await ubahWarna(namaWarnaLatar);
+          // String? response = await ubahWarna(namaWarnaLatar);
+          if (kodeWarnaLatar != "") {
+            setState(() {
+              global.color = kodeWarnaLatar;
+              print(global.color);
+            });
+            Navigator.pop(context);
+            Navigator.pop(context);
+            Navigator.pop(context);
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => HomePage()));
+          } else {
+            await Alert(
+              type: AlertType.error,
+              context: context,
+              title: "Anda belum memilih warna",
+              // desc: "Periksa kembali Email & Password anda",
+            ).show();
+          }
         },
         child: Container(
           padding: const EdgeInsets.all(25),

@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
-import 'package:latihan/Screen/Login/LoginPage.dart';
+import 'package:latihan/global.dart' as global;
 import 'package:latihan/HomePage/home_page.dart';
 import 'package:latihan/Setting/Warna.dart';
 
@@ -21,8 +21,8 @@ class Saldo extends StatelessWidget {
         vertical: getProportionateScreenWidth(15),
       ),
       decoration: BoxDecoration(
-        color: Color(hexColor(kodeWarnaLatar)),
-        // color: Color(4294951175),
+        // color: Color(hexColor(kodeWarnaLatar)),
+        color: Colors.red[400],
         borderRadius: BorderRadius.circular(20),
       ),
       child: Text.rich(
@@ -38,7 +38,7 @@ class Saldo extends StatelessWidget {
               ),
             ),
             TextSpan(
-              text: formatedBalance,
+              text: global.formatedBalance,
               // text: "0",
               style: TextStyle(
                 fontSize: getProportionateScreenWidth(24),
