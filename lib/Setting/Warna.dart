@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:latihan/Setting/setting.dart';
 import 'package:latihan/global.dart' as global;
 import 'package:latihan/HomePage/home_page.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
@@ -19,7 +20,6 @@ class _WarnaState extends State<Warna> {
   String namaWarnaLatar = "";
   String kodeWarnaTeks = "";
   String namaWarnaTeks = "";
-  String kodeWarnaA = global.color;
 
   void getListWarna() async {
     final response =
@@ -52,21 +52,21 @@ class _WarnaState extends State<Warna> {
   //   //debugPrint('isi dari var _dataWarna = ${_dataWarna.toString()}');
   // }
 
-  Future ubahWarna(String namaWarnaLatar) async {
-    final bodyJSON = jsonEncode({
-      // "nohape": selectedWarna,
-      "warna_tombol": kodeWarnaLatar,
-    });
+  // Future ubahWarna(String namaWarnaLatar) async {
+  //   final bodyJSON = jsonEncode({
+  //     // "nohape": selectedWarna,
+  //     "warna_tombol": kodeWarnaLatar,
+  //   });
 
-    Map<String, String> headerJSON = {
-      "Content-Type": "application/json",
-    };
+  //   Map<String, String> headerJSON = {
+  //     "Content-Type": "application/json",
+  //   };
 
-    final response = await http.post(
-        Uri.parse("https://pkl.pembelajaran.my.id/api/setting"),
-        headers: headerJSON,
-        body: bodyJSON);
-  }
+  //   final response = await http.post(
+  //       Uri.parse("https://pkl.pembelajaran.my.id/api/setting"),
+  //       headers: headerJSON,
+  //       body: bodyJSON);
+  // }
 
   @override
   void initState() {
@@ -111,12 +111,6 @@ class _WarnaState extends State<Warna> {
                       height: getProportionateScreenHeight(10),
                     ),
                     dropdownWarna("teks"),
-                    Container(
-                      width: MediaQuery.of(context).size.width,
-                      child: Text("coba " + kodeWarnaA,
-                          style: TextStyle(fontSize: 20),
-                          textAlign: TextAlign.left),
-                    ),
                     SizedBox(
                       height: getProportionateScreenHeight(250),
                     ),
@@ -157,8 +151,6 @@ class _WarnaState extends State<Warna> {
                     setState(() {
                       namaWarnaLatar = item['nama'];
                       kodeWarnaLatar = item['kode_warna'];
-                      global.color = kodeWarnaLatar;
-
                       setState(() {});
                     });
                   } else {
@@ -184,10 +176,11 @@ class _WarnaState extends State<Warna> {
       child: GestureDetector(
         onTap: () async {
           // String? response = await ubahWarna(namaWarnaLatar);
-          if (kodeWarnaLatar != "") {
+          if (kodeWarnaLatar != "" && kodeWarnaTeks != "") {
             setState(() {
-              global.color = kodeWarnaLatar;
-              print(global.color);
+              global.warnaLatar = kodeWarnaLatar;
+              global.warnaTeks = kodeWarnaTeks;
+              print(global.warnaLatar);
             });
             Navigator.pop(context);
             Navigator.pop(context);
@@ -198,7 +191,7 @@ class _WarnaState extends State<Warna> {
             await Alert(
               type: AlertType.error,
               context: context,
-              title: "Anda belum memilih warna",
+              title: "Semua wajib diisi",
               // desc: "Periksa kembali Email & Password anda",
             ).show();
           }

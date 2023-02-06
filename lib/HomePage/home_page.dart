@@ -45,7 +45,7 @@ class _HomePageState extends State<HomePage> {
               //     ],
               //   ),
               // ),
-              color: Color(hexColor(global.color)),
+              color: Color(hexColor(global.warnaLatar)),
               child: Column(
                 children: [
                   SizedBox(height: getProportionateScreenHeight(60)),
@@ -114,14 +114,14 @@ class SectionTitle extends StatelessWidget {
           title,
           style: TextStyle(
             fontSize: getProportionateScreenWidth(18),
-            color: Colors.black,
+            color: Color(hexColor(global.warnaTeks)),
           ),
         ),
         GestureDetector(
           onTap: press,
           child: Text(
             "See More",
-            style: TextStyle(color: Color.fromARGB(255, 251, 251, 251)),
+            style: TextStyle(color: Color(hexColor(global.warnaTeks))),
           ),
         ),
       ],

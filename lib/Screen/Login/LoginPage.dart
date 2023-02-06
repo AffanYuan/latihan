@@ -115,22 +115,23 @@ class _LoginPageState extends State<LoginPage> {
     final response = await http
         .get(Uri.parse("https://pkl.pembelajaran.my.id/api/pengaturan"));
     var dataWarna = json.decode(response.body);
-    List data1 = dataWarna["data"];
+    var data1 = dataWarna["data"];
     debugPrint("isi data Warna :");
-    debugPrint(dataWarna["data"].toString());
+    debugPrint(dataWarna.toString());
     debugPrint("isi data :");
     debugPrint(data1.toString());
-    // debugPrint('isi dari var listData = ${listData['komunitas'].toString()}');
 
-    // // setState(() {
-    // global.color = dataWarna["warna_tombol"];
-    // });
-
-    // final response =
-    //     await http.get(Uri.parse("https://pkl.pembelajaran.my.id/api/warna"));
-    // var listData = json.decode(response.body);
-    // debugPrint("isi data Warna :");
-    // debugPrint(listData.toString());
+    global.warnaLatar = data1[0]["warna_background"].toString();
+    global.warnaTeks = data1[0]["warna_text"].toString();
+    global.text_fitur1 = data1[0]["text_fitur1"].toString();
+    global.text_fitur2 = data1[0]["text_fitur2"].toString();
+    global.text_fitur3 = data1[0]["text_fitur3"].toString();
+    global.text_fitur4 = data1[0]["text_fitur4"].toString();
+    global.text_fitur5 = data1[0]["text_fitur5"].toString();
+    global.text_fitur6 = data1[0]["text_fitur6"].toString();
+    global.text_fitur7 = data1[0]["text_fitur7"].toString();
+    global.text_fitur8 = data1[0]["text_fitur8"].toString();
+    global.text_fitur9 = data1[0]["text_fitur9"].toString();
 
     usernameUser = username;
     passwordUser = password;

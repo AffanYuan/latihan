@@ -27,7 +27,7 @@ class Saldo extends StatelessWidget {
       ),
       child: Text.rich(
         TextSpan(
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: Color(hexColor(global.warnaTeks))),
           children: [
             TextSpan(text: "Sisa saldo Anda\n\n"),
             TextSpan(
@@ -41,9 +41,9 @@ class Saldo extends StatelessWidget {
               text: global.formatedBalance,
               // text: "0",
               style: TextStyle(
-                fontSize: getProportionateScreenWidth(24),
-                fontWeight: FontWeight.bold,
-              ),
+                  fontSize: getProportionateScreenWidth(24),
+                  fontWeight: FontWeight.bold,
+                  color: Color(hexColor(global.warnaTeks))),
             ),
           ],
         ),

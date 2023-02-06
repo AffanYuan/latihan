@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:latihan/HomePage/icon_btn_with_counter.dart';
 import 'package:latihan/HomePage/home_page.dart';
+import 'package:latihan/Setting/Warna.dart';
+import 'package:latihan/global.dart' as global;
 
 class Categories extends StatelessWidget {
   @override
@@ -122,13 +124,11 @@ Widget iconContainer() {
                             height: 10,
                           ),
                           Text(
-                            'Topup &',
-                            style: TextStyle(fontSize: 14),
+                            global.text_fitur4,
+                            style: TextStyle(
+                                color: Color(hexColor(global.warnaTeks)),
+                                fontSize: 14),
                           ),
-                          Text(
-                            'E-Money',
-                            style: TextStyle(fontSize: 14),
-                          )
                         ],
                       ),
                     ),
@@ -161,13 +161,11 @@ Widget iconContainer() {
                             height: 10,
                           ),
                           Text(
-                            'Pulsa &',
-                            style: TextStyle(fontSize: 14),
+                            global.text_fitur5,
+                            style: TextStyle(
+                                color: Color(hexColor(global.warnaTeks)),
+                                fontSize: 14),
                           ),
-                          Text(
-                            'PLN',
-                            style: TextStyle(fontSize: 14),
-                          )
                         ],
                       ))),
                   onTap: () {
@@ -198,12 +196,16 @@ Widget iconContainer() {
                             height: 10,
                           ),
                           Text(
-                            'Tagihan',
-                            style: TextStyle(fontSize: 14),
+                            global.text_fitur6,
+                            style: TextStyle(
+                                color: Color(hexColor(global.warnaTeks)),
+                                fontSize: 14),
                           ),
                           Text(
                             '',
-                            style: TextStyle(fontSize: 14),
+                            style: TextStyle(
+                                color: Color(hexColor(global.warnaTeks)),
+                                fontSize: 14),
                           )
                         ],
                       ))),
@@ -250,8 +252,10 @@ Widget iconContainer() {
                             height: 10,
                           ),
                           Text(
-                            'Marketplace',
-                            style: TextStyle(fontSize: 14),
+                            global.text_fitur7,
+                            style: TextStyle(
+                                color: Color(hexColor(global.warnaTeks)),
+                                fontSize: 14),
                           ),
                         ],
                       ))),
@@ -285,8 +289,10 @@ Widget iconContainer() {
                             height: 10,
                           ),
                           Text(
-                            'Sekolah',
-                            style: TextStyle(fontSize: 14),
+                            global.text_fitur8,
+                            style: TextStyle(
+                                color: Color(hexColor(global.warnaTeks)),
+                                fontSize: 14),
                           )
                         ],
                       ))),
@@ -320,8 +326,10 @@ Widget iconContainer() {
                             height: 10,
                           ),
                           Text(
-                            'Koperasi',
-                            style: TextStyle(fontSize: 14),
+                            global.text_fitur9,
+                            style: TextStyle(
+                                color: Color(hexColor(global.warnaTeks)),
+                                fontSize: 14),
                           )
                         ],
                       ))),
@@ -363,12 +371,18 @@ Widget iconTransfer() {
                 height: 10,
               ),
               Text(
-                'Transfer',
-                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+                global.text_fitur3,
+                style: TextStyle(
+                    color: Color(hexColor(global.warnaTeks)),
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500),
               ),
               Text(
                 ' ',
-                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+                style: TextStyle(
+                    color: Color(hexColor(global.warnaTeks)),
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500),
               )
             ],
           ))),
@@ -408,12 +422,11 @@ Widget iconTopup() {
                 height: 10,
               ),
               Text(
-                'Isi',
-                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
-              ),
-              Text(
-                'Saldo',
-                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+                global.text_fitur2,
+                style: TextStyle(
+                    color: Color(hexColor(global.warnaTeks)),
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500),
               ),
             ],
           ))),
@@ -450,13 +463,19 @@ Widget iconTarikTunai() {
                 height: 10,
               ),
               Text(
-                'Tarik',
-                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+                global.text_fitur1,
+                style: TextStyle(
+                    color: Color(hexColor(global.warnaTeks)),
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500),
               ),
-              Text(
-                'Tunai',
-                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
-              )
+              // Text(
+              //   'Tunai',
+              //   style: TextStyle(
+              //       color: Color(hexColor(global.warnaTeks)),
+              //       fontSize: 14,
+              //       fontWeight: FontWeight.w500),
+              // )
             ],
           ),
         ),

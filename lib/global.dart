@@ -2,8 +2,18 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-String color = "0xffffffff";
+String warnaLatar = "";
+String warnaTeks = "";
 String formatedBalance = "";
+String text_fitur1 = "";
+String text_fitur2 = "";
+String text_fitur3 = "";
+String text_fitur4 = "";
+String text_fitur5 = "";
+String text_fitur6 = "";
+String text_fitur7 = "";
+String text_fitur8 = "";
+String text_fitur9 = "";
 
 // void getWarnaSimpan() async {
 //   final response = await http
