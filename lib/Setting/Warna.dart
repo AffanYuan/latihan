@@ -176,11 +176,28 @@ class _WarnaState extends State<Warna> {
       child: GestureDetector(
         onTap: () async {
           // String? response = await ubahWarna(namaWarnaLatar);
-          if (kodeWarnaLatar != "" && kodeWarnaTeks != "") {
+          if (kodeWarnaLatar != "" && kodeWarnaTeks == "") {
+            setState(() {
+              global.warnaLatar = kodeWarnaLatar;
+            });
+            Navigator.pop(context);
+            Navigator.pop(context);
+            Navigator.pop(context);
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => HomePage()));
+          } else if (kodeWarnaLatar == "" && kodeWarnaTeks != "") {
+            setState(() {
+              global.warnaTeks = kodeWarnaTeks;
+            });
+            Navigator.pop(context);
+            Navigator.pop(context);
+            Navigator.pop(context);
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => HomePage()));
+          } else if (kodeWarnaLatar != "" && kodeWarnaTeks != "") {
             setState(() {
               global.warnaLatar = kodeWarnaLatar;
               global.warnaTeks = kodeWarnaTeks;
-              print(global.warnaLatar);
             });
             Navigator.pop(context);
             Navigator.pop(context);

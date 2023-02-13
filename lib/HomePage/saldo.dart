@@ -22,7 +22,7 @@ class Saldo extends StatelessWidget {
       ),
       decoration: BoxDecoration(
         // color: Color(hexColor(kodeWarnaLatar)),
-        color: Colors.red[400],
+        color: Colors.blue[200],
         borderRadius: BorderRadius.circular(20),
       ),
       child: Text.rich(

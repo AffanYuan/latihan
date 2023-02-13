@@ -15,17 +15,18 @@ String text_fitur7 = "";
 String text_fitur8 = "";
 String text_fitur9 = "";
 
-// void getWarnaSimpan() async {
-//   final response = await http
-//       .get(Uri.parse("https://pkl.pembelajaran.my.id/api/pengaturan"));
-//   var data = json.decode(response.body);
-//   // debugPrint(listData);
-//   // debugPrint('isi dari var listData = ${listData['komunitas'].toString()}');
+// Future ubahWarna(String namaWarnaLatar) async {
+  //   final bodyJSON = jsonEncode({
+  //     // "nohape": selectedWarna,
+  //     "warna_tombol": kodeWarnaLatar,
+  //   });
 
-//   // setState(() {
-//   color = data["warna_tombol"];
-//   // });
+  //   Map<String, String> headerJSON = {
+  //     "Content-Type": "application/json",
+  //   };
 
-//   //debugPri;nt('=========================================');
-//   //debugPrint('isi dari var _dataWarna = ${_dataWarna.toString()}');
-// }
+  //   final response = await http.post(
+  //       Uri.parse("https://pkl.pembelajaran.my.id/api/setting"),
+  //       headers: headerJSON,
+  //       body: bodyJSON);
+  // }
