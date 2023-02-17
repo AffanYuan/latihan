@@ -5,7 +5,7 @@ import 'package:latihan/HomePage/home_page.dart';
 import 'package:latihan/Setting/setting.dart';
 
 List _dataWarna = [];
-String kodeWarnaLatar = "";
+String kodeWarnaLatar = "0xffffffff";
 // int finalKodeLatar = 15;
 String namaWarnaLatar = "";
 String kodeWarnaTeks = "";

@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:latihan/Screen/Login/KonfirmasiSignUp.dart';
 import 'package:flutter/services.dart';
+import 'package:latihan/Setting/Warna.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 import 'package:http/http.dart' as http;
@@ -228,16 +229,7 @@ class _SignUpState extends State<SignUp> {
       body: Center(
         child: SingleChildScrollView(
           child: Container(
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [
-                  Colors.blueAccent,
-                  Colors.white,
-                ],
-              ),
-            ),
+            color: Color(hexColor(kodeWarnaLatar)),
             child: Padding(
               padding: const EdgeInsets.all(20),
               child: Form(
