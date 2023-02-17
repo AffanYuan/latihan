@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-
 import 'package:latihan/HomePage/home_page.dart';
+import 'package:latihan/Setting/Warna.dart';
+import 'package:latihan/global.dart' as global;
 
 class SpecialOffers extends StatelessWidget {
   const SpecialOffers({
@@ -94,7 +95,8 @@ class SpecialOfferCard extends StatelessWidget {
                   ),
                   child: Text.rich(
                     TextSpan(
-                      style: TextStyle(color: Colors.white),
+                      style:
+                          TextStyle(color: Color(hexColor(global.warnaTeks))),
                       children: [
                         TextSpan(
                           text: "$category\n",

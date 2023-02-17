@@ -6,9 +6,15 @@ import 'package:latihan/HomePage/home_header.dart';
 import 'package:latihan/HomePage/categories.dart';
 import 'package:latihan/HomePage/special_offers.dart';
 import 'package:latihan/HomePage/saldo.dart';
+import 'package:latihan/Setting/Warna.dart';
+import 'package:latihan/global.dart' as global;
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -29,16 +35,17 @@ class _HomePageState extends State<HomePage> {
         body: SingleChildScrollView(
           child: Center(
             child: Container(
-              decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.bottomCenter,
-                  end: Alignment.topCenter,
-                  colors: [
-                    Colors.white,
-                    Colors.blueAccent,
-                  ],
-                ),
-              ),
+              // decoration: const BoxDecoration(
+              //   gradient: LinearGradient(
+              //     begin: Alignment.bottomCenter,
+              //     end: Alignment.topCenter,
+              //     colors: [
+              //       Colors.white,
+              //       Color(hexColor(kodeWarnaLatar)),
+              //     ],
+              //   ),
+              // ),
+              color: Color(hexColor(global.warnaLatar)),
               child: Column(
                 children: [
                   SizedBox(height: getProportionateScreenHeight(60)),
@@ -107,14 +114,14 @@ class SectionTitle extends StatelessWidget {
           title,
           style: TextStyle(
             fontSize: getProportionateScreenWidth(18),
-            color: Colors.black,
+            color: Color(hexColor(global.warnaTeks)),
           ),
         ),
         GestureDetector(
           onTap: press,
           child: Text(
             "See More",
-            style: TextStyle(color: Color.fromARGB(255, 251, 251, 251)),
+            style: TextStyle(color: Color(hexColor(global.warnaTeks))),
           ),
         ),
       ],

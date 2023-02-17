@@ -1,8 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+import 'package:latihan/global.dart' as global;
 import 'package:latihan/HomePage/home_page.dart';
+import 'package:latihan/Setting/Icon.dart';
+import 'package:latihan/Setting/Teks.dart';
 import 'package:latihan/Setting/Warna.dart';
 
 class SettingPage extends StatefulWidget {
@@ -81,11 +84,18 @@ class _SettingPageState extends State<SettingPage> {
                   context, MaterialPageRoute(builder: (context) => Warna()));
             }),
             SizedBox(height: getProportionateScreenHeight(10)),
-            buildOption(context, "Icon", () {}),
+            buildOption(context, "Icon", () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => iconPage()));
+            }),
             SizedBox(height: getProportionateScreenHeight(10)),
-            buildOption(context, "Logo", () {}),
-            SizedBox(height: getProportionateScreenHeight(20)),
-            buildToggle("Tampil Saldo", valNotify2, onChangeFunction2),
+            buildOption(context, "Teks", () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => Teks()));
+            }),
+            SizedBox(height: MediaQuery.of(context).size.shortestSide),
+            // buildToggle("Tampil Saldo", valNotify2, onChangeFunction2),
+            SimpanSetting()
           ],
         ),
       ),
@@ -144,6 +154,61 @@ GestureDetector buildOption(
             color: Colors.grey,
           )
         ],
+      ),
+    ),
+  );
+}
+
+Future ubahWarna(String namaWarnaLatar) async {
+  final bodyJSON = jsonEncode({
+    // "nohape": selectedWarna,
+    "warna_tombol": global.warnaLatar,
+  });
+
+  Map<String, String> headerJSON = {
+    "Content-Type": "application/json",
+  };
+
+  final response = await http.post(
+      Uri.parse("https://pkl.pembelajaran.my.id/api/setting"),
+      headers: headerJSON,
+      body: bodyJSON);
+}
+
+Widget SimpanSetting() {
+  return Padding(
+    padding: const EdgeInsets.all(0),
+    child: GestureDetector(
+      onTap: () async {
+        // String? response = await ubahWarna(namaWarnaLatar);
+        // if (kodeWarnaLatar != "" && kodeWarnaTeks != "") {
+
+        // } else {
+        //   await Alert(
+        //     type: AlertType.error,
+        //     context: context,
+        //     title: "Semua wajib diisi",
+        //     // desc: "Periksa kembali Email & Password anda",
+        //   ).show();
+        // }
+      },
+      child: Container(
+        padding: const EdgeInsets.all(25),
+        margin: const EdgeInsets.symmetric(horizontal: 25),
+        decoration: BoxDecoration(
+          color: Colors.blue[400],
+          borderRadius: BorderRadius.circular(40),
+        ),
+        child: const Center(
+          child: Text(
+            "Save",
+            style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+              fontSize: 16,
+            ),
+          ),
+        ),
       ),
     ),
   );

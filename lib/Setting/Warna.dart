@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:latihan/HomePage/home_page.dart';
 import 'package:latihan/Setting/setting.dart';
+<<<<<<< HEAD
 
 List _dataWarna = [];
 String kodeWarnaLatar = "0xffffffff";
@@ -10,6 +10,11 @@ String kodeWarnaLatar = "0xffffffff";
 String namaWarnaLatar = "";
 String kodeWarnaTeks = "";
 String namaWarnaTeks = "";
+=======
+import 'package:latihan/global.dart' as global;
+import 'package:latihan/HomePage/home_page.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
+>>>>>>> d9fb74828a13cbd05a624e1a28371711e09100b2
 
 class Warna extends StatefulWidget {
   const Warna({super.key});
@@ -19,6 +24,13 @@ class Warna extends StatefulWidget {
 }
 
 class _WarnaState extends State<Warna> {
+  List _dataWarna = [];
+  List _dataWarnaSimpan = [];
+  String kodeWarnaLatar = "";
+  String namaWarnaLatar = "";
+  String kodeWarnaTeks = "";
+  String namaWarnaTeks = "";
+
   void getListWarna() async {
     final response =
         await http.get(Uri.parse("https://pkl.pembelajaran.my.id/api/warna"));
@@ -33,35 +45,38 @@ class _WarnaState extends State<Warna> {
     //debugPrint('isi dari var _dataWarna = ${_dataWarna.toString()}');
   }
 
-  void getWarnaSimpan() async {
-    final response = await http
-        .get(Uri.parse("https://pkl.pembelajaran.my.id/api/pengaturan"));
-    var data = json.decode(response.body);
-    // debugPrint(listData);
-    // debugPrint('isi dari var listData = ${listData['komunitas'].toString()}');
+  // void getWarnaSimpan() async {
+  //   final response = await http
+  //       .get(Uri.parse("https://pkl.pembelajaran.my.id/api/pengaturan"));
+  //   var data = json.decode(response.body);
+  //   // debugPrint(listData);
+  //   // debugPrint('isi dari var listData = ${listData['komunitas'].toString()}');
 
-    setState(() {
-      kodeWarnaLatar = data["warna_tombol"];
-    });
-    //debugPrint('=========================================');
-    //debugPrint('isi dari var _dataWarna = ${_dataWarna.toString()}');
-  }
+  //   setState(() {
+  //     _dataWarnaSimpan = data["data"];
+  //     global.color = _dataWarnaSimpan[7];
+  //     kodeWarnaA = _dataWarnaSimpan[7];
+  //   });
 
-  Future ubahWarna(String namaWarnaLatar) async {
-    final bodyJSON = jsonEncode({
-      // "nohape": selectedWarna,
-      "warna_tombol": kodeWarnaLatar,
-    });
+  //   //debugPri;nt('=========================================');
+  //   //debugPrint('isi dari var _dataWarna = ${_dataWarna.toString()}');
+  // }
 
-    Map<String, String> headerJSON = {
-      "Content-Type": "application/json",
-    };
+  // Future ubahWarna(String namaWarnaLatar) async {
+  //   final bodyJSON = jsonEncode({
+  //     // "nohape": selectedWarna,
+  //     "warna_tombol": kodeWarnaLatar,
+  //   });
 
-    final response = await http.post(
-        Uri.parse("https://pkl.pembelajaran.my.id/api/setting"),
-        headers: headerJSON,
-        body: bodyJSON);
-  }
+  //   Map<String, String> headerJSON = {
+  //     "Content-Type": "application/json",
+  //   };
+
+  //   final response = await http.post(
+  //       Uri.parse("https://pkl.pembelajaran.my.id/api/setting"),
+  //       headers: headerJSON,
+  //       body: bodyJSON);
+  // }
 
   @override
   void initState() {
@@ -71,53 +86,52 @@ class _WarnaState extends State<Warna> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Setting Warna", style: TextStyle(fontSize: 22)),
-      ),
-      body: Container(
-        child: SingleChildScrollView(
-          child: Container(
-            child: Padding(
-              padding: const EdgeInsets.all(20),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  Container(
-                    width: MediaQuery.of(context).size.width,
-                    child: Text("Warna Latar",
-                        style: TextStyle(fontSize: 20),
-                        textAlign: TextAlign.left),
-                  ),
-                  SizedBox(
-                    height: getProportionateScreenHeight(10),
-                  ),
-                  dropdownWarna("latar"),
-                  SizedBox(
-                    height: getProportionateScreenHeight(30),
-                  ),
-                  Container(
-                    width: MediaQuery.of(context).size.width,
-                    child: Text("Warna Teks",
-                        style: TextStyle(fontSize: 20),
-                        textAlign: TextAlign.left),
-                  ),
-                  SizedBox(
-                    height: getProportionateScreenHeight(10),
-                  ),
-                  dropdownWarna("teks"),
-                  SizedBox(
-                    height: getProportionateScreenHeight(250),
-                  ),
-                  apply(),
-                  // buildToggle("Theme Dark", valNotify1, onChangeFunction1),
-                ],
+        appBar: AppBar(
+          title: Text("Setting Warna", style: TextStyle(fontSize: 22)),
+        ),
+        body: Container(
+          child: SingleChildScrollView(
+            child: Container(
+              child: Padding(
+                padding: const EdgeInsets.all(20),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Container(
+                      width: MediaQuery.of(context).size.width,
+                      child: Text("Warna Latar",
+                          style: TextStyle(fontSize: 20),
+                          textAlign: TextAlign.left),
+                    ),
+                    SizedBox(
+                      height: getProportionateScreenHeight(10),
+                    ),
+                    dropdownWarna("latar"),
+                    SizedBox(
+                      height: getProportionateScreenHeight(30),
+                    ),
+                    Container(
+                      width: MediaQuery.of(context).size.width,
+                      child: Text("Warna Teks",
+                          style: TextStyle(fontSize: 20),
+                          textAlign: TextAlign.left),
+                    ),
+                    SizedBox(
+                      height: getProportionateScreenHeight(10),
+                    ),
+                    dropdownWarna("teks"),
+                    SizedBox(
+                      height: getProportionateScreenHeight(250),
+                    ),
+                    apply(),
+                    // buildToggle("Theme Dark", valNotify1, onChangeFunction1),
+                  ],
+                ),
               ),
             ),
           ),
-        ),
-      ),
-    );
+        ));
   }
 
   Widget dropdownWarna(String pilihWarna) {
@@ -171,7 +185,43 @@ class _WarnaState extends State<Warna> {
       padding: const EdgeInsets.all(0),
       child: GestureDetector(
         onTap: () async {
-          String? response = await ubahWarna(namaWarnaLatar);
+          // String? response = await ubahWarna(namaWarnaLatar);
+          if (kodeWarnaLatar != "" && kodeWarnaTeks == "") {
+            setState(() {
+              global.warnaLatar = kodeWarnaLatar;
+            });
+            Navigator.pop(context);
+            Navigator.pop(context);
+            Navigator.pop(context);
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => HomePage()));
+          } else if (kodeWarnaLatar == "" && kodeWarnaTeks != "") {
+            setState(() {
+              global.warnaTeks = kodeWarnaTeks;
+            });
+            Navigator.pop(context);
+            Navigator.pop(context);
+            Navigator.pop(context);
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => HomePage()));
+          } else if (kodeWarnaLatar != "" && kodeWarnaTeks != "") {
+            setState(() {
+              global.warnaLatar = kodeWarnaLatar;
+              global.warnaTeks = kodeWarnaTeks;
+            });
+            Navigator.pop(context);
+            Navigator.pop(context);
+            Navigator.pop(context);
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => HomePage()));
+          } else {
+            await Alert(
+              type: AlertType.error,
+              context: context,
+              title: "Semua wajib diisi",
+              // desc: "Periksa kembali Email & Password anda",
+            ).show();
+          }
         },
         child: Container(
           padding: const EdgeInsets.all(25),
