@@ -21,6 +21,7 @@ import 'package:scoped_model/scoped_model.dart';
 import 'package:Edimu/konfigurasi/api.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../root.dart';
+import 'package:Edimu/konfigurasi/style.dart';
 
 //https://gitlab.com/alkaffdt3/Edimu_app.git
 
@@ -218,6 +219,7 @@ mixin userModel on ConnectedModel {
       }
 
       simpanLogin(token);
+      getWarna();
 
       // if (idGrup == 2) {
       //   getTagihanBaru();
@@ -298,6 +300,7 @@ mixin userModel on ConnectedModel {
       }
 
       simpanLogin(token);
+      getWarna();
 
       // if (idGrup == 2) {
       //   getTagihanBaru();
@@ -420,6 +423,30 @@ mixin userModel on ConnectedModel {
       responServer = "tidak diketahui";
       return responServer;
     }
+  }
+
+  Future getWarna() async {
+    final response = await http
+        .get(Uri.parse("https://pkl.pembelajaran.my.id/api/pengaturan"));
+    var dataWarna = json.decode(response.body);
+    var data1 = dataWarna["data"];
+    debugPrint("isi data Warna :");
+    debugPrint(dataWarna.toString());
+    debugPrint("isi data :");
+    debugPrint(data1.toString());
+
+    Warna.warnaHome_db = data1[0]["warna_background"].toString();
+    debugPrint('a' + Warna.warnaHome_db);
+    // warnaTeks = data1[0]["warna_text"].toString();
+    Teks.fitur1 = data1[0]["text_fitur1"];
+    Teks.fitur2 = data1[0]["text_fitur2"];
+    Teks.fitur3 = data1[0]["text_fitur3"];
+    Teks.fitur4 = data1[0]["text_fitur4"];
+    Teks.fitur5 = data1[0]["text_fitur5"];
+    Teks.fitur6 = data1[0]["text_fitur6"];
+    Teks.fitur7 = data1[0]["text_fitur7"];
+    Teks.fitur8 = data1[0]["text_fitur8"];
+    Teks.fitur9 = data1[0]["text_fitur9"];
   }
 
   //bikin lapak

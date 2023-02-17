@@ -5,8 +5,9 @@ class Warna {
   static Color accent = Colors.blueAccent;
 
   // warna background halaman
-  static Color warnaHome = Color(0xFF1B63DE);
-  static Color warnaTunai = Color(0xFFE3FFEE);
+  static Color warnaHome = Color(0xfff44336);
+  static String warnaHome_db = "";
+  static Color warnaTunai = Color(hexColor(warnaHome_db));
 
   static Color warnaNavBar = Color(0xFFFFCB8C);
   //
@@ -35,15 +36,15 @@ class Warna {
 }
 
 class Teks {
-  static String fitur1 = "Tarik Tunai";
-  static String fitur2 = "Isi Saldo";
-  static String fitur3 = "Transfer";
-  static String fitur4 = "Topup & \nE-Money";
-  static String fitur5 = "Pulsa & \nPLN";
-  static String fitur6 = "Tagihan";
-  static String fitur7 = "Pasar Lokal";
-  static String fitur8 = "Pasar \nKomunitas";
-  static String fitur9 = "Pasar \nKomoditas";
+  static String fitur1 = '';
+  static String fitur2 = '';
+  static String fitur3 = '';
+  static String fitur4 = '';
+  static String fitur5 = '';
+  static String fitur6 = '';
+  static String fitur7 = "";
+  static String fitur8 = "";
+  static String fitur9 = "";
   static String navbar1 = 'Beranda';
   static String navbar2 = 'Kontak';
   static String navbar3 = 'Transaksi';
@@ -73,4 +74,11 @@ String rapiin(String s) {
     onMatch: (_) => '\n',
     onNonMatch: (n) => n.trim(),
   );
+}
+
+int hexColor(String color) {
+  String newColor = color;
+  newColor = newColor.replaceAll("#", "");
+  int finalColor = int.parse(newColor);
+  return finalColor;
 }
