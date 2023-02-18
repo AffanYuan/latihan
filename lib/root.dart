@@ -88,6 +88,7 @@ class _rootState extends State<root> {
     _deleteCacheDir();
     _deleteAppDir();
     hapusCache();
+    widget.model.getWarna();
     ambilLogin();
     super.initState();
     SystemChrome.setEnabledSystemUIOverlays([]);
@@ -103,7 +104,7 @@ class _rootState extends State<root> {
           body: Container(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
-            decoration: Warna.bgGradient(Warna.warnaHome),
+            // decoration: Warna.bgGradient(model.warnaHome),
             child: Center(
               child: Stack(
                 alignment: Alignment.center,

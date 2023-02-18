@@ -74,6 +74,10 @@ mixin ConnectedModel on Model {
 
   String token = "";
 
+  Color warnaHome;
+
+  Color warnaTunai;
+
   String duhur;
   // ini authValue64 untuk header json bagian authnya
   String authVaue64;
@@ -219,7 +223,7 @@ mixin userModel on ConnectedModel {
       }
 
       simpanLogin(token);
-      getWarna();
+      // getWarna();
 
       // if (idGrup == 2) {
       //   getTagihanBaru();
@@ -300,7 +304,7 @@ mixin userModel on ConnectedModel {
       }
 
       simpanLogin(token);
-      getWarna();
+      // getWarna();
 
       // if (idGrup == 2) {
       //   getTagihanBaru();
@@ -434,9 +438,13 @@ mixin userModel on ConnectedModel {
     debugPrint(dataWarna.toString());
     debugPrint("isi data :");
     debugPrint(data1.toString());
+    // return data1;
 
-    Warna.warnaHome_db = data1[0]["warna_background"].toString();
-    debugPrint('a' + Warna.warnaHome_db);
+    String warnaHome_db = data1[0]["warna_background"].toString();
+    debugPrint('a' + warnaHome_db);
+    warnaHome = Color(hexColor(warnaHome_db));
+    warnaTunai = Color(hexColor(warnaHome_db));
+
     // warnaTeks = data1[0]["warna_text"].toString();
     Teks.fitur1 = data1[0]["text_fitur1"];
     Teks.fitur2 = data1[0]["text_fitur2"];
@@ -447,7 +455,24 @@ mixin userModel on ConnectedModel {
     Teks.fitur7 = data1[0]["text_fitur7"];
     Teks.fitur8 = data1[0]["text_fitur8"];
     Teks.fitur9 = data1[0]["text_fitur9"];
+    notifyListeners();
   }
+
+  // terapkanWarna() async {
+  //   var data1 = await getWarna();
+  //   Warna.warnaHome_db = data1[0]["warna_background"].toString();
+  //   debugPrint('a' + Warna.warnaHome_db);
+  //   // warnaTeks = data1[0]["warna_text"].toString();
+  //   Teks.fitur1 = data1[0]["text_fitur1"];
+  //   Teks.fitur2 = data1[0]["text_fitur2"];
+  //   Teks.fitur3 = data1[0]["text_fitur3"];
+  //   Teks.fitur4 = data1[0]["text_fitur4"];
+  //   Teks.fitur5 = data1[0]["text_fitur5"];
+  //   Teks.fitur6 = data1[0]["text_fitur6"];
+  //   Teks.fitur7 = data1[0]["text_fitur7"];
+  //   Teks.fitur8 = data1[0]["text_fitur8"];
+  //   Teks.fitur9 = data1[0]["text_fitur9"];
+  // }
 
   //bikin lapak
   Future bikinLapakJuli2021(

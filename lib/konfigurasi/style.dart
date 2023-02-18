@@ -5,9 +5,10 @@ class Warna {
   static Color accent = Colors.blueAccent;
 
   // warna background halaman
-  static Color warnaHome = Color(0xfff44336);
-  static String warnaHome_db = "";
-  static Color warnaTunai = Color(hexColor(warnaHome_db));
+  // static String warnaHome_db = "";
+  // static Color warnaHome = Color(hexColor(warnaHome_db));
+
+  // static Color warnaTunai = Color(hexColor(warnaHome_db));
 
   static Color warnaNavBar = Color(0xFFFFCB8C);
   //

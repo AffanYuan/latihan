@@ -638,7 +638,7 @@ class _homePageState extends State<homePage> {
             child: Container(
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height,
-              decoration: Warna.bgGradient(Warna.warnaHome),
+              decoration: Warna.bgGradient(model.warnaHome),
               child: Container(
                 // margin: EdgeInsets.symmetric(horizontal: 10),
                 child: ListView(
