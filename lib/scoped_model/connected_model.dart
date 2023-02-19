@@ -74,9 +74,11 @@ mixin ConnectedModel on Model {
 
   String token = "";
 
-  Color warnaHome;
+  // Color warnaHome;
 
-  Color warnaTunai;
+  // Color warnaTunai;
+
+  // Color warnaTeks;
 
   String duhur;
   // ini authValue64 untuk header json bagian authnya
@@ -442,8 +444,12 @@ mixin userModel on ConnectedModel {
 
     String warnaHome_db = data1[0]["warna_background"].toString();
     debugPrint('a' + warnaHome_db);
-    warnaHome = Color(hexColor(warnaHome_db));
-    warnaTunai = Color(hexColor(warnaHome_db));
+    Warna.warnaHome = Color(hexColor(warnaHome_db));
+    Warna.warnaTunai = Color(hexColor(warnaHome_db));
+
+    String warnaTeks_db = data1[0]["warna_text"].toString();
+    debugPrint('a' + warnaTeks_db);
+    Warna.warnaTeks = Color(hexColor(warnaTeks_db));
 
     // warnaTeks = data1[0]["warna_text"].toString();
     Teks.fitur1 = data1[0]["text_fitur1"];

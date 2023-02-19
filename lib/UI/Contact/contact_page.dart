@@ -55,7 +55,7 @@ class _contactPageState extends State<contactPage> {
             ),
             backgroundColor: Colors.white,
             body: Container(
-              decoration: Warna.bgGradient(model.warnaTunai),
+              decoration: Warna.bgGradient(Warna.warnaTunai),
               child: ListView(
                 // shrinkWrap: true,
                 children: [

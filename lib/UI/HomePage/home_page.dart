@@ -581,7 +581,10 @@ class _homePageState extends State<homePage> {
                 ),
                 Text(
                   Teks.fitur1,
-                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+                  style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                      color: Warna.warnaTeks),
                 ),
               ],
             ),
@@ -638,7 +641,7 @@ class _homePageState extends State<homePage> {
             child: Container(
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height,
-              decoration: Warna.bgGradient(model.warnaHome),
+              decoration: Warna.bgGradient(Warna.warnaHome),
               child: Container(
                 // margin: EdgeInsets.symmetric(horizontal: 10),
                 child: ListView(

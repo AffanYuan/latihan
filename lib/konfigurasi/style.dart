@@ -7,8 +7,11 @@ class Warna {
   // warna background halaman
   // static String warnaHome_db = "";
   // static Color warnaHome = Color(hexColor(warnaHome_db));
+  static Color warnaHome;
 
   // static Color warnaTunai = Color(hexColor(warnaHome_db));
+  static Color warnaTunai;
+  static Color warnaTeks;
 
   static Color warnaNavBar = Color(0xFFFFCB8C);
   //

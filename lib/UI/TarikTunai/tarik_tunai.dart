@@ -73,7 +73,7 @@ class _TarikTunaiState extends State<TarikTunai> {
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height,
               padding: EdgeInsets.all(5),
-              decoration: Warna.bgGradient(model.warnaTunai),
+              decoration: Warna.bgGradient(Warna.warnaTunai),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [

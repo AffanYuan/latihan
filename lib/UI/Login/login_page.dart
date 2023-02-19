@@ -60,152 +60,157 @@ class _loginPageState extends State<loginPage> {
           //   fit: BoxFit.cover,
           // ),
           bgSolidColor(),
-          Scaffold(
-              backgroundColor: Colors.transparent,
-              resizeToAvoidBottomInset: true,
-              // backgroundColor: Color(0xff1976d2),
-              body: SingleChildScrollView(
-                padding: EdgeInsets.all(10),
-                child: Container(
-                  height: MediaQuery.of(context).size.height,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SizedBox(height: 35),
-                      Image.asset(
-                        "lib/assets/logo.png",
-                        height: 250,
-                      ),
-                      SizedBox(
-                        height: 5,
-                      ),
-                      Container(
-                        height: 50,
-                        decoration: BoxDecoration(
-                          // color: Colors.white,
-
-                          borderRadius: BorderRadius.all(Radius.circular(9.0)),
-                          color: Colors.white,
+          Container(
+            decoration: Warna.bgGradient(Warna.warnaHome),
+            child: Scaffold(
+                backgroundColor: Colors.transparent,
+                resizeToAvoidBottomInset: true,
+                // backgroundColor: Color(0xff1976d2),
+                body: SingleChildScrollView(
+                  padding: EdgeInsets.all(10),
+                  child: Container(
+                    height: MediaQuery.of(context).size.height,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SizedBox(height: 35),
+                        Image.asset(
+                          "lib/assets/logo.png",
+                          height: 250,
                         ),
-                        child: TextField(
-                          onSubmitted: (_) =>
-                              FocusScope.of(context).nextFocus(),
-                          textInputAction: TextInputAction.next,
-                          keyboardType: TextInputType.number,
-                          inputFormatters: [
-                            FilteringTextInputFormatter.digitsOnly
-                          ],
-                          style: TextStyle(color: Colors.blue[900]),
-                          controller: userName,
-                          decoration: InputDecoration(
-                              hintText: "Contoh : 0813xxxxxxx",
-                              hintStyle: TextStyle(color: Colors.blue[900]),
-                              labelText: 'Nomor HP',
-                              labelStyle: TextStyle(color: Colors.blue[900]),
-                              border: OutlineInputBorder(),
-                              fillColor: Colors.white,
-                              focusedBorder: OutlineInputBorder(
-                                  borderSide: const BorderSide(
-                                      color: Colors.blue, width: 2.0)),
-                              enabledBorder: OutlineInputBorder(
-                                  borderSide: const BorderSide(
-                                      color: Colors.white, width: 2.0))),
+                        SizedBox(
+                          height: 5,
                         ),
-                      ),
-                      Container(
-                        height: 20,
-                      ),
-                      Container(
-                        height: 50,
-                        decoration: BoxDecoration(
+                        Container(
+                          height: 50,
+                          decoration: BoxDecoration(
                             // color: Colors.white,
+
                             borderRadius:
                                 BorderRadius.all(Radius.circular(9.0)),
-                            color: Colors.white),
-                        child: TextField(
-                          // focusNode: focus,
-                          style: TextStyle(color: Colors.blue[900]),
-                          controller: password,
-                          obscureText: passwordVisibility,
-
-                          decoration: InputDecoration(
-                              labelText: 'Password',
-                              labelStyle: TextStyle(color: Colors.blue[900]),
-                              border: OutlineInputBorder(),
-                              fillColor: Colors.blue[900],
-                              suffixIcon: InkWell(
-                                onTap: () {
-                                  setState(() {
-                                    passwordVisibility = !passwordVisibility;
-                                  });
-                                },
-                                child: Container(
-                                  padding: EdgeInsets.only(right: 11),
-                                  width: 85,
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    children: [
-                                      Text(
-                                          passwordVisibility
-                                              ? 'Lihat'
-                                              : 'Tutup',
-                                          style:
-                                              TextStyle(color: Warna.primary)),
-                                      SizedBox(width: 7),
-                                      Icon(
-                                        // Based on passwordVisible state choose the icon
-                                        passwordVisibility
-                                            ? Icons.visibility_off
-                                            : Icons.visibility,
-                                        color: Warna.primary,
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                  borderSide: const BorderSide(
-                                      color: Colors.blue, width: 2.0)),
-                              enabledBorder: OutlineInputBorder(
-                                  borderSide: const BorderSide(
-                                      color: Colors.white, width: 2.0))),
-                        ),
-                      ),
-                      Container(
-                        height: 25,
-                      ),
-                      tombolLogin(model),
-                      SizedBox(
-                        height: 17,
-                      ),
-                      InkWell(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => Register_Page()),
-                          );
-                        },
-                        child: Container(
-                          // color: Warna.hijauMain,
-                          child: RichText(
-                            text: TextSpan(
-                                style: TextStyle(color: Colors.blue[900]),
-                                children: [
-                                  TextSpan(text: "Belum punya akun? "),
-                                  TextSpan(
-                                      text: "KLIK UNTUK DAFTAR",
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.w700,
-                                          decoration: TextDecoration.underline))
-                                ]),
+                            color: Colors.white,
+                          ),
+                          child: TextField(
+                            onSubmitted: (_) =>
+                                FocusScope.of(context).nextFocus(),
+                            textInputAction: TextInputAction.next,
+                            keyboardType: TextInputType.number,
+                            inputFormatters: [
+                              FilteringTextInputFormatter.digitsOnly
+                            ],
+                            style: TextStyle(color: Colors.blue[900]),
+                            controller: userName,
+                            decoration: InputDecoration(
+                                hintText: "Contoh : 0813xxxxxxx",
+                                hintStyle: TextStyle(color: Colors.blue[900]),
+                                labelText: 'Nomor HP',
+                                labelStyle: TextStyle(color: Colors.blue[900]),
+                                border: OutlineInputBorder(),
+                                fillColor: Colors.white,
+                                focusedBorder: OutlineInputBorder(
+                                    borderSide: const BorderSide(
+                                        color: Colors.blue, width: 2.0)),
+                                enabledBorder: OutlineInputBorder(
+                                    borderSide: const BorderSide(
+                                        color: Colors.white, width: 2.0))),
                           ),
                         ),
-                      )
-                    ],
+                        Container(
+                          height: 20,
+                        ),
+                        Container(
+                          height: 50,
+                          decoration: BoxDecoration(
+                              // color: Colors.white,
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(9.0)),
+                              color: Colors.white),
+                          child: TextField(
+                            // focusNode: focus,
+                            style: TextStyle(color: Colors.blue[900]),
+                            controller: password,
+                            obscureText: passwordVisibility,
+
+                            decoration: InputDecoration(
+                                labelText: 'Password',
+                                labelStyle: TextStyle(color: Colors.blue[900]),
+                                border: OutlineInputBorder(),
+                                fillColor: Colors.blue[900],
+                                suffixIcon: InkWell(
+                                  onTap: () {
+                                    setState(() {
+                                      passwordVisibility = !passwordVisibility;
+                                    });
+                                  },
+                                  child: Container(
+                                    padding: EdgeInsets.only(right: 11),
+                                    width: 85,
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: [
+                                        Text(
+                                            passwordVisibility
+                                                ? 'Lihat'
+                                                : 'Tutup',
+                                            style: TextStyle(
+                                                color: Warna.primary)),
+                                        SizedBox(width: 7),
+                                        Icon(
+                                          // Based on passwordVisible state choose the icon
+                                          passwordVisibility
+                                              ? Icons.visibility_off
+                                              : Icons.visibility,
+                                          color: Warna.primary,
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                    borderSide: const BorderSide(
+                                        color: Colors.blue, width: 2.0)),
+                                enabledBorder: OutlineInputBorder(
+                                    borderSide: const BorderSide(
+                                        color: Colors.white, width: 2.0))),
+                          ),
+                        ),
+                        Container(
+                          height: 25,
+                        ),
+                        tombolLogin(model),
+                        SizedBox(
+                          height: 17,
+                        ),
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Register_Page()),
+                            );
+                          },
+                          child: Container(
+                            // color: Warna.hijauMain,
+                            child: RichText(
+                              text: TextSpan(
+                                  style: TextStyle(color: Colors.blue[900]),
+                                  children: [
+                                    TextSpan(text: "Belum punya akun? "),
+                                    TextSpan(
+                                        text: "KLIK UNTUK DAFTAR",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w700,
+                                            decoration:
+                                                TextDecoration.underline))
+                                  ]),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
                   ),
-                ),
-              ))
+                )),
+          )
         ],
       );
     });
