@@ -110,10 +110,11 @@ class _contactPageState extends State<contactPage> {
                         itemCount: displayContactList.length,
                         itemBuilder: (context, index) {
                           return ListTile(
-                            title: Text(displayContactList[index].name),
+                            title: Text(displayContactList[index].name,
+                                style: TextStyle(color: Warna.warnaTeks)),
                             subtitle: Text(
                               displayContactList[index].id,
-                              style: TextStyle(color: Colors.blue),
+                              style: TextStyle(color: Warna.warnaTeks),
                             ),
                             onTap: () {},
                             //trailing: Text(displayContactList[index].name),

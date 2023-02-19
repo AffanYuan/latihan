@@ -1,8 +1,8 @@
+import 'package:Edimu/konfigurasi/style.dart';
 import 'package:flutter/material.dart';
 import 'package:universal_html/prefer_universal/js.dart';
 
 class IconMenu extends StatelessWidget {
-
   String icon = "";
   String title = "";
   Widget page;
@@ -14,7 +14,8 @@ class IconMenu extends StatelessWidget {
     return menuPembayaran(context, icon, title, page);
   }
 
-   Widget menuPembayaran(BuildContext context, String icon, String title, [Widget page = null]) {
+  Widget menuPembayaran(BuildContext context, String icon, String title,
+      [Widget page = null]) {
     return Opacity(
       opacity: page == null ? 0.3 : 1,
       child: Container(
@@ -29,7 +30,10 @@ class IconMenu extends StatelessWidget {
                 margin: EdgeInsets.only(top: 5),
                 child: Text(
                   title,
-                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+                  style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                      color: Warna.warnaTeks),
                   textAlign: TextAlign.center,
                 ),
               ),
@@ -45,5 +49,4 @@ class IconMenu extends StatelessWidget {
       ),
     );
   }
-
 }

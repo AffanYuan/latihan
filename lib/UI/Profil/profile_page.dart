@@ -74,6 +74,7 @@ class _profilePageState extends State<profilePage> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
+            decoration: Warna.bgGradient(Warna.warnaHome),
             width: double.infinity,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,

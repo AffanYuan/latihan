@@ -145,193 +145,200 @@ class _transferPageState extends State<transferPage> {
           title: Text("Transfer dana"),
           centerTitle: true,
         ),
-        body: ListView(
-          controller: scrollController,
-          children: <Widget>[
-            Padding(
-              padding: EdgeInsets.all(10),
-              child: TextField(
-                onChanged: (text) {
-                  text = text.toLowerCase();
+        body: Container(
+          decoration: Warna.bgGradient(Warna.warnaHome),
+          height: MediaQuery.of(context).size.height,
+          child: ListView(
+            controller: scrollController,
+            children: <Widget>[
+              Padding(
+                padding: EdgeInsets.all(10),
+                child: TextField(
+                  onChanged: (text) {
+                    text = text.toLowerCase();
 
-                  setState(() {
-                    listDisplayName = listContacts.where((note) {
-                      var nama = note.name.toLowerCase();
-                      return nama.contains(text);
-                    }).toList();
-                  });
-                },
-                controller: searchController,
-                decoration: InputDecoration(
-                    labelText: "Search",
-                    hintText: "Cari nama",
-                    prefixIcon: Icon(Icons.search),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(25.0)))),
+                    setState(() {
+                      listDisplayName = listContacts.where((note) {
+                        var nama = note.name.toLowerCase();
+                        return nama.contains(text);
+                      }).toList();
+                    });
+                  },
+                  controller: searchController,
+                  decoration: InputDecoration(
+                      labelText: "Search",
+                      hintText: "Cari nama",
+                      prefixIcon: Icon(Icons.search),
+                      border: OutlineInputBorder(
+                          borderRadius:
+                              BorderRadius.all(Radius.circular(25.0)))),
+                ),
               ),
-            ),
-            Container(
-              color: Colors.white30,
-              height: 200,
-              child: ListView.builder(
-                shrinkWrap: true,
-                itemCount: listDisplayName.length,
-                itemBuilder: (context, index) {
-                  return ListTile(
-                    title: Text('${listDisplayName[index].name}'),
-                    subtitle: Text(
-                      listDisplayName[index].id,
-                      style: TextStyle(color: Warna.accent),
-                    ),
-                    onTap: () {
-                      usernameController.text = listDisplayName[index].id;
-                      namaPenerima = listDisplayName[index].name;
-                      nameController.text = listDisplayName[index].name;
-                      noteController.text = ' ';
-                      setState(() {});
-                      //
-                      // scrollController.animateTo(
-                      //     scrollController.position.maxScrollExtent,
-                      //     duration: Duration(milliseconds: 501),
-                      //     curve: Curves.easeIn);
+              Container(
+                color: Colors.white30,
+                height: 200,
+                child: ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: listDisplayName.length,
+                  itemBuilder: (context, index) {
+                    return ListTile(
+                      title: Text(
+                        '${listDisplayName[index].name}',
+                        style: TextStyle(color: Warna.warnaTeks),
+                      ),
+                      subtitle: Text(
+                        listDisplayName[index].id,
+                        style: TextStyle(color: Warna.warnaTeks),
+                      ),
+                      onTap: () {
+                        usernameController.text = listDisplayName[index].id;
+                        namaPenerima = listDisplayName[index].name;
+                        nameController.text = listDisplayName[index].name;
+                        noteController.text = ' ';
+                        setState(() {});
+                        //
+                        // scrollController.animateTo(
+                        //     scrollController.position.maxScrollExtent,
+                        //     duration: Duration(milliseconds: 501),
+                        //     curve: Curves.easeIn);
 
-                      focusNodeNominal.requestFocus();
-                    },
-                  );
-                },
+                        focusNodeNominal.requestFocus();
+                      },
+                    );
+                  },
+                ),
               ),
-            ),
-            Container(
-                margin: EdgeInsets.fromLTRB(28, 20, 27, 0),
-                child: Form(
-                  key: formKey,
-                  child: Column(
-                    children: <Widget>[
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          Align(
-                            alignment: Alignment.centerLeft,
-                            child: Text("Saldo",
-                                style: TextStyle(
-                                    fontSize: 15, color: Warna.primary)),
-                          ),
-                          Align(
-                            child: Text(rupiah(model.formatedBalance),
-                                style: TextStyle(
-                                  fontSize: 15,
-                                )),
-                          )
-                        ],
-                      ),
-                      SizedBox(
-                        height: 35.17,
-                      ),
-                      TextFormField(
-                        enabled: false,
-                        decoration: InputDecoration(
-                          labelText: "Nama Penerima",
-                          enabledBorder: UnderlineInputBorder(
-                              borderSide:
-                                  BorderSide(color: Warna.primary, width: 3.0)),
+              Container(
+                  margin: EdgeInsets.fromLTRB(28, 20, 27, 0),
+                  child: Form(
+                    key: formKey,
+                    child: Column(
+                      children: <Widget>[
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Align(
+                              alignment: Alignment.centerLeft,
+                              child: Text("Saldo",
+                                  style: TextStyle(
+                                      fontSize: 15, color: Warna.warnaTeks)),
+                            ),
+                            Align(
+                              child: Text(rupiah(model.formatedBalance),
+                                  style: TextStyle(
+                                      fontSize: 15, color: Warna.warnaTeks)),
+                            )
+                          ],
                         ),
-
-                        //initialValue: usernameController.text,
-
-                        // initialValue: initialUsername,
-                        controller: nameController,
-                        validator: (value) {
-                          if (usernameController.text.length < 1) {
-                            return "masukkan username tujuan anda";
-                          } else {
-                            return null;
-                          }
-                        },
-                      ),
-                      SizedBox(
-                        height: 25.17,
-                      ),
-                      TextFormField(
-                          focusNode: focusNodeNominal,
-                          textInputAction: TextInputAction.next,
-                          onFieldSubmitted: (_) {
-                            catatanFocusNode.requestFocus();
-                          },
+                        SizedBox(
+                          height: 35.17,
+                        ),
+                        TextFormField(
+                          enabled: false,
                           decoration: InputDecoration(
-                            prefixText: "Rp.",
-                            labelText: "Nominal",
+                            labelText: "Nama Penerima",
                             enabledBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(
                                     color: Warna.primary, width: 3.0)),
                           ),
-                          keyboardType: TextInputType.number,
-                          controller: amountController,
+
+                          //initialValue: usernameController.text,
+
+                          // initialValue: initialUsername,
+                          controller: nameController,
                           validator: (value) {
-                            //debugPrint(
-                            // "balancenya ======= ${model.formatedBalance.toString()}");
-                            int a = int.parse(
-                                amountController.text.replaceAll(".", ""));
-                            //debugPrint(a.toString());
-                            if (a > int.parse(model.formatedBalance)) {
-                              //debugPrint(a.toString());
-                              return "saldo anda kurang";
+                            if (usernameController.text.length < 1) {
+                              return "masukkan username tujuan anda";
                             } else {
                               return null;
                             }
-                          }),
-                      SizedBox(
-                        height: 25.17,
-                      ),
-                      TextField(
-                        focusNode: catatanFocusNode,
-                        textInputAction: TextInputAction.go,
-                        onSubmitted: (_) {
-                          prosesKeHalamanKonfirmasiTransfer();
-                        },
-                        decoration: InputDecoration(
-                            labelText: "Catatan",
-                            enabledBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(
-                                    color: Warna.primary, width: 3.0))),
-                        controller: noteController,
-                        // validator: (value) {
-                        //   if (noteController.text.length < 1) {
-                        //     return "masukkan note";
-                        //   } else {
-                        //     return null;
-                        //   }
-                        // },
-                      ),
-                      SizedBox(
-                        height: 45,
-                      ),
-                      SizedBox(
-                          width: MediaQuery.of(context).size.width,
-                          height: 57,
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Warna.accent,
-                              shape: RoundedRectangleBorder(
-                                borderRadius:
-                                    BorderRadius.circular(9), // <-- Radius
-                              ),
-                            ),
-                            // color: Warna.accent,
-                            child: Text(
-                              "Lanjut",
-                              style: TextStyle(color: Colors.white),
-                            ),
-                            // shape: RoundedRectangleBorder(
-                            //     borderRadius: BorderRadius.circular(9.0)),
-                            onPressed: () async {
-                              prosesKeHalamanKonfirmasiTransfer();
+                          },
+                        ),
+                        SizedBox(
+                          height: 25.17,
+                        ),
+                        TextFormField(
+                            focusNode: focusNodeNominal,
+                            textInputAction: TextInputAction.next,
+                            onFieldSubmitted: (_) {
+                              catatanFocusNode.requestFocus();
                             },
-                          )),
-                      SizedBox(height: 25),
-                    ],
-                  ),
-                )),
-          ],
+                            decoration: InputDecoration(
+                              prefixText: "Rp.",
+                              labelText: "Nominal",
+                              enabledBorder: UnderlineInputBorder(
+                                  borderSide: BorderSide(
+                                      color: Warna.primary, width: 3.0)),
+                            ),
+                            keyboardType: TextInputType.number,
+                            controller: amountController,
+                            validator: (value) {
+                              //debugPrint(
+                              // "balancenya ======= ${model.formatedBalance.toString()}");
+                              int a = int.parse(
+                                  amountController.text.replaceAll(".", ""));
+                              //debugPrint(a.toString());
+                              if (a > int.parse(model.formatedBalance)) {
+                                //debugPrint(a.toString());
+                                return "saldo anda kurang";
+                              } else {
+                                return null;
+                              }
+                            }),
+                        SizedBox(
+                          height: 25.17,
+                        ),
+                        TextField(
+                          focusNode: catatanFocusNode,
+                          textInputAction: TextInputAction.go,
+                          onSubmitted: (_) {
+                            prosesKeHalamanKonfirmasiTransfer();
+                          },
+                          decoration: InputDecoration(
+                              labelText: "Catatan",
+                              enabledBorder: UnderlineInputBorder(
+                                  borderSide: BorderSide(
+                                      color: Warna.primary, width: 3.0))),
+                          controller: noteController,
+                          // validator: (value) {
+                          //   if (noteController.text.length < 1) {
+                          //     return "masukkan note";
+                          //   } else {
+                          //     return null;
+                          //   }
+                          // },
+                        ),
+                        SizedBox(
+                          height: 45,
+                        ),
+                        SizedBox(
+                            width: MediaQuery.of(context).size.width,
+                            height: 57,
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Warna.accent,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius:
+                                      BorderRadius.circular(9), // <-- Radius
+                                ),
+                              ),
+                              // color: Warna.accent,
+                              child: Text(
+                                "Lanjut",
+                                style: TextStyle(color: Colors.white),
+                              ),
+                              // shape: RoundedRectangleBorder(
+                              //     borderRadius: BorderRadius.circular(9.0)),
+                              onPressed: () async {
+                                prosesKeHalamanKonfirmasiTransfer();
+                              },
+                            )),
+                        SizedBox(height: 25),
+                      ],
+                    ),
+                  )),
+            ],
+          ),
         ),
       );
     });

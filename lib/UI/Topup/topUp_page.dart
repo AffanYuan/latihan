@@ -11,6 +11,7 @@ import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:vibration/vibration.dart';
 import 'package:indonesia/indonesia.dart';
 import 'package:qr_flutter/qr_flutter.dart';
+import 'package:Edimu/konfigurasi/style.dart';
 
 class topUpPage extends StatefulWidget {
   MainModel model;
@@ -108,237 +109,241 @@ class _topUpPageState extends State<topUpPage> {
         ),
         body: SingleChildScrollView(
           child: Container(
-            child: Column(
-              children: <Widget>[
-                SizedBox(
-                  height: 5,
-                ),
-//                Text("Rp. "),
-                Container(
-                  margin: EdgeInsets.only(top: 0),
-                  padding: const EdgeInsets.only(right: 10, left: 10),
-                  child: TextField(
-                    focusNode: myFocusNode,
-                    keyboardType:
-                        TextInputType.numberWithOptions(decimal: false),
-                    controller: amount,
-                    style: TextStyle(fontSize: 30),
-                    decoration: InputDecoration(
-                        prefixText: "Rp ",
-                        suffix: Padding(
-                          padding:
-                              EdgeInsets.only(right: 5, bottom: 0, top: 10),
-                          child: InkWell(
-                            onTap: () {
-                              amount.text = "0";
-                            },
-                            child: Container(
-                                width: 75,
-                                height: 25,
-                                child: Icon(
-                                  Icons.cancel,
-                                  color: Colors.red[800],
-                                )),
-                          ),
-                        )),
+            decoration: Warna.bgGradient(Warna.warnaHome),
+            height: MediaQuery.of(context).size.height,
+            child: Container(
+              child: Column(
+                children: <Widget>[
+                  SizedBox(
+                    height: 5,
                   ),
-                ),
-                // Container(
-                //   margin: EdgeInsets.only(top: 10, left: 10),
-                //   child: Wrap(
-                //     children: <Widget>[
-                //       tombolUang("Rp.10 rb", 10000),
-                //       tombolUang("Rp.50 rb", 50000),
-                //       tombolUang("Rp.100 rb", 100000),
-                //       tombolUang("Rp.200 rb", 200000),
-                //       tombolUang("Rp.300 rb", 300000),
-                //       tombolUang("Rp.1 Juta", 1000000),
-                //     ],
-                //   ),
-                // ),
-                SizedBox(
-                  height: 9,
-                ),
+                  //                Text("Rp. "),
+                  Container(
+                    margin: EdgeInsets.only(top: 0),
+                    padding: const EdgeInsets.only(right: 10, left: 10),
+                    child: TextField(
+                      focusNode: myFocusNode,
+                      keyboardType:
+                          TextInputType.numberWithOptions(decimal: false),
+                      controller: amount,
+                      style: TextStyle(fontSize: 30),
+                      decoration: InputDecoration(
+                          prefixText: "Rp ",
+                          suffix: Padding(
+                            padding:
+                                EdgeInsets.only(right: 5, bottom: 0, top: 10),
+                            child: InkWell(
+                              onTap: () {
+                                amount.text = "0";
+                              },
+                              child: Container(
+                                  width: 75,
+                                  height: 25,
+                                  child: Icon(
+                                    Icons.cancel,
+                                    color: Colors.red[800],
+                                  )),
+                            ),
+                          )),
+                    ),
+                  ),
+                  // Container(
+                  //   margin: EdgeInsets.only(top: 10, left: 10),
+                  //   child: Wrap(
+                  //     children: <Widget>[
+                  //       tombolUang("Rp.10 rb", 10000),
+                  //       tombolUang("Rp.50 rb", 50000),
+                  //       tombolUang("Rp.100 rb", 100000),
+                  //       tombolUang("Rp.200 rb", 200000),
+                  //       tombolUang("Rp.300 rb", 300000),
+                  //       tombolUang("Rp.1 Juta", 1000000),
+                  //     ],
+                  //   ),
+                  // ),
+                  SizedBox(
+                    height: 9,
+                  ),
 
-                Container(
-                  decoration: BoxDecoration(
-                    // color: Colors.white,
-                    color: Colors.red,
-                    borderRadius: BorderRadius.all(Radius.circular(9.0)),
+                  Container(
+                    decoration: BoxDecoration(
+                      // color: Colors.white,
+                      color: Colors.red,
+                      borderRadius: BorderRadius.all(Radius.circular(9.0)),
+                    ),
+                    padding: EdgeInsets.symmetric(horizontal: 15, vertical: 7),
+                    child: Column(
+                      children: [
+                        Text("Konfirmasi saldo hanya dapat dilayani pada:",
+                            style: TextStyle(color: Colors.white)),
+                        SizedBox(height: 5),
+                        Text("senin - jum'at",
+                            style: TextStyle(color: Colors.white)),
+                        SizedBox(height: 5),
+                        Text("07.00-20.00 WIB",
+                            style: TextStyle(color: Colors.white)),
+                      ],
+                    ),
                   ),
-                  padding: EdgeInsets.symmetric(horizontal: 15, vertical: 7),
-                  child: Column(
+
+                  SizedBox(
+                    height: 15,
+                  ),
+
+                  Row(
+                    //baris ke-1
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("Konfirmasi saldo hanya dapat dilayani pada:",
-                          style: TextStyle(color: Colors.white)),
-                      SizedBox(height: 5),
-                      Text("senin - jum'at",
-                          style: TextStyle(color: Colors.white)),
-                      SizedBox(height: 5),
-                      Text("07.00-20.00 WIB",
-                          style: TextStyle(color: Colors.white)),
+                      tombolUang2(100000, "100 rb"),
+                      tombolUang2(200000, "200 rb"),
                     ],
                   ),
-                ),
-
-                SizedBox(
-                  height: 15,
-                ),
-
-                Row(
-                  //baris ke-1
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    tombolUang2(100000, "100 rb"),
-                    tombolUang2(200000, "200 rb"),
-                  ],
-                ),
-                SizedBox(
-                  height: 9,
-                ),
-                Row(
-                  //baris ke-2
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    tombolUang2(500000, "500 rb"),
-                    tombolUang2(1000000, "1 juta")
-                  ],
-                ),
-                SizedBox(
-                  height: 9,
-                ),
-                tombolMasukkanAngka(),
-                // Container(
-                //   width: MediaQuery.of(context).size.width - 185,
-                //   child: ElevatedButton(
-                //       padding: EdgeInsets.all(0),
-                //       elevation: 9,
-                //       onPressed: () {},
-                //       child: Image.asset("lib/assets/50ribu.jpg")),
-                // ),
-                Container(
-                  margin: EdgeInsets.only(top: 20, left: 10),
-                  child: Text("Isi saldo dengan transfer ke bank:"),
-                ),
-                Container(
-                  height: 30,
-                  // alignment: AlignmentDirectional.centerStart,
-                  margin: EdgeInsets.only(top: 5, left: 10),
-                  child: DropdownButton<String>(
-                      focusColor: Color(0xff00D6AB),
-                      value: widget.model.dataBank['namaBank'],
-                      elevation: 16,
-                      items: <String>[widget.model.dataBank['namaBank']]
-                          .map<DropdownMenuItem<String>>((String value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Text(value),
-                        );
-                      }).toList(),
-                      onChanged: (String newValue) {
-                        setState(() {
-                          dropdownValue = newValue;
-                        });
-                      }),
-                ),
-                // Container(
-                //   margin: EdgeInsets.only(top: 15, left: 10, bottom: 10),
-                //   child: Text("Atau isi saldo dengan QRIS"),
-                // ),
-                // ElevatedButton.icon(
-                //   style: ElevatedButton.styleFrom(
-                //     backgroundColor: Colors.blue,
-                //   ),
-                //   onPressed: () {
-                //     hitung();
-                //     if (kirimUangTotal > 24999) {
-                //       showQRISImage();
-                //     } else {
-                //       Alert(
-                //           context: context,
-                //           title: "Mohon Maaf",
-                //           type: AlertType.info,
-                //           desc: "Minimum topup adalah Rp 25.000",
-                //           buttons: [
-                //             DialogButton(
-                //                 child: Text(
-                //                   "OK",
-                //                   style: TextStyle(color: Colors.white),
-                //                 ),
-                //                 onPressed: () {
-                //                   Navigator.pop(context);
-                //                 })
-                //           ]).show();
-                //     }
-                //   },
-                //   label: Text("Show QRIS"),
-                //   icon: Icon(Icons.qr_code_scanner_rounded),
-                // ),
-                Container(
-                  margin: EdgeInsets.only(top: 25),
-                  padding: EdgeInsets.only(left: 15, right: 15),
-                  height: 45,
-                  width: double.infinity,
-                  child: ElevatedButton(
-                    child: Text(
-                      "LANJUT",
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 15,
-                          fontWeight: FontWeight.w900),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blue[800],
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(4), // <-- Radius
-                      ),
-                    ),
-                    // shape: RoundedRectangleBorder(
-                    //   borderRadius: BorderRadius.circular(4.0),
-                    // ),
-                    // color: Colors.blue[800],
-                    onPressed: () async {
-                      hitung();
-
-                      // Map a = await model.confirmTopUp(
-                      //   kirimUangTotal,
-                      // );
-
-                      // //debugPrint(".......mmm");
-                      // //debugPrint(a['id'].toString());
-                      // //debugPrint(".......");
-                      // //debugPrint("=========  a length ${a.length.toString()}");
-
-                      if (kirimUangTotal > 24999) {
-                        //debugPrint(
-                        // "isi dari kirimUangTotal adalah $kirimUangTotal");
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>
-                                  konfirmTopUp(kirimUangTotal, widget.model)),
-                        );
-                      } else {
-                        Alert(
-                            context: context,
-                            title: "Mohon Maaf",
-                            type: AlertType.info,
-                            desc: "Minimum topup adalah Rp 25.000",
-                            buttons: [
-                              DialogButton(
-                                  child: Text(
-                                    "OK",
-                                    style: TextStyle(color: Colors.white),
-                                  ),
-                                  onPressed: () {
-                                    Navigator.pop(context);
-                                  })
-                            ]).show();
-                      }
-                    },
+                  SizedBox(
+                    height: 9,
                   ),
-                )
-              ],
+                  Row(
+                    //baris ke-2
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      tombolUang2(500000, "500 rb"),
+                      tombolUang2(1000000, "1 juta")
+                    ],
+                  ),
+                  SizedBox(
+                    height: 9,
+                  ),
+                  tombolMasukkanAngka(),
+                  // Container(
+                  //   width: MediaQuery.of(context).size.width - 185,
+                  //   child: ElevatedButton(
+                  //       padding: EdgeInsets.all(0),
+                  //       elevation: 9,
+                  //       onPressed: () {},
+                  //       child: Image.asset("lib/assets/50ribu.jpg")),
+                  // ),
+                  Container(
+                    margin: EdgeInsets.only(top: 20, left: 10),
+                    child: Text("Isi saldo dengan transfer ke bank:"),
+                  ),
+                  Container(
+                    height: 30,
+                    // alignment: AlignmentDirectional.centerStart,
+                    margin: EdgeInsets.only(top: 5, left: 10),
+                    child: DropdownButton<String>(
+                        focusColor: Color(0xff00D6AB),
+                        value: widget.model.dataBank['namaBank'],
+                        elevation: 16,
+                        items: <String>[widget.model.dataBank['namaBank']]
+                            .map<DropdownMenuItem<String>>((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Text(value),
+                          );
+                        }).toList(),
+                        onChanged: (String newValue) {
+                          setState(() {
+                            dropdownValue = newValue;
+                          });
+                        }),
+                  ),
+                  // Container(
+                  //   margin: EdgeInsets.only(top: 15, left: 10, bottom: 10),
+                  //   child: Text("Atau isi saldo dengan QRIS"),
+                  // ),
+                  // ElevatedButton.icon(
+                  //   style: ElevatedButton.styleFrom(
+                  //     backgroundColor: Colors.blue,
+                  //   ),
+                  //   onPressed: () {
+                  //     hitung();
+                  //     if (kirimUangTotal > 24999) {
+                  //       showQRISImage();
+                  //     } else {
+                  //       Alert(
+                  //           context: context,
+                  //           title: "Mohon Maaf",
+                  //           type: AlertType.info,
+                  //           desc: "Minimum topup adalah Rp 25.000",
+                  //           buttons: [
+                  //             DialogButton(
+                  //                 child: Text(
+                  //                   "OK",
+                  //                   style: TextStyle(color: Colors.white),
+                  //                 ),
+                  //                 onPressed: () {
+                  //                   Navigator.pop(context);
+                  //                 })
+                  //           ]).show();
+                  //     }
+                  //   },
+                  //   label: Text("Show QRIS"),
+                  //   icon: Icon(Icons.qr_code_scanner_rounded),
+                  // ),
+                  Container(
+                    margin: EdgeInsets.only(top: 25),
+                    padding: EdgeInsets.only(left: 15, right: 15),
+                    height: 45,
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      child: Text(
+                        "LANJUT",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 15,
+                            fontWeight: FontWeight.w900),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.blue[800],
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(4), // <-- Radius
+                        ),
+                      ),
+                      // shape: RoundedRectangleBorder(
+                      //   borderRadius: BorderRadius.circular(4.0),
+                      // ),
+                      // color: Colors.blue[800],
+                      onPressed: () async {
+                        hitung();
+
+                        // Map a = await model.confirmTopUp(
+                        //   kirimUangTotal,
+                        // );
+
+                        // //debugPrint(".......mmm");
+                        // //debugPrint(a['id'].toString());
+                        // //debugPrint(".......");
+                        // //debugPrint("=========  a length ${a.length.toString()}");
+
+                        if (kirimUangTotal > 24999) {
+                          //debugPrint(
+                          // "isi dari kirimUangTotal adalah $kirimUangTotal");
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    konfirmTopUp(kirimUangTotal, widget.model)),
+                          );
+                        } else {
+                          Alert(
+                              context: context,
+                              title: "Mohon Maaf",
+                              type: AlertType.info,
+                              desc: "Minimum topup adalah Rp 25.000",
+                              buttons: [
+                                DialogButton(
+                                    child: Text(
+                                      "OK",
+                                      style: TextStyle(color: Colors.white),
+                                    ),
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    })
+                              ]).show();
+                        }
+                      },
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
         ),

@@ -147,7 +147,8 @@ class _homePageState extends State<homePage> {
                             ),
                             Text(
                               Teks.fitur4,
-                              style: TextStyle(fontSize: 14),
+                              style: TextStyle(
+                                  fontSize: 14, color: Warna.warnaTeks),
                             ),
                           ],
                         ),
@@ -182,7 +183,8 @@ class _homePageState extends State<homePage> {
                             ),
                             Text(
                               Teks.fitur5,
-                              style: TextStyle(fontSize: 14),
+                              style: TextStyle(
+                                  fontSize: 14, color: Warna.warnaTeks),
                             ),
                           ],
                         ))),
@@ -215,7 +217,8 @@ class _homePageState extends State<homePage> {
                             ),
                             Text(
                               Teks.fitur6,
-                              style: TextStyle(fontSize: 14),
+                              style: TextStyle(
+                                  fontSize: 14, color: Warna.warnaTeks),
                             ),
                           ],
                         ))),
@@ -263,7 +266,8 @@ class _homePageState extends State<homePage> {
                             ),
                             Text(
                               Teks.fitur7,
-                              style: TextStyle(fontSize: 14),
+                              style: TextStyle(
+                                  fontSize: 14, color: Warna.warnaTeks),
                             ),
                           ],
                         ))),
@@ -298,7 +302,8 @@ class _homePageState extends State<homePage> {
                             ),
                             Text(
                               Teks.fitur8,
-                              style: TextStyle(fontSize: 14),
+                              style: TextStyle(
+                                  fontSize: 14, color: Warna.warnaTeks),
                             ),
                           ],
                         ))),
@@ -372,7 +377,8 @@ class _homePageState extends State<homePage> {
                             ),
                             Text(
                               Teks.fitur9,
-                              style: TextStyle(fontSize: 14),
+                              style: TextStyle(
+                                  fontSize: 14, color: Warna.warnaTeks),
                             ),
                           ],
                         ))),
@@ -415,7 +421,10 @@ class _homePageState extends State<homePage> {
                 ),
                 Text(
                   Teks.fitur3,
-                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+                  style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                      color: Warna.warnaTeks),
                 ),
               ],
             ))),
@@ -456,7 +465,10 @@ class _homePageState extends State<homePage> {
                 ),
                 Text(
                   Teks.fitur2,
-                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+                  style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                      color: Warna.warnaTeks),
                 ),
               ],
             ))),
