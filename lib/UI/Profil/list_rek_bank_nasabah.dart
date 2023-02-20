@@ -58,6 +58,9 @@ class _ListRekBankNasabahPageState extends State<ListRekBankNasabahPage> {
           children: [
             SingleChildScrollView(
               child: Container(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height,
+                decoration: Warna.bgGradient(Warna.warnaHome),
                 padding: EdgeInsets.all(11),
                 child: Column(
                   children: [
@@ -150,11 +153,15 @@ class _ListRekBankNasabahPageState extends State<ListRekBankNasabahPage> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Icon(Icons.info_outline),
-          SizedBox(width: 4,),
+          SizedBox(
+            width: 4,
+          ),
           Text(
             "Tekan dan tahan untuk menghapus rekening",
             style: TextStyle(
-                color: Colors.black87, fontWeight: FontWeight.w500, fontSize: 15),
+                color: Colors.black87,
+                fontWeight: FontWeight.w500,
+                fontSize: 15),
             textAlign: TextAlign.center,
           ),
         ],

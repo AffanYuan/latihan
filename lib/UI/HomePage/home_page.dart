@@ -653,6 +653,8 @@ class _homePageState extends State<homePage> {
             child: Container(
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height,
+              // warna Solid
+              // color: Warna.warnaHome,
               decoration: Warna.bgGradient(Warna.warnaHome),
               child: Container(
                 // margin: EdgeInsets.symmetric(horizontal: 10),

@@ -3,6 +3,7 @@ import 'package:Edimu/scoped_model/main.dart';
 import 'package:Edimu/UI/Profil/tambah_alamat.dart';
 import 'package:Edimu/UI/Profil/edit_alamat.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
+import 'package:Edimu/konfigurasi/style.dart';
 
 class DaftarAlamatUserPage extends StatefulWidget {
   final MainModel model;
@@ -21,13 +22,16 @@ class _DaftarAlamatUserPageState extends State<DaftarAlamatUserPage> {
         title: Text('Daftar Alamat'),
         centerTitle: false,
       ),
-      body: ListView(
-        children: [
-          SizedBox(
-            height: 10,
-          ),
-          detailAlamat()
-        ],
+      body: Container(
+        decoration: Warna.bgGradient(Warna.warnaHome),
+        child: ListView(
+          children: [
+            SizedBox(
+              height: 10,
+            ),
+            detailAlamat()
+          ],
+        ),
       ),
     );
   }

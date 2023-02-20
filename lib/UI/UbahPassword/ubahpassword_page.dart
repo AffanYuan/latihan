@@ -32,8 +32,10 @@ class _UbahPassword_PageState extends State<UbahPassword_Page> {
       ),
       body: SingleChildScrollView(
         child: Container(
-          margin: EdgeInsets.all(11),
-          padding: EdgeInsets.all(7),
+          decoration: Warna.bgGradient(Warna.warnaHome),
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
+          padding: EdgeInsets.all(5),
           child: Column(
             children: [
               SizedBox(height: 25),
@@ -197,7 +199,8 @@ class _UbahPassword_PageState extends State<UbahPassword_Page> {
           } else if (newPassword.text == confirmNewPassword.text &&
               newPassword.text.length > 7 &&
               confirmNewPassword.text.isNotEmpty) {
-            String response = await widget.model.ubahPassword(currentPassword.text, newPassword.text);
+            String response = await widget.model
+                .ubahPassword(currentPassword.text, newPassword.text);
 
             if (response == "0") {
               EasyLoading.dismiss();

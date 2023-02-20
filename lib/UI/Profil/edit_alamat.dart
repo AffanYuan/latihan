@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:Edimu/UI/Profil/alamat_user_page.dart';
 import 'package:Edimu/scoped_model/main.dart';
+import 'package:Edimu/konfigurasi/style.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:http/http.dart' as http;
 
@@ -58,248 +59,252 @@ class _EditAlamatPageState extends State<EditAlamatPage> {
         //       Navigator.pop(context);
         //     }),
       ),
-      body: Form(
-        autovalidateMode: AutovalidateMode.always,
-        key: validator,
-        child: Container(
-          color: Colors.white,
-          padding: EdgeInsets.fromLTRB(15, 15, 15, 20),
-          margin: EdgeInsets.only(bottom: 10),
-          child: ListView(
-            controller: scrollController,
-            children: [
-              Column(
-                children: [
-                  // TextFormField(
-                  //   enabled: !mauLanjut,
-                  //   controller: isianNamaPenerima,
-                  //   style: TextStyle(fontSize: 17, fontWeight: FontWeight.w400),
-                  //   decoration: InputDecoration(
-                  //     labelText: "Nama Penerima",
-                  //     // icon: Icon(Icons.person)
-                  //   ),
-                  //   maxLength: 50,
-                  //   validator: (value) {
-                  //     if (value.length < 1) {
-                  //       return "Harap isi nama penerima";
-                  //     } else {
-                  //       return null;
-                  //     }
-                  //   },
-                  // ),
-                  // TextFormField(
-                  //   enabled: !mauLanjut,
-                  //   keyboardType: TextInputType.number,
-                  //   controller: isianNohapePenerima,
-                  //   style: TextStyle(fontSize: 17, fontWeight: FontWeight.w400),
-                  //   decoration: InputDecoration(
-                  //     labelText: "Nomor HP",
-                  //     // icon: Icon(Icons.phone)
-                  //   ),
-                  //   validator: (value) {
-                  //     if (value.length < 9) {
-                  //       return "Harap isi nomor HP dengan lengkap";
-                  //     } else {
-                  //       return null;
-                  //     }
-                  //   },
-                  // ),
-                  // SizedBox(
-                  //   height: 15,
-                  // ),
-                  InkWell(
-                    onTap: () {
-                      showSearchAlamat();
-                    },
-                    child: Stack(children: [
-                      TextFormField(
-                        // enabled: !mauLanjut,
-                        controller: isianKotaKecamatan,
-                        style: TextStyle(
-                            fontSize: 17, fontWeight: FontWeight.w400),
-                        decoration: InputDecoration(
-                          labelText: "Kota, Kecamatan, dan Kelurahan",
-                          // icon: Icon(Icons.phone)
+      body: Container(
+        decoration: Warna.bgGradient(Warna.warnaHome),
+        child: Form(
+          autovalidateMode: AutovalidateMode.always,
+          key: validator,
+          child: Container(
+            color: Colors.transparent,
+            padding: EdgeInsets.fromLTRB(15, 15, 15, 20),
+            margin: EdgeInsets.only(bottom: 10),
+            child: ListView(
+              controller: scrollController,
+              children: [
+                Column(
+                  children: [
+                    // TextFormField(
+                    //   enabled: !mauLanjut,
+                    //   controller: isianNamaPenerima,
+                    //   style: TextStyle(fontSize: 17, fontWeight: FontWeight.w400),
+                    //   decoration: InputDecoration(
+                    //     labelText: "Nama Penerima",
+                    //     // icon: Icon(Icons.person)
+                    //   ),
+                    //   maxLength: 50,
+                    //   validator: (value) {
+                    //     if (value.length < 1) {
+                    //       return "Harap isi nama penerima";
+                    //     } else {
+                    //       return null;
+                    //     }
+                    //   },
+                    // ),
+                    // TextFormField(
+                    //   enabled: !mauLanjut,
+                    //   keyboardType: TextInputType.number,
+                    //   controller: isianNohapePenerima,
+                    //   style: TextStyle(fontSize: 17, fontWeight: FontWeight.w400),
+                    //   decoration: InputDecoration(
+                    //     labelText: "Nomor HP",
+                    //     // icon: Icon(Icons.phone)
+                    //   ),
+                    //   validator: (value) {
+                    //     if (value.length < 9) {
+                    //       return "Harap isi nomor HP dengan lengkap";
+                    //     } else {
+                    //       return null;
+                    //     }
+                    //   },
+                    // ),
+                    // SizedBox(
+                    //   height: 15,
+                    // ),
+                    InkWell(
+                      onTap: () {
+                        showSearchAlamat();
+                      },
+                      child: Stack(children: [
+                        TextFormField(
+                          // enabled: !mauLanjut,
+                          controller: isianKotaKecamatan,
+                          style: TextStyle(
+                              fontSize: 17, fontWeight: FontWeight.w400),
+                          decoration: InputDecoration(
+                            labelText: "Kota, Kecamatan, dan Kelurahan",
+                            // icon: Icon(Icons.phone)
+                          ),
+                          validator: (value) {
+                            if (value.length < 1) {
+                              return "Wajib diisi";
+                            } else {
+                              return null;
+                            }
+                          },
                         ),
-                        validator: (value) {
-                          if (value.length < 1) {
-                            return "Wajib diisi";
-                          } else {
-                            return null;
-                          }
-                        },
-                      ),
-                      Container(
-                        height: 60,
-                        width: MediaQuery.of(context).size.width,
-                        color: Colors.transparent,
-                      )
-                    ]),
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  TextFormField(
-                    // enabled: !mauLanjut,
-                    controller: isianAlamatPenerima,
-                    style: TextStyle(fontSize: 17, fontWeight: FontWeight.w400),
-                    decoration: InputDecoration(
-                      labelText: "Alamat Lengkap",
-                      // icon: Icon(Icons.phone)
+                        Container(
+                          height: 60,
+                          width: MediaQuery.of(context).size.width,
+                          color: Colors.transparent,
+                        )
+                      ]),
                     ),
-                    validator: (value) {
-                      if (value.length < 1) {
-                        return "Wajib diisi";
-                      } else {
-                        return null;
-                      }
-                    },
-                  ),
-                  // SizedBox(
-                  //   height: 15,
-                  // ),
-                  // TextField(
-                  //   enabled: !mauLanjut,
-                  //   controller: isianCatatan,
-                  //   style: TextStyle(fontSize: 17, fontWeight: FontWeight.w400),
-                  //   decoration: InputDecoration(
-                  //       labelText: "Catatan Untuk Kurir (Opsional)",
-                  //       helperText: "Warna rumah, patokan, pesan khusus, dll."
-                  //       // icon: Icon(Icons.description)
-                  //       ),
-                  // ),
-                  SizedBox(
-                    height: 60,
-                  ),
-                  Container(
-                    width: MediaQuery.of(context).size.width,
-                    child: Padding(
-                      padding: const EdgeInsets.only(top: 20),
-                      child: InkWell(
-                        child: Container(
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: Colors.green),
-                          child: Padding(
-                            padding: const EdgeInsets.all(13.0),
-                            child: Center(
-                              child: Text(
-                                'Simpan',
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 16),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    TextFormField(
+                      // enabled: !mauLanjut,
+                      controller: isianAlamatPenerima,
+                      style:
+                          TextStyle(fontSize: 17, fontWeight: FontWeight.w400),
+                      decoration: InputDecoration(
+                        labelText: "Alamat Lengkap",
+                        // icon: Icon(Icons.phone)
+                      ),
+                      validator: (value) {
+                        if (value.length < 1) {
+                          return "Wajib diisi";
+                        } else {
+                          return null;
+                        }
+                      },
+                    ),
+                    // SizedBox(
+                    //   height: 15,
+                    // ),
+                    // TextField(
+                    //   enabled: !mauLanjut,
+                    //   controller: isianCatatan,
+                    //   style: TextStyle(fontSize: 17, fontWeight: FontWeight.w400),
+                    //   decoration: InputDecoration(
+                    //       labelText: "Catatan Untuk Kurir (Opsional)",
+                    //       helperText: "Warna rumah, patokan, pesan khusus, dll."
+                    //       // icon: Icon(Icons.description)
+                    //       ),
+                    // ),
+                    SizedBox(
+                      height: 60,
+                    ),
+                    Container(
+                      width: MediaQuery.of(context).size.width,
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 20),
+                        child: InkWell(
+                          child: Container(
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: Colors.green),
+                            child: Padding(
+                              padding: const EdgeInsets.all(13.0),
+                              child: Center(
+                                child: Text(
+                                  'Simpan',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 16),
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                        onTap: () async {
-                          validator.currentState.validate();
+                          onTap: () async {
+                            validator.currentState.validate();
 
-                          if (validator.currentState.validate()) {
-                            String alamatBaru =
-                                '${isianAlamatPenerima.text}, ${isianKotaKecamatan.text}';
+                            if (validator.currentState.validate()) {
+                              String alamatBaru =
+                                  '${isianAlamatPenerima.text}, ${isianKotaKecamatan.text}';
 
-                            EasyLoading.show(
-                              status: 'sedang diproses',
-                              maskType: EasyLoadingMaskType.black,
-                              dismissOnTap: true,
-                            );
-                            //
-                            bool apakahSukses =
-                                await widget.model.editAlamat(alamatBaru);
+                              EasyLoading.show(
+                                status: 'sedang diproses',
+                                maskType: EasyLoadingMaskType.black,
+                                dismissOnTap: true,
+                              );
+                              //
+                              bool apakahSukses =
+                                  await widget.model.editAlamat(alamatBaru);
 
-                            EasyLoading.dismiss();
-                            if (apakahSukses) {
-                              Alert(
-                                  style: AlertStyle(
-                                    isOverlayTapDismiss: false,
-                                    isCloseButton: false,
-                                    descTextAlign: TextAlign.center,
-                                    // titleStyle: TextStyle(
-                                    //     color: Colors.blue[800],
-                                    // decoration:
-                                    //     TextDecoration.underline
-                                    // )
-                                  ),
-                                  context: context,
-                                  title: "Alamat berhasil diperbarui",
-                                  type: AlertType.success,
-                                  buttons: [
-                                    DialogButton(
-                                      color: Colors.blue[800],
-                                      child: Text("OK",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 20)),
-                                      onPressed: () {
-                                        if (widget.pageSebelumnya == "") {
-                                          Navigator.pop(context);
-                                        }
-                                        Navigator.pop(context);
-                                        Navigator.pop(context);
-                                        Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    DaftarAlamatUserPage(
-                                                        widget.model)));
-                                      },
+                              EasyLoading.dismiss();
+                              if (apakahSukses) {
+                                Alert(
+                                    style: AlertStyle(
+                                      isOverlayTapDismiss: false,
+                                      isCloseButton: false,
+                                      descTextAlign: TextAlign.center,
+                                      // titleStyle: TextStyle(
+                                      //     color: Colors.blue[800],
+                                      // decoration:
+                                      //     TextDecoration.underline
+                                      // )
                                     ),
-                                  ]).show();
-
-                              // Alert(
-                              //     context: context,
-                              //     type: AlertType.success,
-                              //     title: "Alamat berhasil diperbarui",
-                              //     buttons: [
-                              //       DialogButton(
-                              //         color: Colors.blue[800],
-                              //         child: Text(
-                              //           "OK",
-                              //           style: TextStyle(color: Colors.white),
-                              //         ),
-                              //         onPressed: () {
-                              //           Navigator.pop(context);
-                              //           Navigator.pop(context);
-                              //           Navigator.pop(context);
-                              //           Navigator.pop(context);
-                              //           Navigator.push(
-                              //               context,
-                              //               MaterialPageRoute(
-                              //                   builder: (context) =>
-                              //                       DaftarAlamatUserPage(
-                              //                           widget.model)));
-                              //         },
-                              //       )
-                              //     ]).show();
-                            } else {
-                              Alert(
-                                  context: context,
-                                  type: AlertType.warning,
-                                  title:
-                                      "Maaf alamat gagal diperbarui, silahkan coba lagi",
-                                  buttons: [
-                                    DialogButton(
-                                      color: Colors.blue[800],
-                                      child: Text(
-                                        "OK",
-                                        style: TextStyle(color: Colors.white),
+                                    context: context,
+                                    title: "Alamat berhasil diperbarui",
+                                    type: AlertType.success,
+                                    buttons: [
+                                      DialogButton(
+                                        color: Colors.blue[800],
+                                        child: Text("OK",
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 20)),
+                                        onPressed: () {
+                                          if (widget.pageSebelumnya == "") {
+                                            Navigator.pop(context);
+                                          }
+                                          Navigator.pop(context);
+                                          Navigator.pop(context);
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      DaftarAlamatUserPage(
+                                                          widget.model)));
+                                        },
                                       ),
-                                      onPressed: () {
-                                        Navigator.pop(context);
-                                      },
-                                    )
-                                  ]).show();
+                                    ]).show();
+
+                                // Alert(
+                                //     context: context,
+                                //     type: AlertType.success,
+                                //     title: "Alamat berhasil diperbarui",
+                                //     buttons: [
+                                //       DialogButton(
+                                //         color: Colors.blue[800],
+                                //         child: Text(
+                                //           "OK",
+                                //           style: TextStyle(color: Colors.white),
+                                //         ),
+                                //         onPressed: () {
+                                //           Navigator.pop(context);
+                                //           Navigator.pop(context);
+                                //           Navigator.pop(context);
+                                //           Navigator.pop(context);
+                                //           Navigator.push(
+                                //               context,
+                                //               MaterialPageRoute(
+                                //                   builder: (context) =>
+                                //                       DaftarAlamatUserPage(
+                                //                           widget.model)));
+                                //         },
+                                //       )
+                                //     ]).show();
+                              } else {
+                                Alert(
+                                    context: context,
+                                    type: AlertType.warning,
+                                    title:
+                                        "Maaf alamat gagal diperbarui, silahkan coba lagi",
+                                    buttons: [
+                                      DialogButton(
+                                        color: Colors.blue[800],
+                                        child: Text(
+                                          "OK",
+                                          style: TextStyle(color: Colors.white),
+                                        ),
+                                        onPressed: () {
+                                          Navigator.pop(context);
+                                        },
+                                      )
+                                    ]).show();
+                              }
                             }
-                          }
-                        },
+                          },
+                        ),
                       ),
-                    ),
-                  )
-                ],
-              ),
-            ],
+                    )
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
