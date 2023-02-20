@@ -55,10 +55,13 @@ class _Confirm_TarikTunaiState extends State<Confirm_TarikTunai> {
                 ],
               ),
             ),
-            body: TabBarView(children: [
-              TarikTransferPage(model, widget.jumlah),
-              tarikCashTab(model),
-            ])),
+            body: Container(
+              decoration: Warna.bgGradient(Warna.warnaHome),
+              child: TabBarView(children: [
+                TarikTransferPage(model, widget.jumlah),
+                tarikCashTab(model),
+              ]),
+            )),
       );
     });
   }

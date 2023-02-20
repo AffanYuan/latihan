@@ -113,8 +113,14 @@ class _TarikTransferPageState extends State<TarikTransferPage> {
                         //     context: context,
                         //     builder: (context) => BottomModalTambahRekening());
                       },
-                      icon: Icon(Icons.add, color: Colors.black,),
-                      label: Text("Tambah rekening", style: TextStyle(color: Colors.black),),
+                      icon: Icon(
+                        Icons.add,
+                        color: Colors.black,
+                      ),
+                      label: Text(
+                        "Tambah rekening",
+                        style: TextStyle(color: Colors.black),
+                      ),
                       // shape: RoundedRectangleBorder(
                       //     side: BorderSide(
                       //         color: Warna.primary,
@@ -229,18 +235,17 @@ class _TarikTransferPageState extends State<TarikTransferPage> {
       width: MediaQuery.of(context).size.width,
       margin: EdgeInsets.only(top: 20),
       child: ElevatedButton(
-        
         child: Text(
           "Lanjutkan",
           style: TextStyle(
               color: Colors.white, fontSize: 15, fontWeight: FontWeight.w700),
         ),
-          style: ElevatedButton.styleFrom(
-                      backgroundColor: Warna.accent,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5), // <-- Radius
-                      ),
-                    ),
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Warna.accent,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(5), // <-- Radius
+          ),
+        ),
         // shape: RoundedRectangleBorder(
         //   borderRadius: BorderRadius.circular(5.0),
         // ),

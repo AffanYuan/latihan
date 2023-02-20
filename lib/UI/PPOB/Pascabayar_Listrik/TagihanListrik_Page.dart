@@ -99,9 +99,12 @@ class _ListrikPascaBayarPageState extends State<ListrikPascaBayarPage>
               indicatorColor: Colors.white,
               tabs: [Tab(text: 'Beli'), Tab(text: 'Riwayat')],
             )),
-        body: TabBarView(
-            controller: tabController,
-            children: [beliTokenListrik(), riwayatBeliTokenListrik()]),
+        body: Container(
+          decoration: Warna.bgGradient(Warna.warnaHome),
+          child: TabBarView(
+              controller: tabController,
+              children: [beliTokenListrik(), riwayatBeliTokenListrik()]),
+        ),
       ),
     );
   }
@@ -393,9 +396,10 @@ class _ListrikPascaBayarPageState extends State<ListrikPascaBayarPage>
       child: Container(
         width: MediaQuery.of(context).size.width,
         height: 45,
-        
         child: ElevatedButton(
-            style: ElevatedButton.styleFrom(backgroundColor: Colors.blue[800],),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.blue[800],
+            ),
             onPressed: () async {
               cekTagihan();
             },

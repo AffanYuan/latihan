@@ -33,196 +33,199 @@ class _confirmTransferPageState extends State<confirmTransferPage> {
           title: Text("Konfirmasi Transfer"),
           centerTitle: true,
         ),
-        body: ListView(
-          children: <Widget>[
-            ListTile(
-              title: Text("Nama Pengguna"),
-              trailing: Text(widget.nama),
-            ),
-            ListTile(
-              title: Text("No. Rekening Penerima"),
-              trailing: Text(widget.idPenerima),
-            ),
-            ListTile(
-              title: Text("Nominal"),
-              trailing: Text(rupiah(widget.amount.toString())),
-            ),
-            ListTile(
-              title: Text("Catatan"),
-              trailing: Text(widget.note),
-            ),
-            Container(
-              padding: EdgeInsets.only(left: 15, right: 15),
-              child: TextFormField(
-                decoration: InputDecoration(
-                    labelText: "Masukkan Pin Transaksi",
-                    enabledBorder: UnderlineInputBorder(
-                        borderSide:
-                            BorderSide(color: Color(0xff63a4ff), width: 3.0))),
-                controller: passwordController,
-                obscureText: true,
-                autofocus: true,
-                keyboardType: TextInputType.number,
-                validator: (value) {
-                  if (passwordController.text.length < 1) {
-                    return "masukkan password";
-                  } else {
-                    return null;
-                  }
-                },
+        body: Container(
+          decoration: Warna.bgGradient(Warna.warnaHome),
+          child: ListView(
+            children: <Widget>[
+              ListTile(
+                title: Text("Nama Pengguna"),
+                trailing: Text(widget.nama),
               ),
-            ),
-            SizedBox(
-              height: 50,
-            ),
-            Container(
-                margin: EdgeInsets.symmetric(horizontal: 9),
-                width: MediaQuery.of(context).size.width - 250,
+              ListTile(
+                title: Text("No. Rekening Penerima"),
+                trailing: Text(widget.idPenerima),
+              ),
+              ListTile(
+                title: Text("Nominal"),
+                trailing: Text(rupiah(widget.amount.toString())),
+              ),
+              ListTile(
+                title: Text("Catatan"),
+                trailing: Text(widget.note),
+              ),
+              Container(
+                padding: EdgeInsets.only(left: 15, right: 15),
+                child: TextFormField(
+                  decoration: InputDecoration(
+                      labelText: "Masukkan Pin Transaksi",
+                      enabledBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Color(0xff63a4ff), width: 3.0))),
+                  controller: passwordController,
+                  obscureText: true,
+                  autofocus: true,
+                  keyboardType: TextInputType.number,
+                  validator: (value) {
+                    if (passwordController.text.length < 1) {
+                      return "masukkan password";
+                    } else {
+                      return null;
+                    }
+                  },
+                ),
+              ),
+              SizedBox(
                 height: 50,
-                child: ElevatedButton(
-                  // padding: EdgeInsets.only(left: 50, right: 50),
-                  style: ElevatedButton.styleFrom(
+              ),
+              Container(
+                  margin: EdgeInsets.symmetric(horizontal: 9),
+                  width: MediaQuery.of(context).size.width - 250,
+                  height: 50,
+                  child: ElevatedButton(
+                    // padding: EdgeInsets.only(left: 50, right: 50),
+                    style: ElevatedButton.styleFrom(
                       backgroundColor: Warna.accent,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(4), // <-- Radius
                       ),
                     ),
-                  // color: Warna.accent,
-                  child: Text(
-                    "TRANSFER",
-                    style: TextStyle(
-                        color: Colors.white, fontWeight: FontWeight.bold),
-                  ),
-                  // shape: RoundedRectangleBorder(
-                  //     borderRadius: BorderRadius.circular(4.0)),
-                  onPressed: () async {
-                    EasyLoading.show(
-                      dismissOnTap: true,
-                      status: 'sedang diproses',
-                      maskType: EasyLoadingMaskType.black,
-                    );
+                    // color: Warna.accent,
+                    child: Text(
+                      "TRANSFER",
+                      style: TextStyle(
+                          color: Colors.white, fontWeight: FontWeight.bold),
+                    ),
+                    // shape: RoundedRectangleBorder(
+                    //     borderRadius: BorderRadius.circular(4.0)),
+                    onPressed: () async {
+                      EasyLoading.show(
+                        dismissOnTap: true,
+                        status: 'sedang diproses',
+                        maskType: EasyLoadingMaskType.black,
+                      );
 
-                    String responseTransfer = await model.transfer(
-                        widget.idPenerima,
-                        widget.amount,
-                        widget.note,
-                        passwordController.text
-                        // int.parse(passwordController.text)
-                        );
+                      String responseTransfer = await model.transfer(
+                          widget.idPenerima,
+                          widget.amount,
+                          widget.note,
+                          passwordController.text
+                          // int.parse(passwordController.text)
+                          );
 
-                    if (responseTransfer == 'sukses') {
-                      EasyLoading.dismiss();
-                      Alert(
-                          type: AlertType.success,
-                          context: context,
-                          title: "SUKSES",
-                          desc: "Transfer anda berhasil",
-                          content: Container(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.stretch,
-                              children: [
-                                SizedBox(
-                                  height: 35,
-                                ),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Container(
-                                      width: 95,
-                                      child: Text("Penerima :",
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.w300)),
-                                    ),
-                                    Flexible(child: Text(widget.nama)),
-                                  ],
-                                ),
-                                SizedBox(
-                                  height: 9,
-                                ),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Container(
-                                      width: 95,
-                                      child: Text("Jumlah :",
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.w300)),
-                                    ),
-                                    Flexible(
-                                        child: Text(
-                                            rupiah(widget.amount.toString()))),
-                                  ],
-                                ),
+                      if (responseTransfer == 'sukses') {
+                        EasyLoading.dismiss();
+                        Alert(
+                            type: AlertType.success,
+                            context: context,
+                            title: "SUKSES",
+                            desc: "Transfer anda berhasil",
+                            content: Container(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.stretch,
+                                children: [
+                                  SizedBox(
+                                    height: 35,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                        width: 95,
+                                        child: Text("Penerima :",
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.w300)),
+                                      ),
+                                      Flexible(child: Text(widget.nama)),
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: 9,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                        width: 95,
+                                        child: Text("Jumlah :",
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.w300)),
+                                      ),
+                                      Flexible(
+                                          child: Text(rupiah(
+                                              widget.amount.toString()))),
+                                    ],
+                                  ),
 
-                                // ListTile(
-                                //   title: Container(
-                                //     width: 350,
-                                //     child: Text('Penerima')),
-                                //   trailing: Text(widget.nama),
-                                // ),
-                                // ListTile(
-                                //     title: Text('Jumlah'),
-                                //     trailing:
-                                //         Text(rupiah(widget.amount.toString())))
-                              ],
+                                  // ListTile(
+                                  //   title: Container(
+                                  //     width: 350,
+                                  //     child: Text('Penerima')),
+                                  //   trailing: Text(widget.nama),
+                                  // ),
+                                  // ListTile(
+                                  //     title: Text('Jumlah'),
+                                  //     trailing:
+                                  //         Text(rupiah(widget.amount.toString())))
+                                ],
+                              ),
                             ),
-                          ),
-                          buttons: [
-                            DialogButton(
-                              color: Colors.blue[800],
-                              child: Text(
-                                "OK",
-                                style: TextStyle(color: Colors.white),
-                              ),
-                              onPressed: () {
-                                Navigator.pop(context);
-                                Navigator.pop(context);
-                                Navigator.pop(context);
-                              },
-                            )
-                          ]).show();
-                    } else if (responseTransfer == 'pin salah') {
-                      EasyLoading.dismiss();
-                      Alert(
-                          type: AlertType.warning,
-                          context: context,
-                          title: "PIN SALAH",
-                          desc: "masukkan kembali PIN yang benar",
-                          buttons: [
-                            DialogButton(
-                              color: Colors.blue[800],
-                              child: Text(
-                                "OK",
-                                style: TextStyle(color: Colors.white),
-                              ),
-                              onPressed: () {
-                                Navigator.pop(context);
-                              },
-                            )
-                          ]).show();
-                    } else {
-                      EasyLoading.dismiss();
-                      Alert(
-                          type: AlertType.warning,
-                          context: context,
-                          title: "ERROR",
-                          desc: "Periksa Kembali Jaringan Internet Anda",
-                          buttons: [
-                            DialogButton(
-                              color: Colors.blue[800],
-                              child: Text(
-                                "OK",
-                                style: TextStyle(color: Colors.white),
-                              ),
-                              onPressed: () {
-                                Navigator.pop(context);
-                              },
-                            )
-                          ]).show();
-                    }
-                  },
-                )),
-          ],
+                            buttons: [
+                              DialogButton(
+                                color: Colors.blue[800],
+                                child: Text(
+                                  "OK",
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                  Navigator.pop(context);
+                                  Navigator.pop(context);
+                                },
+                              )
+                            ]).show();
+                      } else if (responseTransfer == 'pin salah') {
+                        EasyLoading.dismiss();
+                        Alert(
+                            type: AlertType.warning,
+                            context: context,
+                            title: "PIN SALAH",
+                            desc: "masukkan kembali PIN yang benar",
+                            buttons: [
+                              DialogButton(
+                                color: Colors.blue[800],
+                                child: Text(
+                                  "OK",
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                              )
+                            ]).show();
+                      } else {
+                        EasyLoading.dismiss();
+                        Alert(
+                            type: AlertType.warning,
+                            context: context,
+                            title: "ERROR",
+                            desc: "Periksa Kembali Jaringan Internet Anda",
+                            buttons: [
+                              DialogButton(
+                                color: Colors.blue[800],
+                                child: Text(
+                                  "OK",
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                              )
+                            ]).show();
+                      }
+                    },
+                  )),
+            ],
+          ),
         ),
       );
     });

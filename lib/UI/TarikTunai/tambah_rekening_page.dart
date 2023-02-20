@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:Edimu/scoped_model/main.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
+import 'package:Edimu/konfigurasi/style.dart';
 
 List listDaftarBank = [
   {"idBank": 1, "namaBank": "BCA", "gambar": "BCA.png"},
@@ -49,6 +50,7 @@ class _TambahRekeningPageState extends State<TambahRekeningPage> {
       body: SingleChildScrollView(
         reverse: true,
         child: Container(
+          decoration: Warna.bgGradient(Warna.warnaHome),
           padding: EdgeInsets.all(15),
           height: MediaQuery.of(context).size.height,
           child: Column(
