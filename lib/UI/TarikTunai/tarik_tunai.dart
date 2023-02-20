@@ -77,13 +77,14 @@ class _TarikTunaiState extends State<TarikTunai> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text('Saldo : ' + rupiah(widget.model.formatedBalance)),
+                  Text('Saldo : ' + rupiah(widget.model.formatedBalance),
+                      style: TextStyle(color: Warna.warnaTeks)),
                   SizedBox(
                     height: 9,
                   ),
                   Text(
                     "Masukkan jumlah uang yang ingin diambil :",
-                    style: TextStyle(color: Colors.grey[600]),
+                    style: TextStyle(color: Warna.warnaTeks),
                   ),
                   SizedBox(
                     height: 9,
@@ -103,7 +104,7 @@ class _TarikTunaiState extends State<TarikTunai> {
                       //     return null;
                       //   }
                       // },
-                      style: TextStyle(fontSize: 30),
+                      style: TextStyle(fontSize: 30, color: Warna.warnaTeks),
                       decoration: InputDecoration(
                           prefixText: "Rp. ",
                           labelText: "Jumlah",
@@ -154,7 +155,8 @@ class _TarikTunaiState extends State<TarikTunai> {
                         child: Text(
                           "Lanjut",
                           style: TextStyle(
-                              color: Colors.white, fontWeight: FontWeight.bold),
+                              color: Warna.warnaTeks,
+                              fontWeight: FontWeight.bold),
                         ),
                         // shape: RoundedRectangleBorder(
                         //     borderRadius: BorderRadius.circular(9.0)),
@@ -225,7 +227,7 @@ class _TarikTunaiState extends State<TarikTunai> {
                 SizedBox(width: 9),
                 Text(
                   "Masukkan angka",
-                  style: TextStyle(color: Colors.grey[600]),
+                  style: TextStyle(color: Warna.warnaTeks),
                 ),
               ],
             )),
@@ -293,7 +295,7 @@ class _TarikTunaiState extends State<TarikTunai> {
                   height: 25,
                   child: Center(
                     child: Text(tampilanRupiah,
-                        style: TextStyle(color: Colors.grey[600])),
+                        style: TextStyle(color: Warna.warnaTeks)),
                   ),
                 )
               ],

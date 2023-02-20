@@ -461,6 +461,10 @@ mixin userModel on ConnectedModel {
     Teks.fitur7 = data1[0]["text_fitur7"];
     Teks.fitur8 = data1[0]["text_fitur8"];
     Teks.fitur9 = data1[0]["text_fitur9"];
+    Teks.navbar1 = data1[0]["navbar_1"];
+    Teks.navbar2 = data1[0]["navbar_2"];
+    Teks.navbar3 = data1[0]["navbar_3"];
+    Teks.navbar4 = data1[0]["navbar_4"];
     notifyListeners();
   }
 
