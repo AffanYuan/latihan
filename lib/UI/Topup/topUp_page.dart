@@ -167,20 +167,20 @@ class _topUpPageState extends State<topUpPage> {
                   Container(
                     decoration: BoxDecoration(
                       // color: Colors.white,
-                      color: Colors.red,
+                      color: Colors.yellowAccent,
                       borderRadius: BorderRadius.all(Radius.circular(9.0)),
                     ),
                     padding: EdgeInsets.symmetric(horizontal: 15, vertical: 7),
                     child: Column(
                       children: [
                         Text("Konfirmasi saldo hanya dapat dilayani pada:",
-                            style: TextStyle(color: Colors.white)),
+                            style: TextStyle(color: Warna.warnaTeks)),
                         SizedBox(height: 5),
                         Text("senin - jum'at",
-                            style: TextStyle(color: Colors.white)),
+                            style: TextStyle(color: Warna.warnaTeks)),
                         SizedBox(height: 5),
                         Text("07.00-20.00 WIB",
-                            style: TextStyle(color: Colors.white)),
+                            style: TextStyle(color: Warna.warnaTeks)),
                       ],
                     ),
                   ),
@@ -222,7 +222,8 @@ class _topUpPageState extends State<topUpPage> {
                   // ),
                   Container(
                     margin: EdgeInsets.only(top: 20, left: 10),
-                    child: Text("Isi saldo dengan transfer ke bank:"),
+                    child: Text("Isi saldo dengan transfer ke bank:",
+                        style: TextStyle(color: Warna.warnaTeks)),
                   ),
                   Container(
                     height: 30,
@@ -236,7 +237,8 @@ class _topUpPageState extends State<topUpPage> {
                             .map<DropdownMenuItem<String>>((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
-                            child: Text(value),
+                            child: Text(value,
+                                style: TextStyle(color: Warna.warnaTeks)),
                           );
                         }).toList(),
                         onChanged: (String newValue) {
@@ -287,7 +289,7 @@ class _topUpPageState extends State<topUpPage> {
                       child: Text(
                         "LANJUT",
                         style: TextStyle(
-                            color: Colors.white,
+                            color: Warna.warnaTeks,
                             fontSize: 15,
                             fontWeight: FontWeight.w900),
                       ),
@@ -483,7 +485,7 @@ class _topUpPageState extends State<topUpPage> {
                 SizedBox(width: 9),
                 Text(
                   "Masukkan angka",
-                  style: TextStyle(color: Colors.grey[600]),
+                  style: TextStyle(color: Warna.warnaTeks),
                 ),
               ],
             )),
@@ -653,7 +655,7 @@ class _topUpPageState extends State<topUpPage> {
                 ),
                 Text(
                   tampilanRupiah,
-                  style: TextStyle(fontSize: 29),
+                  style: TextStyle(fontSize: 29, color: Warna.warnaTeks),
                 )
               ],
             ))),

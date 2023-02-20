@@ -49,10 +49,10 @@ class Teks {
   static String fitur7 = "";
   static String fitur8 = "";
   static String fitur9 = "";
-  static String navbar1 = "";
-  static String navbar2 = "";
-  static String navbar3 = "";
-  static String navbar4 = "";
+  static String navbar1 = '';
+  static String navbar2 = '';
+  static String navbar3 = '';
+  static String navbar4 = '';
 }
 
 Color hijauMain = Warna.primary;
