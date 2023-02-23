@@ -101,9 +101,12 @@ class _IndihomePageState extends State<IndihomePage>
               //             style: BorderStyle.solid))),
               tabs: [Tab(text: 'Beli'), Tab(text: 'Riwayat')],
             )),
-        body: TabBarView(
-            controller: tabController,
-            children: [beliTokenListrik(), riwayatBeliIndihome()]),
+        body: Container(
+          decoration: Warna.bgGradient(Warna.warnaHome),
+          child: TabBarView(
+              controller: tabController,
+              children: [beliTokenListrik(), riwayatBeliIndihome()]),
+        ),
       ),
     );
   }

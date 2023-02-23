@@ -85,62 +85,65 @@ class _transactionPageState extends State<transactionPage>
         } else if (model.listHistorys.historyLists != null) {
           content = DefaultTabController(
             length: 3,
-            child: Scaffold(
-              backgroundColor: Colors.white,
-              appBar: AppBar(
-                  title: Text("Riwayat Transaksi"),
-                  centerTitle: true,
-                  bottom: TabBar(
-                    controller: tabController,
-                    onTap: (value) {
-                      // if (value != 0) {
-                      //   FocusScope.of(context).unfocus();
-                      // }
-                      // setState(() {});
-                    },
-                    indicatorColor: Warna.accent,
-                    indicator: BoxDecoration(
-                        color: Warna.accent,
-                        border: Border(
-                            bottom: BorderSide(
-                                color: Colors.white,
-                                width: 3,
-                                style: BorderStyle.solid))),
-                    tabs: [
-                      Tab(
-                        // text: "semua",
-                        child: Text(
-                          "semua",
-                          style: TextStyle(color: Colors.white),
+            child: Container(
+              decoration: Warna.bgGradient(Warna.warnaHome),
+              child: Scaffold(
+                backgroundColor: Colors.transparent,
+                appBar: AppBar(
+                    title: Text("Riwayat Transaksi"),
+                    centerTitle: true,
+                    bottom: TabBar(
+                      controller: tabController,
+                      onTap: (value) {
+                        // if (value != 0) {
+                        //   FocusScope.of(context).unfocus();
+                        // }
+                        // setState(() {});
+                      },
+                      indicatorColor: Warna.accent,
+                      indicator: BoxDecoration(
+                          color: Warna.accent,
+                          border: Border(
+                              bottom: BorderSide(
+                                  color: Colors.white,
+                                  width: 3,
+                                  style: BorderStyle.solid))),
+                      tabs: [
+                        Tab(
+                          // text: "semua",
+                          child: Text(
+                            "semua",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          icon: Icon(
+                            Icons.swap_vert_outlined,
+                            color: Colors.white,
+                          ),
                         ),
-                        icon: Icon(
-                          Icons.swap_vert_outlined,
-                          color: Colors.white,
+                        Tab(
+                          icon: Icon(Icons.arrow_upward_rounded,
+                              color: Colors.white),
+                          child: Text(
+                            "keluar",
+                            style: TextStyle(color: Colors.white),
+                          ),
                         ),
-                      ),
-                      Tab(
-                        icon: Icon(Icons.arrow_upward_rounded,
-                            color: Colors.white),
-                        child: Text(
-                          "keluar",
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      ),
-                      Tab(
-                        icon: Icon(Icons.arrow_downward, color: Colors.white),
-                        child: Text(
-                          "masuk",
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      )
-                    ],
-                  )),
-              body: TabBarView(controller: tabController, children: [
-                bodySemuaTransaksi(model),
-                bodyTransaksiKeluar(model),
-                bodyTransaksiMasuk(model)
-              ]),
-              bottomNavigationBar: bottomNavBar(2, widget.model),
+                        Tab(
+                          icon: Icon(Icons.arrow_downward, color: Colors.white),
+                          child: Text(
+                            "masuk",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        )
+                      ],
+                    )),
+                body: TabBarView(controller: tabController, children: [
+                  bodySemuaTransaksi(model),
+                  bodyTransaksiKeluar(model),
+                  bodyTransaksiMasuk(model)
+                ]),
+                bottomNavigationBar: bottomNavBar(2, widget.model),
+              ),
             ),
           );
         } else if (listHistorys == null) {
@@ -591,7 +594,7 @@ class _CardTransactionState extends State<CardTransaction> {
           ),
           ListTile(
             // title: Text(historysList.historyLists[index].transferTypeName),
-    
+
             onTap: () {
               isClicked = !isClicked;
             },
@@ -606,17 +609,20 @@ class _CardTransactionState extends State<CardTransaction> {
                 // ),
                 Text(
                   "Pengirim  : " +
-                      widget.model.listHistorys.historyLists[index].namaPengirim,
+                      widget
+                          .model.listHistorys.historyLists[index].namaPengirim,
                 ),
                 Text(
                   "Penerima : " +
-                      widget.model.listHistorys.historyLists[index].namaPenerima,
+                      widget
+                          .model.listHistorys.historyLists[index].namaPenerima,
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: 5),
                 ),
                 Text(
-                  "#" + widget.model.listHistorys.historyLists[index].idKwitansi,
+                  "#" +
+                      widget.model.listHistorys.historyLists[index].idKwitansi,
                 ),
                 SizedBox(
                   height: 10,

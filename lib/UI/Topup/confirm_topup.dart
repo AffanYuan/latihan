@@ -192,7 +192,6 @@ class _konfirmTopUpState extends State<konfirmTopUp> {
                   ),
                 ),
               ),
-            
               tombolLanjut(widget.model)
             ],
           ));
@@ -210,205 +209,205 @@ class _konfirmTopUpState extends State<konfirmTopUp> {
         ),
         body: SingleChildScrollView(
           child: Container(
-            margin: EdgeInsets.all(9),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Container(
-                  padding: EdgeInsets.only(left: 15, top: 5),
-                  child:
-                      Text('SILAHKAN TRANSFER KE NO. REKENING/QRIS BERIKUT :'),
-                ),
-                SizedBox(height: 3),
-                ListTile(
-                  title: Text(
-                    "Nama Bank :",
-                    style: TextStyle(
-                      color: Colors.greenAccent[700],
-                    ),
+            decoration: Warna.bgGradient(Warna.warnaHome),
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+            child: Container(
+              margin: EdgeInsets.all(9),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Container(
+                    padding: EdgeInsets.only(left: 15, top: 5),
+                    child: Text(
+                        'SILAHKAN TRANSFER KE NO. REKENING/QRIS BERIKUT :'),
                   ),
-                  subtitle: Text(model.dataBank['namaBank']),
-                ),
-                ListTile(
+                  SizedBox(height: 3),
+                  ListTile(
                     title: Text(
-                      "Atas Nama :",
+                      "Nama Bank :",
                       style: TextStyle(
-                        color: Colors.greenAccent[700],
+                        color: Warna.warnaTeks,
                       ),
                     ),
-                    trailing: SizedBox(
-                      width: 81,
-                      child: tombolShowQRIS(),
-                    ),
-                    subtitle: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: <Widget>[
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text(
-                              model.dataBank['atasNama'],
-                            ),
-                          ],
+                    subtitle: Text(model.dataBank['namaBank']),
+                  ),
+                  ListTile(
+                      title: Text(
+                        "Atas Nama :",
+                        style: TextStyle(
+                          color: Warna.warnaTeks,
                         ),
-                        // ElevatedButton(
-                        //   child: Text("Salin",
-                        //       style: TextStyle(
-                        //           decoration: TextDecoration.underline)),
-                        //   onPressed: () {
-                        //     //   ClipboardManager.copyToClipBoard('Nur Hayati QQ Syirkah Permata U.');
-                        //     // ClipboardManager()
-                        //   },
-                        // ),
-                      ],
-                    )),
-                Container(
-                  margin: EdgeInsets.symmetric(horizontal: 15),
-                  padding: EdgeInsets.symmetric(vertical: 11),
-                  color: Color(0xffD9FFED),
-                  child: ListTile(
-                      onTap: () {
-                        copyToClipBoard(
-                            model.dataBank['norekBank'], 'no. rekening');
-                      },
+                      ),
+                      trailing: SizedBox(
+                        width: 81,
+                        child: tombolShowQRIS(),
+                      ),
                       subtitle: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: <Widget>[
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(model.dataBank['norekBank'],
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 25)),
-                              SizedBox(
-                                height: 7,
+                            children: <Widget>[
+                              Text(
+                                model.dataBank['atasNama'],
                               ),
-                              textShowQRIS()
                             ],
                           ),
-                          Container(
-                            height: 20,
-                            child: ElevatedButton(
-                              // height: 20,
-                              child: Text("Salin",
-                                  style: TextStyle(
-                                      decoration: TextDecoration.underline)),
-                              onPressed: () {
-                                copyToClipBoard(
-                                    model.dataBank['norekBank'], 'no. rekening');
-                              },
-                            ),
-                          ),
+                          // ElevatedButton(
+                          //   child: Text("Salin",
+                          //       style: TextStyle(
+                          //           decoration: TextDecoration.underline)),
+                          //   onPressed: () {
+                          //     //   ClipboardManager.copyToClipBoard('Nur Hayati QQ Syirkah Permata U.');
+                          //     // ClipboardManager()
+                          //   },
+                          // ),
                         ],
                       )),
-                ),
-                SizedBox(
-                  height: 13,
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 21),
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text('sejumlah :',
-                        style: TextStyle(
-                            // fontSize: 17,
-                            // fontWeight: FontWeight.bold,
-                            color: Colors.greenAccent[700])),
+                  Container(
+                    margin: EdgeInsets.symmetric(horizontal: 15),
+                    padding: EdgeInsets.symmetric(vertical: 11),
+                    color: Color(0xffD9FFED),
+                    child: ListTile(
+                        onTap: () {
+                          copyToClipBoard(
+                              model.dataBank['norekBank'], 'no. rekening');
+                        },
+                        subtitle: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(model.dataBank['norekBank'],
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 25)),
+                                SizedBox(
+                                  height: 7,
+                                ),
+                                textShowQRIS()
+                              ],
+                            ),
+                            Container(
+                              height: 20,
+                              child: ElevatedButton(
+                                // height: 20,
+                                child: Text("Salin",
+                                    style: TextStyle(
+                                        decoration: TextDecoration.underline)),
+                                onPressed: () {
+                                  copyToClipBoard(model.dataBank['norekBank'],
+                                      'no. rekening');
+                                },
+                              ),
+                            ),
+                          ],
+                        )),
                   ),
-                ),
-                SizedBox(
-                  height: 5,
-                ),
-                Container(
-                  margin: EdgeInsets.symmetric(horizontal: 15),
-                  color: Color(0xffD9FFED),
-                  child: ListTile(
-                      onTap: () {
-                        copyToClipBoard(
-                            widget.jumlah.toString(), 'Angka nominal');
-                      },
-                      subtitle: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          Text(rupiah(widget.jumlah.toString()),
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 25)),
-                          Container(
-                            height: 20,
-                            child: ElevatedButton(
-                              // height: 20,
-                              child: Text("Salin",
-                                  style: TextStyle(
-                                      decoration: TextDecoration.underline)),
-                              onPressed: () {
-                                copyToClipBoard(
-                                    widget.jumlah.toString(), 'Angka Nominal');
-                              },
+                  SizedBox(
+                    height: 13,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 21),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text('sejumlah :',
+                          style: TextStyle(
+                              // fontSize: 17,
+                              // fontWeight: FontWeight.bold,
+                              color: Warna.warnaTeks)),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Container(
+                    margin: EdgeInsets.symmetric(horizontal: 15),
+                    color: Color(0xffD9FFED),
+                    child: ListTile(
+                        onTap: () {
+                          copyToClipBoard(
+                              widget.jumlah.toString(), 'Angka nominal');
+                        },
+                        subtitle: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Text(rupiah(widget.jumlah.toString()),
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 25)),
+                            Container(
+                              height: 20,
+                              child: ElevatedButton(
+                                // height: 20,
+                                child: Text("Salin",
+                                    style: TextStyle(
+                                        decoration: TextDecoration.underline)),
+                                onPressed: () {
+                                  copyToClipBoard(widget.jumlah.toString(),
+                                      'Angka Nominal');
+                                },
+                              ),
                             ),
-                          ),
-                        ],
-                      )),
-                ),
-                SizedBox(height: 15),
-                // Container(
-                //   color: Color(0xffFFEEC7),
-                //   margin: EdgeInsets.symmetric(horizontal: 15),
-                //   padding: EdgeInsets.all(5),
-                //   child: Text(
-                //       "Pastikan nominal transfer tepat beserta kode unik di 3 digit terahir",
-                //       style: TextStyle(
-                //         color: Colors.black54,
-                //       )),
-                // ),
-                // Container(
-                //   height: 7,
-                // ),
-                Container(
-                  margin: EdgeInsets.symmetric(horizontal: 15),
-                  padding: EdgeInsets.all(7),
-                  color: Colors.white,
-                  child: Text(
+                          ],
+                        )),
+                  ),
+                  SizedBox(height: 15),
+                  // Container(
+                  //   color: Color(0xffFFEEC7),
+                  //   margin: EdgeInsets.symmetric(horizontal: 15),
+                  //   padding: EdgeInsets.all(5),
+                  //   child: Text(
+                  //       "Pastikan nominal transfer tepat beserta kode unik di 3 digit terahir",
+                  //       style: TextStyle(
+                  //         color: Colors.black54,
+                  //       )),
+                  // ),
+                  // Container(
+                  //   height: 7,
+                  // ),
+                  Text(
                     "Pastikan nominal sesuai hingga 3 digit terakhir.",
                     style: TextStyle(
                         fontSize: 15,
                         color: Colors.black54,
                         fontWeight: FontWeight.w400),
                   ),
-                ),
-                Container(height: 7),
-                Container(
-                  color: Color(0xffFFEEC7),
-                  margin: EdgeInsets.symmetric(horizontal: 15),
-                  padding: EdgeInsets.all(11),
-                  child: RichText(
-                      text: TextSpan(
-                          text:
-                              "klik 'LANJUT' untuk melanjutkan proses isi saldo Edimu.",
-                          style: TextStyle(
-                              color: Colors.black54,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 16),
-                          children: [
-                        // TextSpan(
-                        //     text: "'KONFIRMASI ISI SALDO'",
-                        //     style: TextStyle(
-                        //         color: Colors.black,
-                        //         fontWeight: FontWeight.bold,
-                        //         fontSize: 16)),
-                        // TextSpan(
-                        //     text: " dibawah ini.",
-                        //     style: TextStyle(
-                        //         color: Colors.black54,
-                        //         fontWeight: FontWeight.w500,
-                        //         fontSize: 16))
-                      ])),
-                ),
-                tombolLanjut(widget.model)
-              ],
+                  Container(height: 7),
+                  Container(
+                    color: Color(0xffFFEEC7),
+                    margin: EdgeInsets.symmetric(horizontal: 15),
+                    padding: EdgeInsets.all(11),
+                    child: RichText(
+                        text: TextSpan(
+                            text:
+                                "klik 'LANJUT' untuk melanjutkan proses isi saldo Edimu.",
+                            style: TextStyle(
+                                color: Colors.black54,
+                                fontWeight: FontWeight.w500,
+                                fontSize: 16),
+                            children: [
+                          // TextSpan(
+                          //     text: "'KONFIRMASI ISI SALDO'",
+                          //     style: TextStyle(
+                          //         color: Colors.black,
+                          //         fontWeight: FontWeight.bold,
+                          //         fontSize: 16)),
+                          // TextSpan(
+                          //     text: " dibawah ini.",
+                          //     style: TextStyle(
+                          //         color: Colors.black54,
+                          //         fontWeight: FontWeight.w500,
+                          //         fontSize: 16))
+                        ])),
+                  ),
+                  tombolLanjut(widget.model)
+                ],
+              ),
             ),
           ),
         ),
@@ -488,10 +487,9 @@ class _konfirmTopUpState extends State<konfirmTopUp> {
           height: 45,
           child: ElevatedButton(
             // height: 45,
-              style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.green[600],
-                      
-                    ),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.green[600],
+            ),
             // color: Colors.green[600],
             child: Row(
               children: [
@@ -552,12 +550,12 @@ class _konfirmTopUpState extends State<konfirmTopUp> {
           style: TextStyle(
               color: Colors.white, fontSize: 15, fontWeight: FontWeight.w700),
         ),
-          style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blue[800],
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5), // <-- Radius
-                      ),
-                    ),
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.blue[800],
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(5), // <-- Radius
+          ),
+        ),
         // shape: RoundedRectangleBorder(
         //   borderRadius: BorderRadius.circular(5.0),
         // ),

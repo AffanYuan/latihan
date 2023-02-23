@@ -141,9 +141,12 @@ class _BPJSPageState extends State<BPJSPage>
               //             style: BorderStyle.solid))),
               tabs: [Tab(text: 'Beli'), Tab(text: 'Riwayat')],
             )),
-        body: TabBarView(
-            controller: tabController,
-            children: [beliTokenListrik(), riwayatBPJS()]),
+        body: Container(
+          decoration: Warna.bgGradient(Warna.warnaHome),
+          child: TabBarView(
+              controller: tabController,
+              children: [beliTokenListrik(), riwayatBPJS()]),
+        ),
       ),
     );
   }

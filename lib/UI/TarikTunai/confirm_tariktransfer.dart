@@ -28,46 +28,49 @@ class KonfirmasiTarikTransferState extends State<KonfirmasiTarikTransfer> {
               title: Text("Tarik Transfer"),
               centerTitle: true,
             ),
-            body: Stack(
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      height: 35,
-                    ),
-                    Image.asset(
-                      "lib/assets/bank_icons/${widget.dataBank['gambar']}",
-                      width: 131,
-                    ),
-                    SizedBox(
-                      height: 25,
-                    ),
-                    ListTile(
-                      title: Container(child: Text("nama rekening")),
-                      trailing: Text(widget.dataBank["rekening_atas_nama"]),
-                    ),
-                    ListTile(
-                      title: Container(child: Text("nama bank")),
-                      trailing: Text(widget.dataBank["nama_bank"]),
-                    ),
-                    ListTile(
-                      title: Container(child: Text("jumlah")),
-                      trailing: Text(rupiah(widget.jumlah)),
-                    ),
-                    // ElevatedButton(
-                    //     onPressed: () {},
-                    //     child: Text(
-                    //       "Cairkan",
-                    //       style: TextStyle(color: Colors.white),
-                    //     ))
-                  ],
-                ),
-                Align(
-                  alignment: Alignment.bottomCenter,
-                  child: tombolKonfirmasiTarikTransfer(widget.model),
-                )
-              ],
+            body: Container(
+              decoration: Warna.bgGradient(Warna.warnaHome),
+              child: Stack(
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                        height: 35,
+                      ),
+                      Image.asset(
+                        "lib/assets/bank_icons/${widget.dataBank['gambar']}",
+                        width: 131,
+                      ),
+                      SizedBox(
+                        height: 25,
+                      ),
+                      ListTile(
+                        title: Container(child: Text("nama rekening")),
+                        trailing: Text(widget.dataBank["rekening_atas_nama"]),
+                      ),
+                      ListTile(
+                        title: Container(child: Text("nama bank")),
+                        trailing: Text(widget.dataBank["nama_bank"]),
+                      ),
+                      ListTile(
+                        title: Container(child: Text("jumlah")),
+                        trailing: Text(rupiah(widget.jumlah)),
+                      ),
+                      // ElevatedButton(
+                      //     onPressed: () {},
+                      //     child: Text(
+                      //       "Cairkan",
+                      //       style: TextStyle(color: Colors.white),
+                      //     ))
+                    ],
+                  ),
+                  Align(
+                    alignment: Alignment.bottomCenter,
+                    child: tombolKonfirmasiTarikTransfer(widget.model),
+                  )
+                ],
+              ),
             )));
   }
 

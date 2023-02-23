@@ -162,91 +162,94 @@ class _PulsaState extends State<Pulsa> {
         title: Text("Pulsa"),
         centerTitle: true,
       ),
-      body: SafeArea(
-        child: Stack(children: [
-          Container(
-            margin: EdgeInsets.symmetric(horizontal: 15),
-            child: ListView(children: <Widget>[
-              SizedBox(
-                height: 25,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                      width: MediaQuery.of(context).size.width * 0.65,
-                      //color: Colors.red,
-                      child: TextField(
-                        style: TextStyle(fontSize: 19),
-                        decoration: InputDecoration(
-                            labelText: "Nomor HP",
-                            suffix: nomorController.text.length > 9
-                                ? Icon(
-                                    Icons.check_circle,
-                                    color: Warna.primary,
-                                  )
-                                : Icon(
-                                    Icons.cancel,
-                                    color: Colors.red,
-                                  )),
-                        controller: nomorController,
-                        onChanged: (text) async {
-                          // Digunakan untuk memantau text form
-                          // no_tlpn = "$text";
-                          await deteksiOperator();
-                          setState(() {});
-                        },
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.digitsOnly
-                        ],
-                      )),
-                  SizedBox(width: 15),
-                  InkWell(
-                    onTap: () async {
-                      // final PhoneContact contact =
-                      //     await FlutterContactPicker.pickPhoneContact();
-                      // nomorController.text = contact.phoneNumber.number;
-                      deteksiOperator();
-                      setState(() {});
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.only(top: 15),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(
-                            Icons.contacts_rounded,
-                            size: 35,
-                            color: Warna.primary,
-                          ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          Text(
-                            "kontak",
-                            style: TextStyle(color: Warna.primary),
-                          )
-                        ],
+      body: Container(
+        decoration: Warna.bgGradient(Warna.warnaHome),
+        child: SafeArea(
+          child: Stack(children: [
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 15),
+              child: ListView(children: <Widget>[
+                SizedBox(
+                  height: 25,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                        width: MediaQuery.of(context).size.width * 0.65,
+                        //color: Colors.red,
+                        child: TextField(
+                          style: TextStyle(fontSize: 19),
+                          decoration: InputDecoration(
+                              labelText: "Nomor HP",
+                              suffix: nomorController.text.length > 9
+                                  ? Icon(
+                                      Icons.check_circle,
+                                      color: Warna.primary,
+                                    )
+                                  : Icon(
+                                      Icons.cancel,
+                                      color: Colors.red,
+                                    )),
+                          controller: nomorController,
+                          onChanged: (text) async {
+                            // Digunakan untuk memantau text form
+                            // no_tlpn = "$text";
+                            await deteksiOperator();
+                            setState(() {});
+                          },
+                          keyboardType: TextInputType.number,
+                          inputFormatters: [
+                            FilteringTextInputFormatter.digitsOnly
+                          ],
+                        )),
+                    SizedBox(width: 15),
+                    InkWell(
+                      onTap: () async {
+                        // final PhoneContact contact =
+                        //     await FlutterContactPicker.pickPhoneContact();
+                        // nomorController.text = contact.phoneNumber.number;
+                        deteksiOperator();
+                        setState(() {});
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 15),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.contacts_rounded,
+                              size: 35,
+                              color: Warna.primary,
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Text(
+                              "kontak",
+                              style: TextStyle(color: Warna.primary),
+                            )
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                ],
-              ),
-              Container(
-                  margin: EdgeInsets.only(bottom: 25),
-                  child: nomorController.text.length > 3
-                      ? beli(context)
-                      : transaksiTerbaru2(context)),
-            ]),
-          ),
-          tombolBeliFixed()
-          // widget Abdi
-          // Container(
-          //     child: saldoCukup == false || nomorController.text.length == 0
-          //         ? Container()
-          //         : tombolLanjut(context)),
-        ]),
+                  ],
+                ),
+                Container(
+                    margin: EdgeInsets.only(bottom: 25),
+                    child: nomorController.text.length > 3
+                        ? beli(context)
+                        : transaksiTerbaru2(context)),
+              ]),
+            ),
+            tombolBeliFixed()
+            // widget Abdi
+            // Container(
+            //     child: saldoCukup == false || nomorController.text.length == 0
+            //         ? Container()
+            //         : tombolLanjut(context)),
+          ]),
+        ),
       ),
     );
   }

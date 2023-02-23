@@ -67,6 +67,7 @@ class _TarikTunaiState extends State<TarikTunai> {
           appBar: AppBar(
             title: Text("Tarik Tunai"),
             centerTitle: true,
+            backgroundColor: Warna.warnaTeks,
           ),
           body: SingleChildScrollView(
             child: Container(
