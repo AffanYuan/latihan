@@ -434,21 +434,34 @@ mixin userModel on ConnectedModel {
   Future getWarna() async {
     final response = await http
         .get(Uri.parse("https://pkl.pembelajaran.my.id/api/pengaturan"));
-    var dataWarna = json.decode(response.body);
-    var data1 = dataWarna["data"];
+    final response1 =
+        await http.get(Uri.parse("https://pkl.pembelajaran.my.id/api/warna"));
+    var dataTeks = json.decode(response.body);
+    var data1 = dataTeks["data"];
+    var dataWarna = json.decode(response1.body);
+    var data2 = dataWarna["data"];
+
+    debugPrint("isi data Teks :");
+    debugPrint(dataTeks.toString());
+    debugPrint("isi data :");
+    debugPrint(data1.toString());
+
     debugPrint("isi data Warna :");
     debugPrint(dataWarna.toString());
     debugPrint("isi data :");
-    debugPrint(data1.toString());
+    debugPrint(data2.toString());
     // return data1;
 
-    String warnaHome_db = data1[0]["warna_background"].toString();
-    debugPrint('a' + warnaHome_db);
+    String warnaHome_db = data2[0]["warnaBackground"].toString();
+    debugPrint('a ' + warnaHome_db);
     Warna.warnaHome = Color(hexColor(warnaHome_db));
-    Warna.warnaTunai = Color(hexColor(warnaHome_db));
 
-    String warnaTeks_db = data1[0]["warna_text"].toString();
-    debugPrint('a' + warnaTeks_db);
+    String warnaAppbar_db = data2[0]["warnaAppbar"].toString();
+    debugPrint('b ' + warnaAppbar_db);
+    Warna.warnaAppbar = Color(hexColor(warnaAppbar_db));
+
+    String warnaTeks_db = data2[0]["warnaTeks"].toString();
+    debugPrint('c ' + warnaTeks_db);
     Warna.warnaTeks = Color(hexColor(warnaTeks_db));
 
     // warnaTeks = data1[0]["warna_text"].toString();

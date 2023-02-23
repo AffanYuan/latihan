@@ -679,8 +679,7 @@ class _homePageState extends State<homePage> {
                               Text(
                                 "Selamat Datang ",
                                 style: TextStyle(
-                                  fontSize: 16,
-                                ),
+                                    fontSize: 16, color: Warna.warnaTeks),
                               ),
                             ],
                           ),
