@@ -10,10 +10,7 @@ class Warna {
   static Color warnaHome;
 
   // static Color warnaTunai = Color(hexColor(warnaHome_db));
-<<<<<<< HEAD
   static Color warnaTunai;
-=======
->>>>>>> ff0bbb680f20c8b58c19f17ca84b37b3ff9d2c9a
   static Color warnaAppbar;
   static Color warnaTeks;
 

@@ -91,7 +91,7 @@ class _RegistrationCommunity_PageState
       body: SingleChildScrollView(
         child: Container(
           alignment: Alignment.center,
-          color: Warna.hijauBG2,
+          decoration: Warna.bgGradient(Warna.warnaHome),
           width: double.infinity,
           height: MediaQuery.of(context).size.height,
           child: Container(

@@ -107,6 +107,7 @@ class _RegistrationConfirmation_PageState
       body: SingleChildScrollView(
         child: Container(
           padding: EdgeInsets.all(15),
+          decoration: Warna.bgGradient(Warna.warnaHome),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
