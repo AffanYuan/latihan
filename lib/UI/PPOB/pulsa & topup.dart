@@ -17,7 +17,7 @@ class PulsaDanPLN extends StatelessWidget {
         appBar: AppBar(
           title: Text("Pulsa & PLN"),
           centerTitle: true,
-          backgroundColor: Colors.blue[800],
+          backgroundColor: Warna.warnaAppbar,
         ),
         body: Container(
           decoration: Warna.bgGradient(Warna.warnaHome),

@@ -160,6 +160,7 @@ class _PulsaState extends State<Pulsa> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Pulsa"),
+        backgroundColor: Warna.warnaAppbar,
         centerTitle: true,
       ),
       body: Container(

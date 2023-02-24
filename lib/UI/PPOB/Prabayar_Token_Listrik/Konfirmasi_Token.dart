@@ -8,9 +8,10 @@ import 'package:Edimu/scoped_model/main.dart';
 import 'package:indonesia/indonesia.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
+import 'package:Edimu/konfigurasi/style.dart';
 
 class KonfirmasiTokenPLNPage extends StatefulWidget {
- MainModel model;
+  MainModel model;
   Map tokenYangDibeli;
   Map dataPelanggan;
   String idBiayaLayanan;
@@ -32,6 +33,7 @@ class _KonfirmasiTokenPLNPageState extends State<KonfirmasiTokenPLNPage> {
     return Scaffold(
         appBar: AppBar(
           title: Text("Konfirmasi Pembelian"),
+          backgroundColor: Warna.warnaAppbar,
           centerTitle: true,
         ),
         body: Stack(
@@ -57,7 +59,7 @@ class _KonfirmasiTokenPLNPageState extends State<KonfirmasiTokenPLNPage> {
                     trailing:
                         Text(rupiah(widget.tokenYangDibeli["harga_enduser"])),
                   ),
-                    ListTile(
+                  ListTile(
                     title: Text("Metode pembayaran"),
                     trailing: Text(widget.metodePembayaran == 1
                         ? "Saldo ediMU"
@@ -160,8 +162,8 @@ class _KonfirmasiTokenPLNPageState extends State<KonfirmasiTokenPLNPage> {
             obscuringWidget: Container(
                 width: 14,
                 height: 14,
-                decoration: BoxDecoration(
-                    color: Colors.black, shape: BoxShape.circle)),
+                decoration:
+                    BoxDecoration(color: Colors.black, shape: BoxShape.circle)),
             // obscuringCharacter: 'G',
             keyboardType: TextInputType.number,
             inputFormatters: [FilteringTextInputFormatter.digitsOnly],
@@ -198,8 +200,8 @@ class _KonfirmasiTokenPLNPageState extends State<KonfirmasiTokenPLNPage> {
                 maskType: EasyLoadingMaskType.black,
                 dismissOnTap: true,
               );
-              
-               StatusPPOB res = await widget.model.beliTokenListrikPrepaid(
+
+              StatusPPOB res = await widget.model.beliTokenListrikPrepaid(
                   widget.tokenYangDibeli,
                   widget.dataPelanggan["meter_no"],
                   widget.idBiayaLayanan,

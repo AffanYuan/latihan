@@ -1,3 +1,4 @@
+import 'package:Edimu/konfigurasi/style.dart';
 import 'package:flutter/material.dart';
 import 'package:Edimu/UI/PPOB/pulsa%20&%20topup.dart';
 import 'package:intl/intl.dart';
@@ -48,7 +49,7 @@ class StatusPembayaran extends StatelessWidget {
         //     },
         //   ),
         // ],
-        backgroundColor: Colors.green,
+        backgroundColor: Warna.warnaAppbar,
       ),
       body: Column(
         children: [

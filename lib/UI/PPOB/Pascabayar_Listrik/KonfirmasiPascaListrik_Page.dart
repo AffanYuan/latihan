@@ -9,6 +9,7 @@ import 'package:Edimu/scoped_model/main.dart';
 import 'package:indonesia/indonesia.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
+import 'package:Edimu/konfigurasi/style.dart';
 
 class KonfirmasiListrikPascaBayar_Page extends StatefulWidget {
   MainModel model;
@@ -42,6 +43,7 @@ class _KonfirmasiListrikPascaBayar_PageState
     return Scaffold(
         appBar: AppBar(
           title: Text("Konfirmasi Pembelian"),
+          backgroundColor: Warna.warnaAppbar,
           centerTitle: true,
         ),
         body: Stack(
@@ -226,7 +228,9 @@ class _KonfirmasiListrikPascaBayar_PageState
                 // width: MediaQuery.of(context).size.width,
                 height: 61,
                 child: ElevatedButton(
-                   style: ElevatedButton.styleFrom(backgroundColor: Colors.blue[800],),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.blue[800],
+                    ),
                     // color: Colors.blue[800],
                     onPressed: () async {
                       popupPin();
@@ -267,8 +271,8 @@ class _KonfirmasiListrikPascaBayar_PageState
             obscuringWidget: Container(
                 width: 14,
                 height: 14,
-                decoration: BoxDecoration(
-                    color: Colors.black, shape: BoxShape.circle)),
+                decoration:
+                    BoxDecoration(color: Colors.black, shape: BoxShape.circle)),
             // obscuringCharacter: 'G',
             keyboardType: TextInputType.number,
             inputFormatters: [FilteringTextInputFormatter.digitsOnly],
@@ -307,12 +311,13 @@ class _KonfirmasiListrikPascaBayar_PageState
               );
 
               StatusPPOB res = await widget.model.bayarTagihanPascaBayar(
-                  widget.infoTagihan["message"]["tr_id"],
-                  widget.infoTagihan['hargaEndUser'],
-                  "PLNPOSTPAID",
-                  widget.infoTagihan['apakahDev'],
-                  isianPin.text,
-                  metodePembayaran,);
+                widget.infoTagihan["message"]["tr_id"],
+                widget.infoTagihan['hargaEndUser'],
+                "PLNPOSTPAID",
+                widget.infoTagihan['apakahDev'],
+                isianPin.text,
+                metodePembayaran,
+              );
 
               if (res == StatusPPOB.sukses) {
                 Alert(

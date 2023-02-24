@@ -120,6 +120,7 @@ class _SamsatPageState extends State<SamsatPage>
       child: Scaffold(
         appBar: AppBar(
             title: Text("Tagihan Samsat"),
+            backgroundColor: Warna.warnaAppbar,
             centerTitle: true,
             bottom: TabBar(
               controller: tabController,

@@ -20,6 +20,7 @@ class _DaftarAlamatUserPageState extends State<DaftarAlamatUserPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Daftar Alamat'),
+        backgroundColor: Warna.warnaAppbar,
         centerTitle: false,
       ),
       body: Container(

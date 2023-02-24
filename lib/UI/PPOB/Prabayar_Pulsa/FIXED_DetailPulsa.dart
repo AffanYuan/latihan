@@ -8,9 +8,10 @@ import 'package:Edimu/scoped_model/main.dart';
 import 'package:indonesia/indonesia.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
+import 'package:Edimu/konfigurasi/style.dart';
 
 class DetailPulsaPage extends StatefulWidget {
-   MainModel model;
+  MainModel model;
   Map pulsaYangDibeli;
   String nomorPengisian;
   int metodePembayaran;
@@ -30,6 +31,7 @@ class _DetailPulsaPageState extends State<DetailPulsaPage> {
     return Scaffold(
         appBar: AppBar(
           title: Text("Pulsa " + widget.pulsaYangDibeli['pulsa_op']),
+          backgroundColor: Warna.warnaAppbar,
           centerTitle: true,
         ),
         body: Stack(
@@ -55,7 +57,7 @@ class _DetailPulsaPageState extends State<DetailPulsaPage> {
                     trailing:
                         Text(rupiah(widget.pulsaYangDibeli["harga_enduser"])),
                   ),
-                   ListTile(
+                  ListTile(
                     title: Text("Metode pembayaran"),
                     trailing: Text(widget.metodePembayaran == 1
                         ? 'Saldo ediMU'
@@ -153,8 +155,8 @@ class _DetailPulsaPageState extends State<DetailPulsaPage> {
             obscuringWidget: Container(
                 width: 14,
                 height: 14,
-                decoration: BoxDecoration(
-                    color: Colors.black, shape: BoxShape.circle)),
+                decoration:
+                    BoxDecoration(color: Colors.black, shape: BoxShape.circle)),
             // obscuringCharacter: 'G',
             keyboardType: TextInputType.number,
             inputFormatters: [FilteringTextInputFormatter.digitsOnly],
@@ -195,9 +197,8 @@ class _DetailPulsaPageState extends State<DetailPulsaPage> {
               if (int.parse(widget.model.formatedBalance) >=
                   widget.pulsaYangDibeli["harga_enduser"]) {
                 //
-              
 
-                  StatusPPOB respond = await widget.model.beliPulsaPrepaid(
+                StatusPPOB respond = await widget.model.beliPulsaPrepaid(
                   widget.pulsaYangDibeli,
                   widget.nomorPengisian,
                   isianPin.text,

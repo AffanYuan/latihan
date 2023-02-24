@@ -105,6 +105,7 @@ class _topUpPageState extends State<topUpPage> {
       return Scaffold(
         appBar: AppBar(
           title: Text('Isi Saldo'),
+          backgroundColor: Warna.warnaAppbar,
           centerTitle: true,
         ),
         body: SingleChildScrollView(

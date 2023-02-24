@@ -85,6 +85,7 @@ class _RegistrationCommunity_PageState
     return Scaffold(
       appBar: AppBar(
         title: Text("Pendaftaran akun"),
+        backgroundColor: Warna.warnaAppbar,
         centerTitle: true,
       ),
       body: SingleChildScrollView(

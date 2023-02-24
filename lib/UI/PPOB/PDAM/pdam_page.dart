@@ -121,6 +121,7 @@ class _PDAMPageState extends State<PDAMPage>
       child: Scaffold(
         appBar: AppBar(
             title: Text("Tagihan PDAM"),
+            backgroundColor: Warna.warnaAppbar,
             centerTitle: true,
             bottom: TabBar(
               controller: tabController,

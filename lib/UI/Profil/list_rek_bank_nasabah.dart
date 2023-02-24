@@ -51,6 +51,7 @@ class _ListRekBankNasabahPageState extends State<ListRekBankNasabahPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Daftar Rekening Bank"),
+        backgroundColor: Warna.warnaAppbar,
         centerTitle: true,
       ),
       body: ScopedModelDescendant<MainModel>(

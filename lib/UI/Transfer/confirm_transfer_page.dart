@@ -29,7 +29,7 @@ class _confirmTransferPageState extends State<confirmTransferPage> {
         builder: (BuildContext context, Widget child, MainModel model) {
       return Scaffold(
         appBar: AppBar(
-          backgroundColor: hijauMain,
+          backgroundColor: Warna.warnaAppbar,
           title: Text("Konfirmasi Transfer"),
           centerTitle: true,
         ),

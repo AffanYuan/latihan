@@ -79,6 +79,7 @@ class _TokenListrikPageState extends State<TokenListrikPage>
       child: Scaffold(
         appBar: AppBar(
             title: Text("Token listrik PLN"),
+            backgroundColor: Warna.warnaAppbar,
             centerTitle: true,
             bottom: TabBar(
               controller: tabController,

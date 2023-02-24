@@ -26,6 +26,7 @@ class KonfirmasiTarikTransferState extends State<KonfirmasiTarikTransfer> {
         child: Scaffold(
             appBar: AppBar(
               title: Text("Tarik Transfer"),
+              backgroundColor: Warna.warnaAppbar,
               centerTitle: true,
             ),
             body: Container(

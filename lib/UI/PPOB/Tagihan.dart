@@ -21,7 +21,7 @@ class MenuTagihan extends StatelessWidget {
       appBar: AppBar(
         title: Text("Tagihan & Pembayaran"),
         centerTitle: true,
-        backgroundColor: Colors.blue[800],
+        backgroundColor: Warna.warnaAppbar,
       ),
       body: Container(
         decoration: Warna.bgGradient(Warna.warnaHome),

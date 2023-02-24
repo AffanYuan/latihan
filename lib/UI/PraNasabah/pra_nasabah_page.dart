@@ -29,6 +29,7 @@ class _Pra_Nasabah_PageState extends State<Pra_Nasabah_Page> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Pemberitahuan"),
+        backgroundColor: Warna.warnaAppbar,
         centerTitle: true,
       ),
       backgroundColor: hijauBG,

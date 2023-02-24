@@ -143,6 +143,7 @@ class _transferPageState extends State<transferPage> {
       return Scaffold(
         appBar: AppBar(
           title: Text("Transfer dana"),
+          backgroundColor: Warna.warnaAppbar,
           centerTitle: true,
         ),
         body: Container(

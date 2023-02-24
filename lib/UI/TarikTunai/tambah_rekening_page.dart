@@ -45,6 +45,7 @@ class _TambahRekeningPageState extends State<TambahRekeningPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Tambah Rekening"),
+        backgroundColor: Warna.warnaAppbar,
         centerTitle: true,
       ),
       body: SingleChildScrollView(

@@ -1,3 +1,4 @@
+import 'package:Edimu/konfigurasi/style.dart';
 import 'package:flutter/material.dart';
 import 'package:Edimu/UI/PPOB/Prabayar_Pulsa/status_pembayaran.dart';
 
@@ -115,7 +116,7 @@ class _DetailPembayaranState extends State<DetailPembayaran> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Detail Pembayaran"),
-        backgroundColor: Colors.green,
+        backgroundColor: Warna.warnaAppbar,
       ),
       body: Stack(
         children: [

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:Edimu/scoped_model/main.dart';
+import 'package:Edimu/konfigurasi/style.dart';
 
 class DetailAlamatPage extends StatefulWidget {
   final MainModel model;
@@ -34,6 +35,7 @@ class _DetailAlamatPageState extends State<DetailAlamatPage> {
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
         title: Text('Detail Alamat'),
+        backgroundColor: Warna.warnaAppbar,
         centerTitle: false,
       ),
       body: Form(
@@ -133,10 +135,10 @@ class _DetailAlamatPageState extends State<DetailAlamatPage> {
                     controller: isianCatatan,
                     style: TextStyle(fontSize: 17, fontWeight: FontWeight.w400),
                     decoration: InputDecoration(
-                      labelText: "Catatan Untuk Kurir (Opsional)",
-                      helperText: "Warna rumah, patokan, pesan khusus, dll."
-                      // icon: Icon(Icons.description)
-                    ),
+                        labelText: "Catatan Untuk Kurir (Opsional)",
+                        helperText: "Warna rumah, patokan, pesan khusus, dll."
+                        // icon: Icon(Icons.description)
+                        ),
                   ),
                   SizedBox(
                     height: 40,
@@ -146,10 +148,10 @@ class _DetailAlamatPageState extends State<DetailAlamatPage> {
                     child: Padding(
                       padding: const EdgeInsets.only(top: 20),
                       child: InkWell(
-                       
                         child: Container(
-                          decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),
-                          color: Colors.green),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: Colors.green),
                           child: Padding(
                             padding: const EdgeInsets.all(13.0),
                             child: Center(

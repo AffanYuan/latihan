@@ -121,6 +121,7 @@ class _BPJSPageState extends State<BPJSPage>
       child: Scaffold(
         appBar: AppBar(
             title: Text("Tagihan BPJS"),
+            backgroundColor: Warna.warnaAppbar,
             centerTitle: true,
             bottom: TabBar(
               controller: tabController,

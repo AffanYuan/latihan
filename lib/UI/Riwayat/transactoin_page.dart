@@ -64,6 +64,7 @@ class _transactionPageState extends State<transactionPage>
         Widget content = Scaffold(
             appBar: AppBar(
               title: Text("Riwayat Transaksi"),
+              backgroundColor: Warna.warnaAppbar,
               centerTitle: true,
             ),
             body: Center(
@@ -77,6 +78,7 @@ class _transactionPageState extends State<transactionPage>
               appBar: AppBar(
                 title: Text("Riwayat Transaksi"),
                 centerTitle: true,
+                backgroundColor: Warna.warnaAppbar,
               ),
               body: Center(
                 child: CircularProgressIndicator(),
@@ -92,6 +94,7 @@ class _transactionPageState extends State<transactionPage>
                 appBar: AppBar(
                     title: Text("Riwayat Transaksi"),
                     centerTitle: true,
+                    backgroundColor: Warna.warnaAppbar,
                     bottom: TabBar(
                       controller: tabController,
                       onTap: (value) {
@@ -100,9 +103,9 @@ class _transactionPageState extends State<transactionPage>
                         // }
                         // setState(() {});
                       },
-                      indicatorColor: Warna.accent,
+                      // indicatorColor: Warna.accent,
                       indicator: BoxDecoration(
-                          color: Warna.accent,
+                          // color: Warna.accent,
                           border: Border(
                               bottom: BorderSide(
                                   color: Colors.white,

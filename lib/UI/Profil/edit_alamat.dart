@@ -52,6 +52,7 @@ class _EditAlamatPageState extends State<EditAlamatPage> {
       appBar: AppBar(
         title: Text(widget.pageSebelumnya == "" ? 'Ubah' : 'Tambah Alamat'),
         centerTitle: false,
+        backgroundColor: Warna.warnaAppbar,
         // leading: IconButton(
         //     icon: Icon(Icons.arrow_back),
         //     onPressed: () {

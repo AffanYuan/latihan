@@ -83,6 +83,7 @@ class _IndihomePageState extends State<IndihomePage>
       child: Scaffold(
         appBar: AppBar(
             title: Text("Tagihan Indihome"),
+            backgroundColor: Warna.warnaAppbar,
             centerTitle: true,
             bottom: TabBar(
               controller: tabController,

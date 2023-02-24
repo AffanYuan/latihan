@@ -622,7 +622,7 @@ class _homePageState extends State<homePage> {
       builder: (context, child, model) => Scaffold(
         bottomNavigationBar: bottomNavBar(0, model),
         appBar: AppBar(
-          backgroundColor: Warna.primary,
+          backgroundColor: Warna.warnaAppbar,
           centerTitle: true,
           title: Container(
             padding: EdgeInsets.only(top: 3),

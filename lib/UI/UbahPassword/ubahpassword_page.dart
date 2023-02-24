@@ -28,6 +28,7 @@ class _UbahPassword_PageState extends State<UbahPassword_Page> {
       backgroundColor: Warna.hijauBG2,
       appBar: AppBar(
         title: Text("Ubah Password"),
+        backgroundColor: Warna.warnaAppbar,
         centerTitle: true,
       ),
       body: SingleChildScrollView(

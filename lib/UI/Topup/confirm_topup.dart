@@ -205,6 +205,7 @@ class _konfirmTopUpState extends State<konfirmTopUp> {
       return Scaffold(
         appBar: AppBar(
           title: Text("Isi Saldo"),
+          backgroundColor: Warna.warnaAppbar,
           centerTitle: true,
         ),
         body: SingleChildScrollView(

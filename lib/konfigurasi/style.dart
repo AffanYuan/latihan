@@ -11,6 +11,7 @@ class Warna {
 
   // static Color warnaTunai = Color(hexColor(warnaHome_db));
   static Color warnaTunai;
+  static Color warnaAppbar;
   static Color warnaTeks;
 
   static Color warnaNavBar = Color(0xFFFFCB8C);

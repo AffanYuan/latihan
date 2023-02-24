@@ -7,6 +7,7 @@ import 'package:Edimu/scoped_model/StatusTransaksiPPOB.dart';
 import 'package:Edimu/scoped_model/main.dart';
 import 'package:indonesia/indonesia.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
+import 'package:Edimu/konfigurasi/style.dart';
 
 class KonfirmasiBPJSPage extends StatefulWidget {
   MainModel model;
@@ -37,6 +38,7 @@ class _KonfirmasiBPJSPageState extends State<KonfirmasiBPJSPage> {
     return Scaffold(
         appBar: AppBar(
           title: Text("Konfirmasi Pembelian"),
+          backgroundColor: Warna.warnaAppbar,
           centerTitle: true,
         ),
         body: Stack(

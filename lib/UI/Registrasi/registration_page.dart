@@ -40,12 +40,14 @@ class _Register_PageState extends State<Register_Page> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Pendaftaran akun"),
+        backgroundColor: Warna.warnaAppbar,
         centerTitle: true,
       ),
       body: Container(
-        color: Colors.white,
+        // color: Colors.white,
         width: double.infinity,
         height: MediaQuery.of(context).size.height,
+        decoration: Warna.bgGradient(Warna.warnaHome),
         child: SingleChildScrollView(
           child: Container(
             margin: EdgeInsets.all(15),

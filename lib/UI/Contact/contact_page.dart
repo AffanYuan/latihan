@@ -51,9 +51,9 @@ class _contactPageState extends State<contactPage> {
           content = Scaffold(
             appBar: AppBar(
               title: Text('Kontak'),
+              backgroundColor: Warna.warnaAppbar,
               centerTitle: true,
             ),
-            backgroundColor: Colors.white,
             body: Container(
               decoration: Warna.bgGradient(Warna.warnaTunai),
               child: ListView(

@@ -67,14 +67,14 @@ class _TarikTunaiState extends State<TarikTunai> {
           appBar: AppBar(
             title: Text("Tarik Tunai"),
             centerTitle: true,
-            backgroundColor: Warna.warnaTeks,
+            backgroundColor: Warna.warnaAppbar,
           ),
           body: SingleChildScrollView(
             child: Container(
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height,
               padding: EdgeInsets.all(5),
-              decoration: Warna.bgGradient(Warna.warnaTunai),
+              decoration: Warna.bgGradient(Warna.warnaHome),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [

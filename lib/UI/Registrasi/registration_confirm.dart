@@ -101,6 +101,7 @@ class _RegistrationConfirmation_PageState
       backgroundColor: Warna.hijauBG2,
       appBar: AppBar(
         title: Text('Konfirmasi Pendaftaran'),
+        backgroundColor: Warna.warnaAppbar,
         centerTitle: true,
       ),
       body: SingleChildScrollView(

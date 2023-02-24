@@ -37,11 +37,12 @@ class _Confirm_TarikTunaiState extends State<Confirm_TarikTunai> {
         child: Scaffold(
             appBar: AppBar(
               title: Text("Penarikan Dana"),
+              backgroundColor: Warna.warnaAppbar,
               centerTitle: true,
               bottom: TabBar(
                 indicatorColor: Colors.white,
                 indicator: BoxDecoration(
-                    color: Warna.accent,
+                    // color: Warna.accent,
                     border: Border(
                         bottom: BorderSide(
                             color: Colors.white,

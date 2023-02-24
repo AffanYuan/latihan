@@ -90,6 +90,7 @@ class _ListrikPascaBayarPageState extends State<ListrikPascaBayarPage>
       child: Scaffold(
         appBar: AppBar(
             title: Text("Tagihan PLN"),
+            backgroundColor: Warna.warnaAppbar,
             centerTitle: true,
             bottom: TabBar(
               controller: tabController,
