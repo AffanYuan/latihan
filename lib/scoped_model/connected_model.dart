@@ -431,7 +431,7 @@ mixin userModel on ConnectedModel {
     }
   }
 
-Future getWarna() async {
+  Future getWarna() async {
     final response = await http
         .get(Uri.parse("https://pkl.pembelajaran.my.id/api/pengaturan"));
     final response1 =
